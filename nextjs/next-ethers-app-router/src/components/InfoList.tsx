@@ -21,7 +21,7 @@ export const InfoList = () => {
     }, [events]);
 
   return (
-    <div >
+    <div className='info-list'>
         <section>
             <h2>useAppKit</h2>
             <pre>

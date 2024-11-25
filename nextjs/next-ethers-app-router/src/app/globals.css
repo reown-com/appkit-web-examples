@@ -48,13 +48,14 @@ section {
   background-color: #f9f9f9;
   padding: 13px;
   margin: 10px;
-  width:100%
+  width: 100%;
 }
 
 .pages {
-
+  width: 100vw;
   align-items: center;
   justify-items: center;
+  padding: 0px 20px;
 
 }
 
@@ -83,4 +84,8 @@ button:active {
 
 h1 {
   margin: 20px;
+}
+
+.info-list {
+  width: 100%;
 }
