@@ -19,7 +19,7 @@ export const InfoList = () => {
     }, [events]);
 
   return (
-    <div >
+    < >
         <section>
             <h2>useAppKit</h2>
             <pre>
@@ -53,6 +53,6 @@ export const InfoList = () => {
                 Name: {JSON.stringify(walletInfo)}<br />
             </pre>
         </section>
-    </div>
+    </>
   )
 }
