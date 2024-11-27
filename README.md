@@ -16,7 +16,7 @@ Each framework has examples for the implementation with wagmi, ethers, solana an
 
 ```plaintext
 .
-├── nextjs/    
+├── nextjs/   # Web AppKit with NextJS
 ├──────── next-wagmi-app-router
 ├──────── next-ethers-app-router
 ├──────── next-solana-app-router
