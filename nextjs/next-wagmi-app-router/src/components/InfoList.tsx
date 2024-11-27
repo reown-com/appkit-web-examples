@@ -21,7 +21,7 @@ export const InfoList = () => {
     }, [events]);
 
   return (
-    <div >
+    < >
         <section>
             <h2>useAppKit</h2>
             <pre>
@@ -54,6 +54,6 @@ export const InfoList = () => {
                 Name: {walletInfo.walletInfo?.name?.toString()}<br />
             </pre>
         </section>
-    </div>
+    </>
   )
 }
