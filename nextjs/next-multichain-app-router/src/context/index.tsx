@@ -9,10 +9,6 @@ import { cookieToInitialState, WagmiProvider, type Config } from 'wagmi'
 // Set up queryClient
 const queryClient = new QueryClient()
 
-if (!projectId) {
-  throw new Error('Project ID is not defined')
-}
-
 // Set up metadata
 const metadata = {
   name: 'next-reown-appkit',

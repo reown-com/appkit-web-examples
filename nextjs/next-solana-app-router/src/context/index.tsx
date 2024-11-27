@@ -4,10 +4,6 @@ import { solanaWeb3JsAdapter, projectId, networks } from '@/config'
 import { createAppKit } from '@reown/appkit/react'
 import React, { type ReactNode } from 'react'
 
-if (!projectId) {
-  throw new Error('Project ID is not defined')
-}
-
 // Set up metadata
 const metadata = {
   name: 'next-reown-appkit',

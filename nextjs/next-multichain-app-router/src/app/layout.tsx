@@ -6,7 +6,7 @@ import './globals.css';
 import ContextProvider from '@/context'
 
 export const metadata: Metadata = {
-  title: "AppKit in Next.js + wagmi",
+  title: "AppKit in Next.js + multichain",
   description: "AppKit example dApp",
 };
 
