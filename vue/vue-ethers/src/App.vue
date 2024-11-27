@@ -1,12 +1,18 @@
 
 <template>
   <div class="pages">
-     <img src="/reown.svg" alt="Reown" width="150" height="150" />
-     <h1>AppKit ethers vue Example</h1>
+      <img src="/reown.svg" alt="Reown" width="150" height="150" />
+      <h1>AppKit ethers vue Example</h1>
 
-     <appkit-button />
-     <ActionButtonList />
-     <InfoList />
+      <appkit-button />
+      <ActionButtonList />
+      <div className="advice">
+        <p>
+          This projectId only works on localhost. <br/>
+          Go to <a href="https://cloud.reown.com" target="_blank" className="link-button" rel="Reown Cloud">Reown Cloud</a> to get your own.
+        </p>
+      </div>
+      <InfoList />
    </div>
 </template>
 
