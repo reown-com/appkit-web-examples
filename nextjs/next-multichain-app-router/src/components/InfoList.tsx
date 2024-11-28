@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import {
     useAppKitState,
     useAppKitTheme,
@@ -15,10 +15,16 @@ export const InfoList = () => {
     const {address, caipAddress, isConnected, status} = useAppKitAccount();
     const events = useAppKitEvents()
     const walletInfo = useWalletInfo()
+    const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
+        setMounted(true);
         console.log("Events: ", events);
     }, [events]);
+
+    if(!mounted) {
+        return null;
+    }
 
   return (
     < >
