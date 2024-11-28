@@ -1,5 +1,4 @@
 <template>
-  <div>
     <section>
       <h2>useAppKit</h2>
       <pre>
@@ -31,7 +30,6 @@ selectedNetworkId: {{ state.selectedNetworkId }}
 Name: {{ walletInfo }}<br />
       </pre>
     </section>
-  </div>
 </template>
   
 <script >

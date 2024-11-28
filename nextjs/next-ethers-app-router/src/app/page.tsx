@@ -5,13 +5,16 @@ export default function Home() {
 
   return (
     <div className={"pages"}>
+      <img src="/reown.svg" alt="Reown" style={{ width: '150px', height: '150px' }} />
       <h1>AppKit ethers Next.js App Router Example</h1>
 
-      <div >
-        <ConnectButton />
-      </div>
-      <div >
-        <ActionButtonList />
+      <ConnectButton />
+      <ActionButtonList />
+      <div className="advice">
+        <p>
+          This projectId only works on localhost. <br/>
+          Go to <a href="https://cloud.reown.com" target="_blank" className="link-button" rel="Reown Cloud">Reown Cloud</a> to get your own.
+        </p>
       </div>
       <InfoList />
     </div>

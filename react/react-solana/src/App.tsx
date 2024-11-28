@@ -23,6 +23,12 @@ export function App() {
       <h2>Reown AppKit + Solana</h2>
       <appkit-button />
       <ActionButtonList />
+      <div className="advice">
+        <p>
+          This projectId only works on localhost. <br/>
+          Go to <a href="https://cloud.reown.com" target="_blank" className="link-button" rel="Reown Cloud">Reown Cloud</a> to get your own.
+        </p>
+      </div>
       <InfoList />
     </div>
   )
