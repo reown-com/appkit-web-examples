@@ -21,6 +21,10 @@ const generalConfig = {
 createAppKit({
   adapters: [wagmiAdapter],
   ...generalConfig,
+  themeVariables: {
+    "--w3m-color-mix": "#008080",
+    "--w3m-color-mix-strength": 20,
+  },
 })
 
 export function App() {
