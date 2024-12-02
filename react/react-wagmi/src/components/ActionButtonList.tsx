@@ -11,7 +11,7 @@ export const ActionButtonList = () => {
     // get the address
     const { address } = useAppKitAccount()
 
-    const { signMessageAsync, isPending } = useSignMessage()
+    const { signMessageAsync } = useSignMessage()
     
 
     const singMsg = async () => {
