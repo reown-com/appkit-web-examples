@@ -20,7 +20,7 @@ export const ActionButtonList = ({ sendHash, sendSignMsg, sendBalance }: ActionB
     const { disconnect } = useDisconnect(); // AppKit hook to disconnect
     const { open } = useAppKit(); // AppKit hook to open the modal
     const { switchNetwork } = useAppKitNetwork(); // AppKithook to switch network
-    const { address } = useAppKitAccount() // AppKit hook to get the address
+    const { address, isConnected } = useAppKitAccount() // AppKit hook to get the address and check if the user is connected
 
     const { data: gas } = useEstimateGas({...TEST_TX}); // Wagmi hook to estimate gas
     const { data: hash, sendTransaction, } = useSendTransaction(); // Wagmi hook to send a transaction
@@ -62,6 +62,7 @@ export const ActionButtonList = ({ sendHash, sendSignMsg, sendBalance }: ActionB
 
 
   return (
+    isConnected && (
     <div >
         <button onClick={() => open()}>Open</button>
         <button onClick={() => disconnect()}>Disconnect</button>
@@ -70,5 +71,6 @@ export const ActionButtonList = ({ sendHash, sendSignMsg, sendBalance }: ActionB
         <button onClick={() => sendTx() }>Send tx</button>
         <button onClick={() => getBalance()}>Get Balance</button>  
     </div>
+    )
   )
 }
