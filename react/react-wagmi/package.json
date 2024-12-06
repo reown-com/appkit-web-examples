@@ -10,13 +10,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@reown/appkit": "^1.5.2",
-    "@reown/appkit-adapter-wagmi": "^1.5.2",
+    "@reown/appkit": "^1.5.3",
+    "@reown/appkit-adapter-wagmi": "^1.5.3",
     "@tanstack/react-query": "^5.56.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "viem": "^2.21.14",
-    "wagmi": "^2.12.14"
+    "viem": "^2.21.53",
+    "wagmi": "^2.13.3"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",
