@@ -14,7 +14,8 @@ const queryClient = new QueryClient()
 const generalConfig = {
   projectId,
   metadata,
-  networks
+  networks,
+  themeMode: 'light' as const 
 }
 
 // Create modal
