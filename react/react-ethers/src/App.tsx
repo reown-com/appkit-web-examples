@@ -11,6 +11,7 @@ createAppKit({
   networks,
   metadata,
   projectId,
+  themeMode: 'light',
   features: {
     analytics: true // Optional - defaults to your Cloud configuration
   }

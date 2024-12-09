@@ -10,6 +10,7 @@ import "./App.css"
 createAppKit({
   projectId,
   metadata,
+  themeMode: 'light',
   networks: [solana, solanaTestnet, solanaDevnet],
   adapters: [solanaWeb3JsAdapter],
 })

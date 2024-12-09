@@ -31,6 +31,7 @@ createAppKit({
   adapters: [wagmiAdapter],
   networks,
   projectId,
+  themeMode: 'light',
   metadata: {
     name: 'AppKit Vue Example',
     description: 'AppKit Vue Example',
