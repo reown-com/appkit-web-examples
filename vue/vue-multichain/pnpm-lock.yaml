@@ -9,14 +9,14 @@ importers:
   .:
     dependencies:
       '@reown/appkit':
-        specifier: ^1.5.2
-        version: 1.5.2(bufferutil@4.0.8)(react@16.13.1)(typescript@5.6.3)(utf-8-validate@5.0.10)(zod@3.22.4)
+        specifier: ^1.5.3
+        version: 1.5.3(bufferutil@4.0.8)(react@16.13.1)(typescript@5.6.3)(utf-8-validate@5.0.10)(zod@3.22.4)
       '@reown/appkit-adapter-solana':
-        specifier: ^1.5.2
-        version: 1.5.2(bufferutil@4.0.8)(react@16.13.1)(typescript@5.6.3)(utf-8-validate@5.0.10)(zod@3.22.4)
+        specifier: ^1.5.3
+        version: 1.5.3(bufferutil@4.0.8)(react@16.13.1)(typescript@5.6.3)(utf-8-validate@5.0.10)(zod@3.22.4)
       '@reown/appkit-adapter-wagmi':
-        specifier: ^1.5.2
-        version: 1.5.2(eizpi5hxo7fj34wgbcbxjizxuu)
+        specifier: ^1.5.3
+        version: 1.5.3(eizpi5hxo7fj34wgbcbxjizxuu)
       '@solana/wallet-adapter-wallets':
         specifier: ^0.19.32
         version: 0.19.32(@babel/core@7.26.0)(@babel/runtime@7.26.0)(@solana/web3.js@1.95.3(bufferutil@4.0.8)(utf-8-validate@5.0.10))(bs58@6.0.0)(bufferutil@4.0.8)(react-dom@16.13.1(react@16.13.1))(react-native@0.76.1(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(bufferutil@4.0.8)(react@16.13.1)(utf-8-validate@5.0.10))(react@16.13.1)(tslib@2.8.1)(utf-8-validate@5.0.10)
@@ -1398,11 +1398,11 @@ packages:
       '@types/react':
         optional: true
 
-  '@reown/appkit-adapter-solana@1.5.2':
-    resolution: {integrity: sha512-/D0SQrhundgQ1AY28wbI3Ro33sF7/CRzWXFBIrFtxhjXKeiRUc5uzl/R/j14SCN4thbFc4q1oqL2dUlWxovyKA==}
+  '@reown/appkit-adapter-solana@1.5.3':
+    resolution: {integrity: sha512-Gz1hji0vcLZh+fiUmxDKtlkzFReYxrcY5Rd4RrlZTzgvPFlBSjd8DMeYdk4qLU56SqdK8ROR/mnsQk2LOrTyVA==}
 
-  '@reown/appkit-adapter-wagmi@1.5.2':
-    resolution: {integrity: sha512-1z9EYT67OGtMI99bq0VHkpKT8D7hXwf8jVWQ7iVdB3JTuTvky9ghyvDsTQRPR/4oPuEQ3xBh8fMfoRUQi4cG+w==}
+  '@reown/appkit-adapter-wagmi@1.5.3':
+    resolution: {integrity: sha512-0qq7pPVsfKYO6TiHC8en2Dusce1xx5S7P5pPn+yxUyUdEsmpPJbk8CtLXGSqnxHz5qJ9hDb+4QVJIdEZ8gE9FA==}
     peerDependencies:
       '@coinbase/wallet-sdk': 4.0.3
       '@wagmi/connectors': '>=5.1'
@@ -1410,34 +1410,34 @@ packages:
       viem: 2.x
       wagmi: '>=2.12'
 
-  '@reown/appkit-common@1.5.2':
-    resolution: {integrity: sha512-dBFKIOxIdbU3R8KD/uwYKcsf5UbC1qoserzwdLDFn7GyOpBYKm0ZAY+3E4mt4HBS87R2Atn9tXYVL4wWPWbKMw==}
+  '@reown/appkit-common@1.5.3':
+    resolution: {integrity: sha512-b/NnXbPUJb11A42CNV5nCKsPv+QCgrB112aAJ+PuH7HTSAOiSNQND8w8VPW2UpjUPP/6ivLhUrHOapYUlA3BtQ==}
 
-  '@reown/appkit-core@1.5.2':
-    resolution: {integrity: sha512-822CVaELuRmzmPXke8i4mMl3eEgkPRWop6mAyRlQprQJHBRdw8GRHMBfI8UDDCsVFhiMN4G8endVFZCR6SQtmQ==}
+  '@reown/appkit-core@1.5.3':
+    resolution: {integrity: sha512-4vFS/pwJDE42bXmGRbsPVbZZSlBC+mHC2G5rFcYymRDcjc1xNeLCUEq84xLC+Xt8YNt/Yi2ghslwWztL2lDF5w==}
 
-  '@reown/appkit-polyfills@1.5.2':
-    resolution: {integrity: sha512-dXrzpg08+l1Kc7aDFadm8n/CRhabPLNWBJUYBM8+jXyG60k8FBdLqdyexyvwdHPwZdoflDuOCaQKPhPD5U17vw==}
+  '@reown/appkit-polyfills@1.5.3':
+    resolution: {integrity: sha512-SlRWZGPQJUtr68EtlNC5EXVzEsI7TM1PvwW36ZSE+9InRp2bxeySWdVntZrAQPvXIE7sZtRuJtIpC1fQ1hJnyw==}
 
-  '@reown/appkit-scaffold-ui@1.5.2':
-    resolution: {integrity: sha512-P8p7qtntzMTS1KuUjOZjslhk9fnHL8eu8sk1KVm7YsN1JlacIOI0UOXiDMrNVxtAWuwv0TTNQzYrvxV2p+uZkA==}
+  '@reown/appkit-scaffold-ui@1.5.3':
+    resolution: {integrity: sha512-6Y1jmyD8yRbgcdWrFvvFfDC9Q+20LyCNR4sizr4AT85fWhsHkRG6ywrVCu1fP5RtIEgabjDtsNNipCd13Q2e3w==}
 
-  '@reown/appkit-siwe@1.5.2':
-    resolution: {integrity: sha512-LAPTItnQWkIXEzZ5HQWVnZjN7Llujo3BWbinb6Gpm1u9aj7GOwnSyETWsjZzaTs4O3Ob9IKWXxOEusyCpiArkA==}
+  '@reown/appkit-siwe@1.5.3':
+    resolution: {integrity: sha512-0yhNp60yyYp7n7LzQyZhkxetsRGtjXTXlmsxJMCw4vHrG3IXYO1QhPTGaZbOI0ps3CAj2+jLV+Y1Aso7XJ7M9A==}
 
-  '@reown/appkit-ui@1.5.2':
-    resolution: {integrity: sha512-0bhvRkXzueC3yiyvWn1otFZRedLRfH52CW7mRC9mfb8/B7Ety6c0CB7oCdl2lI67MqeW1eEitBJ/DQW5zI38RA==}
+  '@reown/appkit-ui@1.5.3':
+    resolution: {integrity: sha512-5ho20npfusl945wY2tCq8nntkZLj5BNC/C6tSATPgatA8kmJD35SKcNWlL4EAAiQDOfxEmifoErtEcUd27h/gg==}
 
-  '@reown/appkit-utils@1.5.2':
-    resolution: {integrity: sha512-TCc7gdhk1t0Z5IWXGVeaadZ9DZOt5Z+SAmG7CTkjtpGoA9jFTn0pL5bvTQMMxin1lvaWycHXyp/x6mJhojCFUA==}
+  '@reown/appkit-utils@1.5.3':
+    resolution: {integrity: sha512-K0pF8sdt10BFDvkjvgLoXc7VOL5AmOzd9BqJw4IS60R9oDEDkfr/Wa/Bi+9LsLlYfwKh2H+TyvyIqHvhMjFviA==}
     peerDependencies:
       valtio: 1.11.2
 
-  '@reown/appkit-wallet@1.5.2':
-    resolution: {integrity: sha512-OQs+nmfyT2/eyxhatp6GSjIuPDeab9cAgMKjf/1j1nOg/UykBNTmoHWpXWtYE5ZjgeUp8ApyAeASQWKwMOgIaw==}
+  '@reown/appkit-wallet@1.5.3':
+    resolution: {integrity: sha512-9lFcPNNebzICxGVsy8IAJqF5yNHWBZCvWBdcgMheK47/W/Mi6LwM7zTSZSonnpRYZ7gYJOqfaTdCd2KfOMI6JQ==}
 
-  '@reown/appkit@1.5.2':
-    resolution: {integrity: sha512-w7YDOi2fiYVmCTpM3M79fbqHgm6/WWf8I5pBKaKoTTttXm4M/D79mXQ6osEZ7ozKLhz0spyHi+TyjoGxT/PB3A==}
+  '@reown/appkit@1.5.3':
+    resolution: {integrity: sha512-Wh+JetSr0/AHow2lqp/3+v61rnCzaXWDBKXgBWCUxGhHrw+vpDeyEsLLLTAbBd3w0xsKRaO2gjW5k+Z53p1NRw==}
 
   '@rollup/rollup-android-arm-eabi@4.24.3':
     resolution: {integrity: sha512-ufb2CH2KfBWPJok95frEZZ82LtDl0A6QKTa8MoM+cWwDZvVGl5/jNb79pIhRvAalUu+7LD91VYR0nwRD799HkQ==}
@@ -6843,16 +6843,16 @@ snapshots:
       react: 16.13.1
       react-native: 0.76.1(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(bufferutil@4.0.8)(react@16.13.1)(utf-8-validate@5.0.10)
 
-  '@reown/appkit-adapter-solana@1.5.2(bufferutil@4.0.8)(react@16.13.1)(typescript@5.6.3)(utf-8-validate@5.0.10)(zod@3.22.4)':
+  '@reown/appkit-adapter-solana@1.5.3(bufferutil@4.0.8)(react@16.13.1)(typescript@5.6.3)(utf-8-validate@5.0.10)(zod@3.22.4)':
     dependencies:
-      '@reown/appkit': 1.5.2(bufferutil@4.0.8)(react@16.13.1)(typescript@5.6.3)(utf-8-validate@5.0.10)(zod@3.22.4)
-      '@reown/appkit-common': 1.5.2(bufferutil@4.0.8)(typescript@5.6.3)(utf-8-validate@5.0.10)(zod@3.22.4)
-      '@reown/appkit-core': 1.5.2(bufferutil@4.0.8)(react@16.13.1)(typescript@5.6.3)(utf-8-validate@5.0.10)(zod@3.22.4)
-      '@reown/appkit-polyfills': 1.5.2
-      '@reown/appkit-scaffold-ui': 1.5.2(bufferutil@4.0.8)(react@16.13.1)(typescript@5.6.3)(utf-8-validate@5.0.10)(valtio@1.11.2(react@16.13.1))(zod@3.22.4)
-      '@reown/appkit-ui': 1.5.2
-      '@reown/appkit-utils': 1.5.2(bufferutil@4.0.8)(react@16.13.1)(typescript@5.6.3)(utf-8-validate@5.0.10)(valtio@1.11.2(react@16.13.1))(zod@3.22.4)
-      '@reown/appkit-wallet': 1.5.2(bufferutil@4.0.8)(typescript@5.6.3)(utf-8-validate@5.0.10)
+      '@reown/appkit': 1.5.3(bufferutil@4.0.8)(react@16.13.1)(typescript@5.6.3)(utf-8-validate@5.0.10)(zod@3.22.4)
+      '@reown/appkit-common': 1.5.3(bufferutil@4.0.8)(typescript@5.6.3)(utf-8-validate@5.0.10)(zod@3.22.4)
+      '@reown/appkit-core': 1.5.3(bufferutil@4.0.8)(react@16.13.1)(typescript@5.6.3)(utf-8-validate@5.0.10)(zod@3.22.4)
+      '@reown/appkit-polyfills': 1.5.3
+      '@reown/appkit-scaffold-ui': 1.5.3(bufferutil@4.0.8)(react@16.13.1)(typescript@5.6.3)(utf-8-validate@5.0.10)(valtio@1.11.2(react@16.13.1))(zod@3.22.4)
+      '@reown/appkit-ui': 1.5.3
+      '@reown/appkit-utils': 1.5.3(bufferutil@4.0.8)(react@16.13.1)(typescript@5.6.3)(utf-8-validate@5.0.10)(valtio@1.11.2(react@16.13.1))(zod@3.22.4)
+      '@reown/appkit-wallet': 1.5.3(bufferutil@4.0.8)(typescript@5.6.3)(utf-8-validate@5.0.10)
       '@solana/wallet-adapter-base': 0.9.23(@solana/web3.js@1.95.3(bufferutil@4.0.8)(utf-8-validate@5.0.10))
       '@solana/wallet-standard-features': 1.2.0
       '@solana/wallet-standard-util': 1.1.1
@@ -6890,17 +6890,17 @@ snapshots:
       - utf-8-validate
       - zod
 
-  '@reown/appkit-adapter-wagmi@1.5.2(eizpi5hxo7fj34wgbcbxjizxuu)':
+  '@reown/appkit-adapter-wagmi@1.5.3(eizpi5hxo7fj34wgbcbxjizxuu)':
     dependencies:
       '@coinbase/wallet-sdk': 4.1.0
-      '@reown/appkit': 1.5.2(bufferutil@4.0.8)(react@16.13.1)(typescript@5.6.3)(utf-8-validate@5.0.10)(zod@3.22.4)
-      '@reown/appkit-common': 1.5.2(bufferutil@4.0.8)(typescript@5.6.3)(utf-8-validate@5.0.10)(zod@3.22.4)
-      '@reown/appkit-core': 1.5.2(bufferutil@4.0.8)(react@16.13.1)(typescript@5.6.3)(utf-8-validate@5.0.10)(zod@3.22.4)
-      '@reown/appkit-polyfills': 1.5.2
-      '@reown/appkit-scaffold-ui': 1.5.2(bufferutil@4.0.8)(react@16.13.1)(typescript@5.6.3)(utf-8-validate@5.0.10)(valtio@1.11.2(react@16.13.1))(zod@3.22.4)
-      '@reown/appkit-ui': 1.5.2
-      '@reown/appkit-utils': 1.5.2(bufferutil@4.0.8)(react@16.13.1)(typescript@5.6.3)(utf-8-validate@5.0.10)(valtio@1.11.2(react@16.13.1))(zod@3.22.4)
-      '@reown/appkit-wallet': 1.5.2(bufferutil@4.0.8)(typescript@5.6.3)(utf-8-validate@5.0.10)
+      '@reown/appkit': 1.5.3(bufferutil@4.0.8)(react@16.13.1)(typescript@5.6.3)(utf-8-validate@5.0.10)(zod@3.22.4)
+      '@reown/appkit-common': 1.5.3(bufferutil@4.0.8)(typescript@5.6.3)(utf-8-validate@5.0.10)(zod@3.22.4)
+      '@reown/appkit-core': 1.5.3(bufferutil@4.0.8)(react@16.13.1)(typescript@5.6.3)(utf-8-validate@5.0.10)(zod@3.22.4)
+      '@reown/appkit-polyfills': 1.5.3
+      '@reown/appkit-scaffold-ui': 1.5.3(bufferutil@4.0.8)(react@16.13.1)(typescript@5.6.3)(utf-8-validate@5.0.10)(valtio@1.11.2(react@16.13.1))(zod@3.22.4)
+      '@reown/appkit-ui': 1.5.3
+      '@reown/appkit-utils': 1.5.3(bufferutil@4.0.8)(react@16.13.1)(typescript@5.6.3)(utf-8-validate@5.0.10)(valtio@1.11.2(react@16.13.1))(zod@3.22.4)
+      '@reown/appkit-wallet': 1.5.3(bufferutil@4.0.8)(typescript@5.6.3)(utf-8-validate@5.0.10)
       '@wagmi/connectors': 5.3.3(@wagmi/core@2.14.1(@tanstack/query-core@5.59.16)(react@16.13.1)(typescript@5.6.3)(use-sync-external-store@1.2.0(react@16.13.1))(viem@2.21.39(bufferutil@4.0.8)(typescript@5.6.3)(utf-8-validate@5.0.10)(zod@3.22.4)))(bufferutil@4.0.8)(react-dom@16.13.1(react@16.13.1))(react-native@0.76.1(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(bufferutil@4.0.8)(react@16.13.1)(utf-8-validate@5.0.10))(react@16.13.1)(typescript@5.6.3)(utf-8-validate@5.0.10)(viem@2.21.39(bufferutil@4.0.8)(typescript@5.6.3)(utf-8-validate@5.0.10)(zod@3.22.4))(zod@3.22.4)
       '@wagmi/core': 2.14.1(@tanstack/query-core@5.59.16)(react@16.13.1)(typescript@5.6.3)(use-sync-external-store@1.2.0(react@16.13.1))(viem@2.21.39(bufferutil@4.0.8)(typescript@5.6.3)(utf-8-validate@5.0.10)(zod@3.22.4))
       '@walletconnect/universal-provider': 2.17.0(bufferutil@4.0.8)(utf-8-validate@5.0.10)
@@ -6930,7 +6930,7 @@ snapshots:
       - utf-8-validate
       - zod
 
-  '@reown/appkit-common@1.5.2(bufferutil@4.0.8)(typescript@5.6.3)(utf-8-validate@5.0.10)(zod@3.22.4)':
+  '@reown/appkit-common@1.5.3(bufferutil@4.0.8)(typescript@5.6.3)(utf-8-validate@5.0.10)(zod@3.22.4)':
     dependencies:
       bignumber.js: 9.1.2
       dayjs: 1.11.10
@@ -6941,10 +6941,10 @@ snapshots:
       - utf-8-validate
       - zod
 
-  '@reown/appkit-core@1.5.2(bufferutil@4.0.8)(react@16.13.1)(typescript@5.6.3)(utf-8-validate@5.0.10)(zod@3.22.4)':
+  '@reown/appkit-core@1.5.3(bufferutil@4.0.8)(react@16.13.1)(typescript@5.6.3)(utf-8-validate@5.0.10)(zod@3.22.4)':
     dependencies:
-      '@reown/appkit-common': 1.5.2(bufferutil@4.0.8)(typescript@5.6.3)(utf-8-validate@5.0.10)(zod@3.22.4)
-      '@reown/appkit-wallet': 1.5.2(bufferutil@4.0.8)(typescript@5.6.3)(utf-8-validate@5.0.10)
+      '@reown/appkit-common': 1.5.3(bufferutil@4.0.8)(typescript@5.6.3)(utf-8-validate@5.0.10)(zod@3.22.4)
+      '@reown/appkit-wallet': 1.5.3(bufferutil@4.0.8)(typescript@5.6.3)(utf-8-validate@5.0.10)
       '@walletconnect/universal-provider': 2.17.0(bufferutil@4.0.8)(utf-8-validate@5.0.10)
       valtio: 1.11.2(react@16.13.1)
       viem: 2.21.39(bufferutil@4.0.8)(typescript@5.6.3)(utf-8-validate@5.0.10)(zod@3.22.4)
@@ -6970,17 +6970,17 @@ snapshots:
       - utf-8-validate
       - zod
 
-  '@reown/appkit-polyfills@1.5.2':
+  '@reown/appkit-polyfills@1.5.3':
     dependencies:
       buffer: 6.0.3
 
-  '@reown/appkit-scaffold-ui@1.5.2(bufferutil@4.0.8)(react@16.13.1)(typescript@5.6.3)(utf-8-validate@5.0.10)(valtio@1.11.2(react@16.13.1))(zod@3.22.4)':
+  '@reown/appkit-scaffold-ui@1.5.3(bufferutil@4.0.8)(react@16.13.1)(typescript@5.6.3)(utf-8-validate@5.0.10)(valtio@1.11.2(react@16.13.1))(zod@3.22.4)':
     dependencies:
-      '@reown/appkit-common': 1.5.2(bufferutil@4.0.8)(typescript@5.6.3)(utf-8-validate@5.0.10)(zod@3.22.4)
-      '@reown/appkit-core': 1.5.2(bufferutil@4.0.8)(react@16.13.1)(typescript@5.6.3)(utf-8-validate@5.0.10)(zod@3.22.4)
-      '@reown/appkit-ui': 1.5.2
-      '@reown/appkit-utils': 1.5.2(bufferutil@4.0.8)(react@16.13.1)(typescript@5.6.3)(utf-8-validate@5.0.10)(valtio@1.11.2(react@16.13.1))(zod@3.22.4)
-      '@reown/appkit-wallet': 1.5.2(bufferutil@4.0.8)(typescript@5.6.3)(utf-8-validate@5.0.10)
+      '@reown/appkit-common': 1.5.3(bufferutil@4.0.8)(typescript@5.6.3)(utf-8-validate@5.0.10)(zod@3.22.4)
+      '@reown/appkit-core': 1.5.3(bufferutil@4.0.8)(react@16.13.1)(typescript@5.6.3)(utf-8-validate@5.0.10)(zod@3.22.4)
+      '@reown/appkit-ui': 1.5.3
+      '@reown/appkit-utils': 1.5.3(bufferutil@4.0.8)(react@16.13.1)(typescript@5.6.3)(utf-8-validate@5.0.10)(valtio@1.11.2(react@16.13.1))(zod@3.22.4)
+      '@reown/appkit-wallet': 1.5.3(bufferutil@4.0.8)(typescript@5.6.3)(utf-8-validate@5.0.10)
       lit: 3.1.0
     transitivePeerDependencies:
       - '@azure/app-configuration'
@@ -7005,13 +7005,13 @@ snapshots:
       - valtio
       - zod
 
-  '@reown/appkit-siwe@1.5.2(bufferutil@4.0.8)(react@16.13.1)(typescript@5.6.3)(utf-8-validate@5.0.10)(zod@3.22.4)':
+  '@reown/appkit-siwe@1.5.3(bufferutil@4.0.8)(react@16.13.1)(typescript@5.6.3)(utf-8-validate@5.0.10)(zod@3.22.4)':
     dependencies:
-      '@reown/appkit-common': 1.5.2(bufferutil@4.0.8)(typescript@5.6.3)(utf-8-validate@5.0.10)(zod@3.22.4)
-      '@reown/appkit-core': 1.5.2(bufferutil@4.0.8)(react@16.13.1)(typescript@5.6.3)(utf-8-validate@5.0.10)(zod@3.22.4)
-      '@reown/appkit-ui': 1.5.2
-      '@reown/appkit-utils': 1.5.2(bufferutil@4.0.8)(react@16.13.1)(typescript@5.6.3)(utf-8-validate@5.0.10)(valtio@1.11.2(react@16.13.1))(zod@3.22.4)
-      '@reown/appkit-wallet': 1.5.2(bufferutil@4.0.8)(typescript@5.6.3)(utf-8-validate@5.0.10)
+      '@reown/appkit-common': 1.5.3(bufferutil@4.0.8)(typescript@5.6.3)(utf-8-validate@5.0.10)(zod@3.22.4)
+      '@reown/appkit-core': 1.5.3(bufferutil@4.0.8)(react@16.13.1)(typescript@5.6.3)(utf-8-validate@5.0.10)(zod@3.22.4)
+      '@reown/appkit-ui': 1.5.3
+      '@reown/appkit-utils': 1.5.3(bufferutil@4.0.8)(react@16.13.1)(typescript@5.6.3)(utf-8-validate@5.0.10)(valtio@1.11.2(react@16.13.1))(zod@3.22.4)
+      '@reown/appkit-wallet': 1.5.3(bufferutil@4.0.8)(typescript@5.6.3)(utf-8-validate@5.0.10)
       '@walletconnect/utils': 2.17.0
       lit: 3.1.0
       valtio: 1.11.2(react@16.13.1)
@@ -7037,17 +7037,17 @@ snapshots:
       - utf-8-validate
       - zod
 
-  '@reown/appkit-ui@1.5.2':
+  '@reown/appkit-ui@1.5.3':
     dependencies:
       lit: 3.1.0
       qrcode: 1.5.3
 
-  '@reown/appkit-utils@1.5.2(bufferutil@4.0.8)(react@16.13.1)(typescript@5.6.3)(utf-8-validate@5.0.10)(valtio@1.11.2(react@16.13.1))(zod@3.22.4)':
+  '@reown/appkit-utils@1.5.3(bufferutil@4.0.8)(react@16.13.1)(typescript@5.6.3)(utf-8-validate@5.0.10)(valtio@1.11.2(react@16.13.1))(zod@3.22.4)':
     dependencies:
-      '@reown/appkit-common': 1.5.2(bufferutil@4.0.8)(typescript@5.6.3)(utf-8-validate@5.0.10)(zod@3.22.4)
-      '@reown/appkit-core': 1.5.2(bufferutil@4.0.8)(react@16.13.1)(typescript@5.6.3)(utf-8-validate@5.0.10)(zod@3.22.4)
-      '@reown/appkit-polyfills': 1.5.2
-      '@reown/appkit-wallet': 1.5.2(bufferutil@4.0.8)(typescript@5.6.3)(utf-8-validate@5.0.10)
+      '@reown/appkit-common': 1.5.3(bufferutil@4.0.8)(typescript@5.6.3)(utf-8-validate@5.0.10)(zod@3.22.4)
+      '@reown/appkit-core': 1.5.3(bufferutil@4.0.8)(react@16.13.1)(typescript@5.6.3)(utf-8-validate@5.0.10)(zod@3.22.4)
+      '@reown/appkit-polyfills': 1.5.3
+      '@reown/appkit-wallet': 1.5.3(bufferutil@4.0.8)(typescript@5.6.3)(utf-8-validate@5.0.10)
       '@walletconnect/logger': 2.1.2
       '@walletconnect/universal-provider': 2.17.0(bufferutil@4.0.8)(utf-8-validate@5.0.10)
       valtio: 1.11.2(react@16.13.1)
@@ -7074,10 +7074,10 @@ snapshots:
       - utf-8-validate
       - zod
 
-  '@reown/appkit-wallet@1.5.2(bufferutil@4.0.8)(typescript@5.6.3)(utf-8-validate@5.0.10)':
+  '@reown/appkit-wallet@1.5.3(bufferutil@4.0.8)(typescript@5.6.3)(utf-8-validate@5.0.10)':
     dependencies:
-      '@reown/appkit-common': 1.5.2(bufferutil@4.0.8)(typescript@5.6.3)(utf-8-validate@5.0.10)(zod@3.22.4)
-      '@reown/appkit-polyfills': 1.5.2
+      '@reown/appkit-common': 1.5.3(bufferutil@4.0.8)(typescript@5.6.3)(utf-8-validate@5.0.10)(zod@3.22.4)
+      '@reown/appkit-polyfills': 1.5.3
       '@walletconnect/logger': 2.1.2
       zod: 3.22.4
     transitivePeerDependencies:
@@ -7085,16 +7085,16 @@ snapshots:
       - typescript
       - utf-8-validate
 
-  '@reown/appkit@1.5.2(bufferutil@4.0.8)(react@16.13.1)(typescript@5.6.3)(utf-8-validate@5.0.10)(zod@3.22.4)':
+  '@reown/appkit@1.5.3(bufferutil@4.0.8)(react@16.13.1)(typescript@5.6.3)(utf-8-validate@5.0.10)(zod@3.22.4)':
     dependencies:
-      '@reown/appkit-common': 1.5.2(bufferutil@4.0.8)(typescript@5.6.3)(utf-8-validate@5.0.10)(zod@3.22.4)
-      '@reown/appkit-core': 1.5.2(bufferutil@4.0.8)(react@16.13.1)(typescript@5.6.3)(utf-8-validate@5.0.10)(zod@3.22.4)
-      '@reown/appkit-polyfills': 1.5.2
-      '@reown/appkit-scaffold-ui': 1.5.2(bufferutil@4.0.8)(react@16.13.1)(typescript@5.6.3)(utf-8-validate@5.0.10)(valtio@1.11.2(react@16.13.1))(zod@3.22.4)
-      '@reown/appkit-siwe': 1.5.2(bufferutil@4.0.8)(react@16.13.1)(typescript@5.6.3)(utf-8-validate@5.0.10)(zod@3.22.4)
-      '@reown/appkit-ui': 1.5.2
-      '@reown/appkit-utils': 1.5.2(bufferutil@4.0.8)(react@16.13.1)(typescript@5.6.3)(utf-8-validate@5.0.10)(valtio@1.11.2(react@16.13.1))(zod@3.22.4)
-      '@reown/appkit-wallet': 1.5.2(bufferutil@4.0.8)(typescript@5.6.3)(utf-8-validate@5.0.10)
+      '@reown/appkit-common': 1.5.3(bufferutil@4.0.8)(typescript@5.6.3)(utf-8-validate@5.0.10)(zod@3.22.4)
+      '@reown/appkit-core': 1.5.3(bufferutil@4.0.8)(react@16.13.1)(typescript@5.6.3)(utf-8-validate@5.0.10)(zod@3.22.4)
+      '@reown/appkit-polyfills': 1.5.3
+      '@reown/appkit-scaffold-ui': 1.5.3(bufferutil@4.0.8)(react@16.13.1)(typescript@5.6.3)(utf-8-validate@5.0.10)(valtio@1.11.2(react@16.13.1))(zod@3.22.4)
+      '@reown/appkit-siwe': 1.5.3(bufferutil@4.0.8)(react@16.13.1)(typescript@5.6.3)(utf-8-validate@5.0.10)(zod@3.22.4)
+      '@reown/appkit-ui': 1.5.3
+      '@reown/appkit-utils': 1.5.3(bufferutil@4.0.8)(react@16.13.1)(typescript@5.6.3)(utf-8-validate@5.0.10)(valtio@1.11.2(react@16.13.1))(zod@3.22.4)
+      '@reown/appkit-wallet': 1.5.3(bufferutil@4.0.8)(typescript@5.6.3)(utf-8-validate@5.0.10)
       '@walletconnect/types': 2.17.0
       '@walletconnect/universal-provider': 2.17.0(bufferutil@4.0.8)(utf-8-validate@5.0.10)
       '@walletconnect/utils': 2.17.0
