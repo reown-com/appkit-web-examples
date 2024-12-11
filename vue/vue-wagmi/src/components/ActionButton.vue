@@ -1,7 +1,7 @@
 <template>
     <div>
       <button @click="openAppKit">Open</button>
-      <button @click="disconnect">Disconnect</button>
+      <button @click="handleDisconnect">Disconnect</button>
       <button @click="switchToNetwork">Switch</button>
     </div>
   </template>
@@ -19,9 +19,17 @@
   
       const openAppKit = () => open();
       const switchToNetwork = () => networkData.value.switchNetwork(networks[1]);
+      const handleDisconnect = async () => {
+          try {
+            await disconnect();
+          } catch (error) {
+            console.error("Error during disconnect:", error);
+          }
+      };
+
 
       return {
-        disconnect,
+        handleDisconnect,
         openAppKit,
         switchToNetwork,
       };
