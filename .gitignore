@@ -27,3 +27,4 @@ dist
 
 .env
 .vite
+install.sh
