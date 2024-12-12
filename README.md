@@ -10,7 +10,7 @@ Each framework has examples for the implementation with wagmi, ethers, solana an
   - ethers - https://appkit-web-examples-next-ethers.vercel.app/
   - wagmi - https://appkit-web-examples-next-wagmi.vercel.app/
   - Solana - https://appkit-web-examples-next-solana.vercel.app/
-  - Multichain - https://appkit-web-examples-react-multichain.vercel.app/
+  - Multichain - https://appkit-web-examples-next-multichain.vercel.app/
 - **React**
   - ethers - https://appkit-web-examples-react-ethers.vercel.app/
   - wamgi - https://appkit-web-examples-react-wagmi.vercel.app/
