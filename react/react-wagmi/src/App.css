@@ -79,6 +79,10 @@ h1 {
   margin: 20px;
 }
 
+h2 {
+  padding-bottom: 6px;
+}
+
 pre {
   white-space: pre-wrap; /* Wrap text */
   word-wrap: break-word; /* Break long words */
