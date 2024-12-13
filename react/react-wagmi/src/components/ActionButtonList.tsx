@@ -29,6 +29,7 @@ export const ActionButtonList = ({ sendHash, sendSignMsg, sendBalance }: ActionB
       address: address as Address
     }); // Wagmi hook to get the balance
 
+    
     useEffect(() => {
         if (hash) {
           sendHash(hash);
@@ -36,7 +37,7 @@ export const ActionButtonList = ({ sendHash, sendSignMsg, sendBalance }: ActionB
     }, [hash]);
 
     // function to send a tx
-    const sendTx = () => {
+    const handleSendTx = () => {
       try {
         sendTransaction({
           ...TEST_TX,
@@ -48,28 +49,36 @@ export const ActionButtonList = ({ sendHash, sendSignMsg, sendBalance }: ActionB
     }
 
     // function to sing a msg 
-    const signMsg = async () => {
+    const handleSignMsg = async () => {
       const msg = "Hello Reown AppKit!" // message to sign
       const sig = await signMessageAsync({ message: msg, account: address as Address }); 
       sendSignMsg(sig);
     }
 
     // function to get the balance
-    const getBalance = async () => {
+    const handleGetBalance = async () => {
       const balance = await refetch()
       sendBalance(balance?.data?.value.toString() + " " + balance?.data?.symbol.toString())
     }
+
+    const handleDisconnect = async () => {
+      try {
+        await disconnect();
+      } catch (error) {
+        console.error("Failed to disconnect:", error);
+      }
+    };
 
 
   return (
     isConnected && (
     <div >
         <button onClick={() => open()}>Open</button>
-        <button onClick={() => disconnect()}>Disconnect</button>
+        <button onClick={handleDisconnect}>Disconnect</button>
         <button onClick={() => switchNetwork(networks[1]) }>Switch</button>
-        <button onClick={() => signMsg() }>Sign msg</button>
-        <button onClick={() => sendTx() }>Send tx</button>
-        <button onClick={() => getBalance()}>Get Balance</button>  
+        <button onClick={() => handleSignMsg() }>Sign msg</button>
+        <button onClick={() => handleSendTx() }>Send tx</button>
+        <button onClick={() => handleGetBalance()}>Get Balance</button>  
     </div>
     )
   )
