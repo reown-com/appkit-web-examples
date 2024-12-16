@@ -3,6 +3,7 @@ import { useDisconnect, useAppKit, useAppKitNetwork, useAppKitAccount  } from '@
 import { parseGwei, type Address } from 'viem'
 import { useEstimateGas, useSendTransaction, useSignMessage, useBalance } from 'wagmi'
 import { networks } from '../config'
+import { polygon } from '@reown/appkit/networks'
 
 // test transaction
 const TEST_TX = {
@@ -76,6 +77,7 @@ export const ActionButtonList = ({ sendHash, sendSignMsg, sendBalance }: ActionB
         <button onClick={() => open()}>Open</button>
         <button onClick={handleDisconnect}>Disconnect</button>
         <button onClick={() => switchNetwork(networks[1]) }>Switch</button>
+        <button onClick={() => switchNetwork(polygon) }>Switch New Networki</button>
         <button onClick={handleSignMsg}>Sign msg</button>
         <button onClick={handleSendTx}>Send tx</button>
         <button onClick={handleGetBalance}>Get Balance</button>  
