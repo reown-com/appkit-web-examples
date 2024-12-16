@@ -1,0 +1,27 @@
+{
+  "name": "webpack-wagmi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "open": "open-cli index.html",
+    "build": "webpack",
+    "start": "webpack serve"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@reown/appkit": "1.6.0",
+    "@reown/appkit-adapter-wagmi": "1.6.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.26.0",
+    "@babel/preset-env": "^7.26.0",
+    "babel-loader": "^9.2.1",
+    "copy-webpack-plugin": "^12.0.2",
+    "webpack": "^5.97.1",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.2.0"
+  }
+}
