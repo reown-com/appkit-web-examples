@@ -14,7 +14,7 @@ export const ActionButtonList = ({ sendHash, sendSignMsg, sendBalance }: ActionB
     const { disconnect } = useDisconnect();
     const { open } = useAppKit();
     const { switchNetwork } = useAppKitNetwork();
-    const { address } = useAppKitAccount()
+    const { isConnected, address } = useAppKitAccount()
     const { connection } = useAppKitConnection();
     const { walletProvider } = useAppKitProvider<Provider>('solana')
 
@@ -75,16 +75,20 @@ export const ActionButtonList = ({ sendHash, sendSignMsg, sendBalance }: ActionB
         console.error("Failed to disconnect:", error);
       }
     };
-  return (
-    <div >
-        <div >
-        <button onClick={() => open()}>Open</button>
-        <button onClick={handleDisconnect}>Disconnect</button>
-        <button onClick={() => switchNetwork(networks[1]) }>Switch</button>
-        <button onClick={handleSignMsg}>Sign msg</button>
-        <button onClick={handleSendTx}>Send tx</button>
-        <button onClick={handleGetBalance}>Get Balance</button>  
-    </div>
-    </div>
-  )
-}
+    return (
+      <>
+        {isConnected ? (
+          <div >
+            <div >
+              <button onClick={() => open()}>Open</button>
+              <button onClick={handleDisconnect}>Disconnect</button>
+              <button onClick={() => switchNetwork(networks[1]) }>Switch</button>
+              <button onClick={handleSignMsg}>Sign msg</button>
+              <button onClick={handleSendTx}>Send tx</button>
+              <button onClick={handleGetBalance}>Get Balance</button>  
+            </div>
+          </div>
+        ) : null}
+      </>
+    );
+  }

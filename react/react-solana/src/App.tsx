@@ -17,11 +17,11 @@ createAppKit({
 })
 
 export function App() {
-  const [transactionHash, setTransactionHash] = useState<`0x${string}` | undefined>(undefined);
+  const [transactionHash, setTransactionHash] = useState<string | undefined>(undefined);
   const [signedMsg, setSignedMsg] = useState('');
   const [balance, setBalance] = useState('');
 
-  const receiveHash = (hash: `0x${string}`) => {
+  const receiveHash = (hash: string) => {
     setTransactionHash(hash); // Update the state with the transaction hash
   };
 

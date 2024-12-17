@@ -8,7 +8,7 @@ import {
      } from '@reown/appkit/react'
 
 interface InfoListProps {
-    hash: `0x${string}` | undefined;
+    hash: string | undefined;
     signedMsg: string;
     balance: string;
 }
