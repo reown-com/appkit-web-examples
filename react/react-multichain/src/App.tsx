@@ -32,7 +32,9 @@ export function App() {
       <h1>AppKit Wagmi+solana React dApp Example</h1>
       <WagmiProvider config={wagmiAdapter.wagmiConfig}>
         <QueryClientProvider client={queryClient}>
+          <div className="div-appkit-button">
             <appkit-button />
+          </div>
             <ActionButtonList />
             <div className="advice">
               <p>

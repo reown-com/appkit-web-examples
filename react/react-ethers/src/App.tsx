@@ -23,7 +23,9 @@ export function App() {
     <div className={"pages"}>
       <img src="/reown.svg" alt="Reown" style={{ width: '150px', height: '150px' }} />
       <h1>AppKit ethers React dApp Example</h1>
-          <appkit-button />
+          <div className="div-appkit-button">
+            <appkit-button />
+          </div>
           <ActionButtonList />
           <div className="advice">
             <p>

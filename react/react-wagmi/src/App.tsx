@@ -50,7 +50,9 @@ export function App() {
       <h1>AppKit Wagmi React dApp Example</h1>
       <WagmiProvider config={wagmiAdapter.wagmiConfig}>
         <QueryClientProvider client={queryClient}>
+          <div className="div-appkit-button">
             <appkit-button />
+          </div>
             <ActionButtonList sendHash={receiveHash} sendSignMsg={receiveSignedMsg} sendBalance={receivebalance}/>
             <div className="advice">
               <p>
