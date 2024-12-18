@@ -4,7 +4,9 @@
       <img src="/reown.svg" alt="Reown" width="150" height="150" />
       <h1>AppKit ethers vue Example</h1>
 
-      <appkit-button />
+      <div className="div-appkit-button">
+        <appkit-button />
+      </div>
       <ActionButtonList />
       <div className="advice">
         <p>
