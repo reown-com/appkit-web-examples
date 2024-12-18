@@ -19,10 +19,12 @@ export function App() {
 
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+    <div className={"pages"}>
       <img src="/reown.svg" alt="Reown" style={{ width: '150px', height: '150px' }} />
       <h2>Reown AppKit + Solana</h2>
-      <appkit-button />
+      <div className="div-appkit-button">
+        <appkit-button />
+      </div>
       <ActionButtonList />
       <div className="advice">
         <p>
