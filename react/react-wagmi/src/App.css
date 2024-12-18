@@ -52,6 +52,12 @@ section {
   display: grid;
 }
 
+@media (min-width:480px)  {
+  .pages {
+    display: block;
+  }
+}
+
 button {
   padding: 10px 15px;
   background-color: white;
