@@ -9,6 +9,10 @@ body {
   overflow-x: hidden;
 }
 
+h2 {
+  padding-bottom: 10px;
+}
+
 body {
   color: var(--foreground);
   background: var(--background);

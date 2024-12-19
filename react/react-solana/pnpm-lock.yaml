@@ -17,6 +17,9 @@ importers:
       '@solana/wallet-adapter-wallets':
         specifier: ^0.19.32
         version: 0.19.32(@babel/core@7.25.2)(@babel/runtime@7.25.6)(@solana/web3.js@1.95.8(bufferutil@4.0.8)(utf-8-validate@5.0.10))(bs58@6.0.0)(bufferutil@4.0.8)(react-dom@18.3.1(react@18.3.1))(react-native@0.75.3(@babel/core@7.25.2)(@babel/preset-env@7.25.4(@babel/core@7.25.2))(@types/react@18.3.9)(bufferutil@4.0.8)(react@18.3.1)(typescript@5.6.2)(utf-8-validate@5.0.10))(react@18.3.1)(tslib@2.7.0)(utf-8-validate@5.0.10)
+      '@solana/web3.js':
+        specifier: ^1.95.8
+        version: 1.95.8(bufferutil@4.0.8)(utf-8-validate@5.0.10)
       bs58:
         specifier: ^6.0.0
         version: 6.0.0

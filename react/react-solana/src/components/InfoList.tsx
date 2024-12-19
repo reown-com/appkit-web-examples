@@ -7,7 +7,13 @@ import {
     useWalletInfo
      } from '@reown/appkit/react'
 
-export const InfoList = () => {
+interface InfoListProps {
+    hash: string | undefined;
+    signedMsg: string;
+    balance: string;
+}
+
+export const InfoList = ({ hash, signedMsg, balance }: InfoListProps) => {
     const { themeMode, themeVariables } = useAppKitTheme();
     const state = useAppKitState();
     const {address, caipAddress, isConnected, status} = useAppKitAccount();
@@ -20,6 +26,28 @@ export const InfoList = () => {
 
   return (
     < >
+        {balance && (
+        <section>
+            <h2>Balance: {balance}</h2>
+        </section>
+        )}
+        {hash && (
+        <section>
+            <h2>Sign Tx</h2>
+            <pre>
+                Hash: {hash}<br />
+                Status: {/* receipt?.status.toString() */}<br />
+            </pre>
+        </section>
+        )}
+        {signedMsg && (
+        <section>
+            <h2>Sign msg</h2>
+            <pre>
+                signedMsg: {signedMsg}<br />
+            </pre>
+        </section>
+        )}
         <section>
             <h2>useAppKit</h2>
             <pre>
