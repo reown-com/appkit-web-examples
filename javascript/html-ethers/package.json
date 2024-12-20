@@ -1,0 +1,17 @@
+{
+  "name": "@examples/html-ethers",
+  "private": true,
+  "version": "1.2.0",
+  "scripts": {
+    "dev": "vite --port 3011",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "@reown/appkit": "1.6.2",
+    "@reown/appkit-adapter-ethers": "1.6.2",
+    "ethers": "6.13.2"
+  },
+  "devDependencies": {
+    "vite": "5.2.11"
+  }
+}
