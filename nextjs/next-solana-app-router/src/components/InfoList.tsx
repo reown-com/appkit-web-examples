@@ -12,7 +12,7 @@ import {
 export const InfoList = () => {
     const kitTheme = useAppKitTheme();
     const state = useAppKitState();
-    const {address, caipAddress, isConnected, status} = useAppKitAccount();
+    const {address, caipAddress, isConnected} = useAppKitAccount();
     const events = useAppKitEvents()
     const walletInfo = useWalletInfo()
 
@@ -28,7 +28,6 @@ export const InfoList = () => {
                 Address: {address}<br />
                 caip Address: {caipAddress}<br />
                 Connected: {isConnected.toString()}<br />
-                Status: {status}<br />
             </pre>
         </section>
 

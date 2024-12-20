@@ -17,6 +17,10 @@ const generalConfig = {
   networks,
   metadata,
   themeMode: 'light' as const,
+  features: {
+    connectMethodsOrder: ['email', 'social', 'wallet'],
+    analytics: true // Optional - defaults to your Cloud configuration
+  }
 }
 
 // Create modal

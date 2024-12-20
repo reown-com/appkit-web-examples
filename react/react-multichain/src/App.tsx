@@ -15,7 +15,10 @@ const generalConfig = {
   projectId,
   metadata,
   networks,
-  themeMode: 'light' as const
+  themeMode: 'light' as const,
+  features: {
+    analytics: true // Optional - defaults to your Cloud configuration
+  }
 }
 
 // Create modal

@@ -32,6 +32,9 @@ createAppKit({
   networks,
   projectId,
   themeMode: 'light',
+  features: {
+    analytics: true // Optional - defaults to your Cloud configuration
+  },
   metadata: {
     name: 'AppKit Vue Example',
     description: 'AppKit Vue Example',

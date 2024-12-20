@@ -14,6 +14,9 @@ createAppKit({
   themeMode: 'light',
   networks: [solana, solanaTestnet, solanaDevnet],
   adapters: [solanaWeb3JsAdapter],
+  features: {
+    analytics: true // Optional - defaults to your Cloud configuration
+  }
 })
 
 export function App() {
