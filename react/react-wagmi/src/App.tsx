@@ -16,18 +16,16 @@ const generalConfig = {
   projectId,
   networks,
   metadata,
-  themeMode: 'light' as const,
-  features: {
-    connectMethodsOrder: ['email', 'social', 'wallet'],
-    analytics: true // Optional - defaults to your Cloud configuration
-  }
+  themeMode: 'light' as const
 }
 
 // Create modal
 createAppKit({
   adapters: [wagmiAdapter],
   ...generalConfig,
-  
+  features: {
+    analytics: true // Optional - defaults to your Cloud configuration
+  }
 })
 
 export function App() {
