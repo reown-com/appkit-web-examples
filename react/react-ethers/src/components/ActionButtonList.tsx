@@ -1,5 +1,5 @@
 import { useDisconnect, useAppKit, useAppKitNetwork, useAppKitAccount, useAppKitProvider, useAppKitNetworkCore, type Provider  } from '@reown/appkit/react'
-import { BrowserProvider, JsonRpcSigner,parseUnits } from 'ethers'
+import { BrowserProvider, JsonRpcSigner,parseUnits, formatEther } from 'ethers'
 import { networks } from '../config'
 
 // test transaction
@@ -38,7 +38,7 @@ export const ActionButtonList =  ({ sendHash, sendSignMsg, sendBalance }: Action
       const signer = new JsonRpcSigner(provider, address)
       
       const tx = await signer.sendTransaction(TEST_TX);
-      console.log(tx)
+    
       sendHash(tx.hash); 
     }
 
@@ -57,10 +57,10 @@ export const ActionButtonList =  ({ sendHash, sendSignMsg, sendBalance }: Action
     const handleGetBalance = async () => {
       if (!walletProvider || !address) throw Error('user is disconnected')
 
-      const provider = new BrowserProvider(walletProvider, 1)
+      const provider = new BrowserProvider(walletProvider, chainId)
       const balance = await provider.getBalance(address);
-
-      sendBalance(`${balance} ETH`);
+      const eth = formatEther(balance);
+      sendBalance(`${eth} ETH`);
     }
   return (
     <div >
