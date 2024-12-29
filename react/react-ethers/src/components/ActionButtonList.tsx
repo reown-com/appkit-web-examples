@@ -19,7 +19,7 @@ export const ActionButtonList =  ({ sendHash, sendSignMsg, sendBalance }: Action
     const { open } = useAppKit();
     const { chainId } = useAppKitNetworkCore();
     const { switchNetwork } = useAppKitNetwork();
-    const { address } = useAppKitAccount()
+    const { isConnected,address } = useAppKitAccount();
     const { walletProvider } = useAppKitProvider<Provider>('eip155')
 
     const handleDisconnect = async () => {
@@ -64,12 +64,16 @@ export const ActionButtonList =  ({ sendHash, sendSignMsg, sendBalance }: Action
     }
   return (
     <div >
-        <button onClick={() => open()}>Open</button>
-        <button onClick={handleDisconnect}>Disconnect</button>
-        <button onClick={() => switchNetwork(networks[1]) }>Switch</button>
-        <button onClick={handleSignMsg}>Sign msg</button>
-        <button onClick={handleSendTx}>Send tx</button>
-        <button onClick={handleGetBalance}>Get Balance</button>  
+      {isConnected ? (
+        <div>
+          <button onClick={() => open()}>Open</button>
+          <button onClick={handleDisconnect}>Disconnect</button>
+          <button onClick={() => switchNetwork(networks[1]) }>Switch</button>
+          <button onClick={handleSignMsg}>Sign msg</button>
+          <button onClick={handleSendTx}>Send tx</button>
+          <button onClick={handleGetBalance}>Get Balance</button>  
+        </div>
+      ) : null}
     </div>
   )
 }
