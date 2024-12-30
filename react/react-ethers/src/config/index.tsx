@@ -1,4 +1,4 @@
-import { mainnet, arbitrum } from '@reown/appkit/networks'
+import { mainnet, arbitrum, sepolia } from '@reown/appkit/networks'
 import type { AppKitNetwork } from '@reown/appkit/networks'
 import { EthersAdapter } from '@reown/appkit-adapter-ethers'
 
@@ -18,7 +18,7 @@ export const metadata = {
 }
 
 // for custom networks visit -> https://docs.reown.com/appkit/react/core/custom-networks
-export const networks = [mainnet, arbitrum] as [AppKitNetwork, ...AppKitNetwork[]]
+export const networks = [mainnet, arbitrum, sepolia] as [AppKitNetwork, ...AppKitNetwork[]]
 
 // Set up Solana Adapter
 export const ethersAdapter = new EthersAdapter();
