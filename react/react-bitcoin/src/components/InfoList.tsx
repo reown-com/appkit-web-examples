@@ -11,9 +11,10 @@ interface InfoListProps {
     psbt: string;
     signedMsg: string;
     txHash: string;
+    balance: string;
 }
 
-export const InfoList = ({psbt, signedMsg, txHash}: InfoListProps) => {
+export const InfoList = ({psbt, signedMsg, txHash, balance}: InfoListProps) => {
     const { themeMode, themeVariables } = useAppKitTheme();
     const state = useAppKitState();
     const {address, caipAddress, isConnected, status} = useAppKitAccount();
@@ -47,6 +48,14 @@ export const InfoList = ({psbt, signedMsg, txHash}: InfoListProps) => {
             <h2>Sign MSG</h2>
             <pre>
                 {signedMsg}<br />
+            </pre>
+        </section>
+        )}
+        {balance && (
+        <section>
+            <h2>Balance</h2>
+            <pre>
+                {balance}<br />
             </pre>
         </section>
         )}

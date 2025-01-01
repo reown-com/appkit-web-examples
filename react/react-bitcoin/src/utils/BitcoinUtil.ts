@@ -107,6 +107,14 @@ export const getFeeRate = async () => {
 
     throw new Error('Unsupported payment type')
   }
+
+export const getBalance = async (caipNetwork: CaipNetwork, address: string): Promise<number> => {
+    // get the utxos ... this is the list of unspent transactions that the sender has
+    const utxos = await getUTXOs(address, isTestnet(caipNetwork.caipNetworkId))
+    // return the sum of the utxos ... The balance of the sender
+    return utxos.reduce((sum, utxo) => sum + utxo.value, 0)
+}
+
 //
 // Create a psbt ... The PSBT that will be signed by the sender in the wallet
 //

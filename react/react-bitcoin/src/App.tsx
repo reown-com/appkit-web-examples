@@ -28,6 +28,7 @@ export function App() {
   const [psbt, setPSBT] = useState<string>("");
   const [signedMsg, setSignedMsg] = useState<string>("");
   const [txHash, setTxHash] = useState<string>("");
+  const [balance, setBalance] = useState<string>("");
   
   const receivePSBT = (hash: string) => {
     setPSBT(hash);
@@ -41,19 +42,23 @@ export function App() {
     setTxHash(hash)
   }
 
+  const receiveBalance= (amount: string) => {
+    setBalance(amount)
+  }
+
   return (
     <div className={"pages"}>
       <img src="/reown.svg" alt="Reown" style={{ width: '150px', height: '150px' }} />
       <h1>AppKit bitcoin React dApp Example</h1>
           <appkit-button />
-          <ActionButtonList sendSignPSBT={receivePSBT} sendSignMsg={receiveSignedMsg} sendSendTx={receiveTxHash} />
+          <ActionButtonList sendSignPSBT={receivePSBT} sendSignMsg={receiveSignedMsg} sendSendTx={receiveTxHash} sendBalance={receiveBalance} />
           <div className="advice">
             <p>
               This projectId only works on localhost. <br/>
               Go to <a href="https://cloud.reown.com" target="_blank" className="link-button" rel="Reown Cloud">Reown Cloud</a> to get your own.
             </p>
           </div>
-          <InfoList psbt={psbt} signedMsg={signedMsg} txHash={txHash} />
+          <InfoList psbt={psbt} signedMsg={signedMsg} txHash={txHash} balance={balance} />
     </div>
   )
 }

@@ -1,16 +1,16 @@
 import { useDisconnect, useAppKit, useAppKitNetwork, useAppKitProvider, useAppKitAccount } from '@reown/appkit/react'
 import type { BitcoinConnector } from '@reown/appkit-adapter-bitcoin'
 import { networks } from '../config'
-import { createPSBT } from '../utils/BitcoinUtil';
+import { createPSBT, getBalance } from '../utils/BitcoinUtil';
 
 interface ActionButtonListProps {
   sendSignPSBT: (hash: string ) => void;
   sendSignMsg: (hash: string) => void;
   sendSendTx: (hash: string) => void;
+  sendBalance: (balance: string) => void;
 }
 
-
-export const ActionButtonList = ({ sendSignPSBT, sendSignMsg, sendSendTx }: ActionButtonListProps) => {
+export const ActionButtonList = ({ sendSignPSBT, sendSignMsg, sendSendTx, sendBalance }: ActionButtonListProps) => {
     const { disconnect } = useDisconnect();
     const { open } = useAppKit();
     const { switchNetwork, caipNetwork } = useAppKitNetwork();
@@ -47,7 +47,7 @@ export const ActionButtonList = ({ sendSignPSBT, sendSignMsg, sendSendTx }: Acti
         recipient: recipientAddress,
         amount: "1000"
       })
-      
+
       sendSendTx(signature);
     }
 
@@ -65,6 +65,13 @@ export const ActionButtonList = ({ sendSignPSBT, sendSignMsg, sendSendTx }: Acti
       sendSignPSBT(signature.psbt);
     }
 
+    const handleGetBalance = async () => {
+      if (!walletProvider || !address || !caipNetwork) throw Error('user is disconnected');
+        
+      const balance = await getBalance(caipNetwork, address);
+      sendBalance(balance.toString()  );
+    }
+
   return (
     <>
       {isConnected ? (
@@ -73,8 +80,9 @@ export const ActionButtonList = ({ sendSignPSBT, sendSignMsg, sendSendTx }: Acti
             <button onClick={handleDisconnect}>Disconnect</button>
             <button onClick={() => switchNetwork(networks[1]) }>Switch</button>
             <button onClick={handleSignMsg}>Sign msg</button>
-            <button onClick={handleSignPSBT}>Sign PSBT</button>  
+            {/* <button onClick={handleSignPSBT}>Sign PSBT</button>   */}
             <button onClick={handleSendTx}>Send tx</button>
+            {/* <button onClick={handleGetBalance}>Get Balance</button> */}
         </div>
       ) : null}
     </>
