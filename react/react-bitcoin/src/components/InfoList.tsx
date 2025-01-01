@@ -7,7 +7,13 @@ import {
     useWalletInfo
      } from '@reown/appkit/react'
 
-export const InfoList = () => {
+interface InfoListProps {
+    psbt: string;
+    signedMsg: string;
+    txHash: string;
+}
+
+export const InfoList = ({psbt, signedMsg, txHash}: InfoListProps) => {
     const { themeMode, themeVariables } = useAppKitTheme();
     const state = useAppKitState();
     const {address, caipAddress, isConnected, status} = useAppKitAccount();
@@ -20,6 +26,30 @@ export const InfoList = () => {
 
   return (
     < >
+        {psbt && (
+        <section>
+            <h2>PSBT</h2>
+            <pre>
+                Hash: {psbt}<br />
+            </pre>
+        </section>
+        )}
+        {txHash && (
+        <section>
+            <h2>Sign Tx</h2>
+            <pre>
+                Hash: {txHash}<br />
+            </pre>
+        </section>
+        )}
+        {signedMsg && (
+        <section>
+            <h2>Sign MSG</h2>
+            <pre>
+                {signedMsg}<br />
+            </pre>
+        </section>
+        )}
         <section>
             <h2>useAppKit</h2>
             <pre>
