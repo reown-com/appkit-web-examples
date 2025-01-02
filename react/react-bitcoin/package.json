@@ -10,8 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@reown/appkit": "1.6.2",
-    "@reown/appkit-adapter-bitcoin": "1.6.2",
+    "@reown/appkit": "1.6.3",
+    "@reown/appkit-adapter-bitcoin": "1.6.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
