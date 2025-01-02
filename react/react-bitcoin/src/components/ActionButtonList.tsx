@@ -80,9 +80,9 @@ export const ActionButtonList = ({ sendSignPSBT, sendSignMsg, sendSendTx, sendBa
             <button onClick={handleDisconnect}>Disconnect</button>
             <button onClick={() => switchNetwork(networks[1]) }>Switch</button>
             <button onClick={handleSignMsg}>Sign msg</button>
-            {/* <button onClick={handleSignPSBT}>Sign PSBT</button>   */}
+            <button onClick={handleSignPSBT}>Sign PSBT</button>
             <button onClick={handleSendTx}>Send tx</button>
-            {/* <button onClick={handleGetBalance}>Get Balance</button> */}
+            <button onClick={handleGetBalance}>Get Balance</button>
         </div>
       ) : null}
     </>
