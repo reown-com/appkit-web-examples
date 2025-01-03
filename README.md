@@ -7,23 +7,23 @@ This repository provides examples of how to integrate and use **AppKit** in vari
 Each framework has examples for the implementation with wagmi, ethers, solana and multichain (wagmi & solana)
 
 - **Next.js**
-  - ethers - https://appkit-web-examples-next-ethers.vercel.app/
-  - wagmi - https://appkit-web-examples-next-wagmi.vercel.app/
-  - Solana - https://appkit-web-examples-next-solana.vercel.app/
-  - Bitcoin - https://appkit-web-examples-next-bitcoin.vercel.app/
-  - Multichain - https://appkit-web-examples-next-multichain.vercel.app/
+  - ethers - https://appkit-web-examples-next-ethers.reown.com/
+  - wagmi - https://appkit-web-examples-next-wagmi.reown.com/
+  - Solana - https://appkit-web-examples-next-solana.reown.com/
+  - Bitcoin - https://appkit-web-examples-next-bitcoin.reown.com/
+  - Multichain - https://appkit-web-examples-next-multichain.reown.com/
 - **React**
-  - ethers - https://appkit-web-examples-react-ethers.vercel.app/
-  - wamgi - https://appkit-web-examples-react-wagmi.vercel.app/
-  - Solana - https://appkit-web-examples-react-solana.vercel.app/
-  - Bitcoin - https://appkit-web-examples-react-bitcoin.vercel.app/
-  - Multichain - https://appkit-web-examples-react-multichain.vercel.app/
+  - ethers - https://appkit-web-examples-react-ethers.reown.com/
+  - wamgi - https://appkit-web-examples-react-wagmi.reown.com/
+  - Solana - https://appkit-web-examples-react-solana.reown.com/
+  - Bitcoin - https://appkit-web-examples-react-bitcoin.reown.com/
+  - Multichain - https://appkit-web-examples-react-multichain.reown.com/
 - **Vue**
-  - ethers - https://appkit-web-examples-vue-ethers.vercel.app/
-  - wagmi - https://appkit-web-examples-vue-wagmi.vercel.app/
-  - Solana - https://appkit-web-examples-vue-solana.vercel.app/
-  - Bitcoin - https://appkit-web-examples-vue-bitcoin.vercel.app/
-  - Multichain - https://appkit-web-examples-vue-multichain.vercel.app/
+  - ethers - https://appkit-web-examples-vue-ethers.reown.com/
+  - wagmi - https://appkit-web-examples-vue-wagmi.reown.com/
+  - Solana - https://appkit-web-examples-vue-solana.reown.com/
+  - Bitcoin - https://appkit-web-examples-vue-bitcoin.reown.com/
+  - Multichain - https://appkit-web-examples-vue-multichain.reown.com/
 
 ---
 
