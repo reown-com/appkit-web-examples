@@ -9,9 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@reown/appkit": "1.6.4-rc.1.0",
-    "@reown/appkit-adapter-solana": "1.6.4-rc.1.0",
-    "@reown/appkit-adapter-wagmi": "1.6.4-rc.1.0",
+    "@reown/appkit": "1.6.4-rc.2.0",
+    "@reown/appkit-adapter-solana": "1.6.4-rc.2.0",
+    "@reown/appkit-adapter-wagmi": "1.6.4-rc.2.0",
     "@solana/wallet-adapter-wallets": "^0.19.32",
     "@solana/web3.js": "^1.98.0",
     "@tanstack/react-query": "5.62.8",
