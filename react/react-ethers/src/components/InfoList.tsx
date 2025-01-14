@@ -23,7 +23,7 @@ export const InfoList = ({ hash, signedMsg, balance }: InfoListProps) => {
     const { themeMode, themeVariables } = useAppKitTheme();
     const state = useAppKitState();
     const { chainId } = useAppKitNetworkCore();
-    const {address, caipAddress, isConnected} = useAppKitAccount();
+    const {address, caipAddress, isConnected, embeddedWalletInfo } = useAppKitAccount(); // AppKit hook to get the account information
     const events = useAppKitEvents()
     const walletInfo = useWalletInfo()
     const { walletProvider } = useAppKitProvider<Provider>('eip155')
@@ -80,7 +80,9 @@ export const InfoList = ({ hash, signedMsg, balance }: InfoListProps) => {
                 Address: {address}<br />
                 caip Address: {caipAddress}<br />
                 Connected: {isConnected.toString()}<br />
-                Status: {status}<br />
+                Account Type: {embeddedWalletInfo?.accountType}<br />
+                {embeddedWalletInfo?.user?.email && (`Email: ${embeddedWalletInfo?.user?.email}\n`)}
+                {embeddedWalletInfo?.user?.username && (`Username: ${embeddedWalletInfo?.user?.username}\n`)}
             </pre>
         </section>
 

@@ -12,7 +12,7 @@ import {
 export const InfoList = () => {
     const kitTheme = useAppKitTheme();
     const state = useAppKitState();
-    const {address, caipAddress, isConnected} = useAppKitAccount();
+    const {address, caipAddress, isConnected, embeddedWalletInfo} = useAppKitAccount();
     const events = useAppKitEvents()
     const walletInfo = useWalletInfo()
 
@@ -28,6 +28,9 @@ export const InfoList = () => {
                 Address: {address}<br />
                 caip Address: {caipAddress}<br />
                 Connected: {isConnected.toString()}<br />
+                Account Type: {embeddedWalletInfo?.accountType}<br />
+                {embeddedWalletInfo?.user?.email && (`Email: ${embeddedWalletInfo?.user?.email}\n`)}
+                {embeddedWalletInfo?.user?.username && (`Username: ${embeddedWalletInfo?.user?.username}\n`)}
             </pre>
         </section>
 

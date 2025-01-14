@@ -17,7 +17,7 @@ interface InfoListProps {
 export const InfoList = ({ hash, signedMsg, balance }: InfoListProps) => {
     const kitTheme = useAppKitTheme(); // AppKit hook to get the theme information and theme actions 
     const state = useAppKitState(); // AppKit hook to get the state
-    const {address, caipAddress, isConnected, status} = useAppKitAccount(); // AppKit hook to get the account information
+    const {address, caipAddress, isConnected, status, embeddedWalletInfo } = useAppKitAccount(); // AppKit hook to get the account information
     const events = useAppKitEvents() // AppKit hook to get the events
     const { walletInfo } = useWalletInfo() // AppKit hook to get the wallet info
 
@@ -28,6 +28,10 @@ export const InfoList = ({ hash, signedMsg, balance }: InfoListProps) => {
     useEffect(() => {
         console.log("Events: ", events);
     }, [events]);
+
+    useEffect(() => {
+        console.log("Embedded Wallet Info: ", embeddedWalletInfo);
+    }, [embeddedWalletInfo]);
 
   return (
     <>
@@ -60,6 +64,9 @@ export const InfoList = ({ hash, signedMsg, balance }: InfoListProps) => {
                 caip Address: {caipAddress}<br />
                 Connected: {isConnected.toString()}<br />
                 Status: {status}<br />
+                Account Type: {embeddedWalletInfo?.accountType}<br />
+                {embeddedWalletInfo?.user?.email && (`Email: ${embeddedWalletInfo?.user?.email}\n`)}
+                {embeddedWalletInfo?.user?.username && (`Username: ${embeddedWalletInfo?.user?.username}\n`)}
             </pre>
         </section>
 
