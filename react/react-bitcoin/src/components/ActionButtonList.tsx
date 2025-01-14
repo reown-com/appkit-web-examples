@@ -77,8 +77,8 @@ export const ActionButtonList = ({ sendSignPSBT, sendSignMsg, sendSendTx, sendBa
       if (!walletProvider || !address || !caipNetwork) throw Error('user is disconnected');
       
       const bip122Account = allAccounts?.find(a => a.address === address)
-      let publicKey = bip122Account?.publicKey
-      if (!publicKey) publicKey = '---'
+      let publicKey = bip122Account?.publicKey || ""
+
       sendPublicKey(publicKey)
     }
 
