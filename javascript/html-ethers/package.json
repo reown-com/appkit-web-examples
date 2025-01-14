@@ -7,8 +7,8 @@
     "build": "vite build"
   },
   "dependencies": {
-    "@reown/appkit": "1.6.2",
-    "@reown/appkit-adapter-ethers": "1.6.2",
+    "@reown/appkit": "1.6.4",
+    "@reown/appkit-adapter-ethers": "1.6.4",
     "ethers": "6.13.2"
   },
   "devDependencies": {

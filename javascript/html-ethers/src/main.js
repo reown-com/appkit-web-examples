@@ -15,7 +15,11 @@ const ethersAdapter = new EthersAdapter()
 const modal = createAppKit({
   adapters: [ethersAdapter],
   networks: [arbitrum, mainnet, optimism, polygon, sepolia],
-  projectId
+  projectId,
+  themeVariables: {
+    '--w3m-accent': '#000000',
+    '--w3m-border-radius-master': '0px',
+  }
 })
 
 let accountState = {}
