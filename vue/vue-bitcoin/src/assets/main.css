@@ -81,6 +81,7 @@ h1 {
 pre {
   white-space: pre-wrap; /* Wrap text */
   word-wrap: break-word; /* Break long words */
+  word-break: break-all;
 }
 
 
