@@ -5,8 +5,8 @@
 
 html,
 body {
-  max-width: 100vw;
   overflow-x: hidden;
+  max-width: 100vw;
 }
 
 body {
@@ -52,6 +52,12 @@ section {
   display: grid;
 }
 
+.state-container {
+  align-items: center;
+  justify-items: center;
+  text-align: center;
+}
+
 button {
   padding: 10px 15px;
   background-color: white;
@@ -84,8 +90,8 @@ h2 {
 }
 
 pre {
-  white-space: pre-wrap; /* Wrap text */
-  word-wrap: break-word; /* Break long words */
+  white-space: pre-wrap; /* Wraps long lines inside <pre> */
+  word-break: break-all;
 }
 
 

@@ -16,9 +16,9 @@ const modal = createAppKit({
   adapters: [ethersAdapter],
   networks: [arbitrum, mainnet, optimism, polygon, sepolia],
   projectId,
+  themeMode: 'light',
   themeVariables: {
     '--w3m-accent': '#000000',
-    '--w3m-border-radius-master': '0px',
   }
 })
 
