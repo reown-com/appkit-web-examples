@@ -42,6 +42,9 @@ createAppKit({
     description: 'AppKit Vue Example',
     url: 'https://reown.com/appkit',
     icons: ['https://avatars.githubusercontent.com/u/179229932?s=200&v=4']
+  },
+  themeVariables: {
+    '--w3m-accent': '#000000',
   }
 })
 

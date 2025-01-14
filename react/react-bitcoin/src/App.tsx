@@ -16,7 +16,10 @@ createAppKit({
   features: {
     analytics: true, // Optional - defaults to your Cloud configuration
     socials: [],
-    email: false
+    email: false,
+  },
+  themeVariables: {
+    '--w3m-accent': '#000000',
   }
 })
 
