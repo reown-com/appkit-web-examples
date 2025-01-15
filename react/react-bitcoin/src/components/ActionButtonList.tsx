@@ -8,13 +8,14 @@ interface ActionButtonListProps {
   sendSignMsg: (hash: string) => void;
   sendSendTx: (hash: string) => void;
   sendBalance: (balance: string) => void;
+  sendPublicKey: (publicKey: string) => void;
 }
 
-export const ActionButtonList = ({ sendSignPSBT, sendSignMsg, sendSendTx, sendBalance }: ActionButtonListProps) => {
+export const ActionButtonList = ({ sendSignPSBT, sendSignMsg, sendSendTx, sendBalance, sendPublicKey }: ActionButtonListProps) => {
     const { disconnect } = useDisconnect();
     const { open } = useAppKit();
     const { switchNetwork, caipNetwork } = useAppKitNetwork();
-    const { isConnected, address } = useAppKitAccount();
+    const { allAccounts, isConnected, address } = useAppKitAccount();
     const { walletProvider } = useAppKitProvider<BitcoinConnector>('bip122')
 
     const handleDisconnect = async () => {
@@ -72,6 +73,15 @@ export const ActionButtonList = ({ sendSignPSBT, sendSignMsg, sendSendTx, sendBa
       sendBalance(balance.toString()  );
     }
 
+    const handleGetPublicKey = async () => {
+      if (!walletProvider || !address || !caipNetwork) throw Error('user is disconnected');
+      
+      const bip122Account = allAccounts?.find(a => a.address === address)
+      let publicKey = bip122Account?.publicKey || ""
+
+      sendPublicKey(publicKey)
+    }
+
   return (
     <>
       {isConnected ? (
@@ -83,6 +93,7 @@ export const ActionButtonList = ({ sendSignPSBT, sendSignMsg, sendSendTx, sendBa
             <button onClick={handleSignPSBT}>Sign PSBT</button>
             <button onClick={handleSendTx}>Send tx</button>
             <button onClick={handleGetBalance}>Get Balance</button>
+            <button onClick={handleGetPublicKey}>Get Public Key</button>
         </div>
       ) : null}
     </>
