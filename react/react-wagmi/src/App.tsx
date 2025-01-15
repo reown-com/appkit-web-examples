@@ -16,7 +16,10 @@ const generalConfig = {
   projectId,
   networks,
   metadata,
-  themeMode: 'light' as const
+  themeMode: 'light' as const,
+  themeVariables: {
+    '--w3m-accent': '#000000',
+  }
 }
 
 // Create modal
