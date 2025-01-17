@@ -1,0 +1,17 @@
+{
+  "name": "vanillajs-solana",
+  "private": true,
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "vite --port 3011",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "@reown/appkit": "1.6.4",
+    "@reown/appkit-adapter-solana": "1.6.4",
+    "@solana/web3.js": "^1.95.8"
+  },
+  "devDependencies": {
+    "vite": "5.2.11"
+  }
+}
