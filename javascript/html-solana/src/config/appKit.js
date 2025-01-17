@@ -1,4 +1,4 @@
-import { solana, solanaDevnet } from '@reown/appkit/networks'
+import { solana, solanaDevnet, solanaTestnet } from '@reown/appkit/networks'
 import { createAppKit } from '@reown/appkit'
 import { SolanaAdapter } from '@reown/appkit-adapter-solana'
 
@@ -9,7 +9,7 @@ if (!projectId) {
 
 export const appKit = createAppKit({
   adapters: [new SolanaAdapter()],
-  networks: [solana, solanaDevnet],
+  networks: [solana, solanaDevnet, solanaTestnet],
   projectId,
   themeMode: 'light',
   themeVariables: {

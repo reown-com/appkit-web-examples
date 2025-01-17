@@ -5,7 +5,8 @@ export const store = {
     themeState: { themeMode: 'light', themeVariables: {} },
     events: [],
     walletInfo: {},
-    eip155Provider: null
+    solanaProvider: null,
+    solanaConnection: null
   }
   
   export const updateStore = (key, value) => {
