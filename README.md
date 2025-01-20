@@ -4,7 +4,7 @@ This repository provides examples of how to integrate and use **AppKit** in vari
 
 ## Examples Included
 
-Each framework has examples for the implementation with wagmi, ethers, solana and multichain (wagmi & solana)
+Each framework has examples for the implementation with wagmi, ethers, solana, bitcoin and multichain (wagmi & solana)
 
 | Framework | Integration   | Live Demo                                                                                     | Fork on Stackblitz                                                                                              |
 |-----------|---------------|-----------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------|
