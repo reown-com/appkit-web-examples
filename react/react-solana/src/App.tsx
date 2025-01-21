@@ -16,6 +16,9 @@ createAppKit({
   adapters: [solanaWeb3JsAdapter],
   features: {
     analytics: true // Optional - defaults to your Cloud configuration
+  },
+  themeVariables: {
+    '--w3m-accent': '#000000'
   }
 })
 
