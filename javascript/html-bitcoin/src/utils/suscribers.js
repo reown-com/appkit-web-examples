@@ -4,7 +4,7 @@ import { polygon, mainnet } from '@reown/appkit/networks'
 
 export const initializeSubscribers = (modal) => {
   modal.subscribeProviders(state => {
-    updateStore('eip155Provider', state['eip155'])
+    updateStore('bip122Provider', state['bip122'])
   })
 
   modal.subscribeAccount(state => {
@@ -15,13 +15,6 @@ export const initializeSubscribers = (modal) => {
   modal.subscribeNetwork(state => {
     updateStore('networkState', state)
     updateStateDisplay('networkState', state)
-    
-    const switchNetworkBtn = document.getElementById('switch-network')
-    if (switchNetworkBtn) {
-      switchNetworkBtn.textContent = `Switch to ${
-        state?.chainId === polygon.id ? 'Mainnet' : 'Polygon'
-      }`
-    }
   })
 
   modal.subscribeState(state => {

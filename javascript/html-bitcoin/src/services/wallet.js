@@ -1,33 +1,27 @@
-import { BrowserProvider, Contract, formatUnits, parseEther } from 'ethers'
 
-export const signMessage = (provider, address) => {
+
+  export const signMessage = (provider, address) => {
     if (!provider) return Promise.reject('No provider available')
     
-    return provider.request({
-      method: 'personal_sign',
-      params: ['Hello from AppKit!', address]
+    console.log("provider", provider.signMessage)
+    return provider.signMessage({
+      message: 'Hello from AppKit!',
+      address: address
     })
   }
-
-  export const sendTx = async (provider, address) => {
-    if (!provider) return Promise.reject('No provider available')
-
-      const tx = {
-        from: address,
-        to: address, // same address just for testing
-        value: parseEther("0.0001")
-      }
-      const ethersProvider = new BrowserProvider(provider);
-      const signer = await ethersProvider.getSigner()
-      return await signer.sendTransaction(tx)
-  }
-
+  
   export const getBalance = async (provider, address) => {
     if (!provider) return Promise.reject('No provider available')
-    
-    const balance = await provider.request({
-      method: 'eth_getBalance',
-      params: [address, 'latest']
-    })
-    return formatUnits(balance, 'ether')
+
+      // get the utxos ... this is the list of unspent transactions that the sender has
+    const utxos = await getUTXOs(address, false)
+    // return the sum of the utxos ... The balance of the sender
+    return utxos.reduce((sum, utxo) => sum + utxo.value, 0)
+  }
+
+  const getUTXOs = async (address) => {
+    const response = await fetch(
+        `https://mempool.space/api/address/${address}/utxo`
+    )
+    return await response.json();
   }

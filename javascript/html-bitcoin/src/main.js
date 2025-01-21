@@ -1,7 +1,7 @@
 import { appKit } from './config/appKit'
 import { store } from './store/appkitStore'
 import { updateTheme, updateButtonVisibility } from './utils/dom'
-import { signMessage, sendTx, getBalance } from './services/wallet'
+import { signMessage, getBalance } from './services/wallet'
 import { initializeSubscribers } from './utils/suscribers'
 
 // Initialize subscribers
@@ -23,7 +23,7 @@ document.getElementById('disconnect')?.addEventListener(
 
 document.getElementById('sign-message')?.addEventListener(
   'click', async () => {
-    const signature = await signMessage(store.eip155Provider, store.accountState.address)
+    const signature = await signMessage(store.bip122Provider, store.accountState.address)
 
     document.getElementById('signatureState').innerHTML = signature
     document.getElementById('signatureSection').style.display = ''
@@ -32,8 +32,8 @@ document.getElementById('sign-message')?.addEventListener(
 
 document.getElementById('send-tx')?.addEventListener(
   'click', async () => {
-    console.log(store.eip155Provider, store.accountState.address)
-    const tx = await sendTx(store.eip155Provider, store.accountState.address)
+    console.log(store.bip122Provider, store.accountState.address)
+    const tx = await sendTx(store.bip122Provider, store.accountState.address)
     console.log('Tx:', tx)
 
     document.getElementById('txState').innerHTML = JSON.stringify(tx, null, 2)
@@ -43,7 +43,7 @@ document.getElementById('send-tx')?.addEventListener(
 
 document.getElementById('get-balance')?.addEventListener(
   'click', async () => {
-    const balance = await getBalance(store.eip155Provider, store.accountState.address)
+    const balance = await getBalance(store.bip122Provider, store.accountState.address)
     
     document.getElementById('balanceState').innerHTML = balance + ' ETH'
     document.getElementById('balanceSection').style.display = ''

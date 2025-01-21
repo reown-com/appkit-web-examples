@@ -5,7 +5,7 @@ export const store = {
     themeState: { themeMode: 'light', themeVariables: {} },
     events: [],
     walletInfo: {},
-    eip155Provider: null
+    bip122Provider: null
   }
   
   export const updateStore = (key, value) => {
