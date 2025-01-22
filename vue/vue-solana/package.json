@@ -11,8 +11,8 @@
     "type-check": "vue-tsc --build --force"
   },
   "dependencies": {
-    "@reown/appkit": "1.6.4",
-    "@reown/appkit-adapter-solana": "1.6.4",
+    "@reown/appkit": "1.6.5-rc.4.0",
+    "@reown/appkit-adapter-solana": "1.6.5-rc.4.0",
     "@solana/wallet-adapter-wallets": "^0.19.32",
     "viem": "^2.21.39",
     "vue": "^3.5.12"
