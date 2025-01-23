@@ -1,0 +1,16 @@
+{
+  "name": "vanillajs-bitcoin",
+  "private": true,
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "vite --port 3011",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "@reown/appkit": "1.6.5",
+    "@reown/appkit-adapter-bitcoin": "1.6.5"
+  },
+  "devDependencies": {
+    "vite": "5.2.11"
+  }
+}
