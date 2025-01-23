@@ -1,5 +1,5 @@
 {
-  "name": "next-solana-app-router",
+  "name": "next-siwx-multichain",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -10,11 +10,18 @@
   },
   "dependencies": {
     "@reown/appkit": "1.6.5",
-    "@reown/appkit-adapter-solana": "1.6.5",
-    "@solana/wallet-adapter-wallets": "^0.19.32",
+    "@reown/appkit-adapter-bitcoin": "1.6.5",
+    "@reown/appkit-adapter-wagmi": "1.6.5",
+    "@reown/appkit-siwx": "1.6.5",
+    "@tanstack/react-query": "^5.64.2",
+    "bip322-js": "^2.0.0",
+    "bs58": "^6.0.0",
     "next": "15.0.3",
     "react": "19.0.0-rc-66855b96-20241106",
-    "react-dom": "19.0.0-rc-66855b96-20241106"
+    "react-dom": "19.0.0-rc-66855b96-20241106",
+    "tweetnacl": "^1.0.3",
+    "viem": "^2.22.12",
+    "wagmi": "^2.14.9"
   },
   "devDependencies": {
     "@types/node": "^20",
