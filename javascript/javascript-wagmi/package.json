@@ -1,0 +1,19 @@
+{
+  "name": "vanilljs-wagmi",
+  "private": true,
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "vite --port 3011",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "@reown/appkit": "1.6.5",
+    "@reown/appkit-adapter-wagmi": "1.6.5",
+    "@wagmi/core": "^2.16.3",
+    "viem": "^2.22.8",
+    "wagmi": "^2.13.3"
+  },
+  "devDependencies": {
+    "vite": "5.2.11"
+  }
+}
