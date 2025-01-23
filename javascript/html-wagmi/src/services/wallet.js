@@ -14,12 +14,6 @@ export const signMessage = (provider, address) => {
   export const sendTx = async (provider, address, wagmiAdapter) => {
     if (!provider) return Promise.reject('No provider available')
 
-      /* const tx = {
-        from: address,
-        to: address, // same address just for testing
-        value: parseGwei("0.0001")
-      } */
-        console.log(wagmiAdapter.wagmiConfig)
       const result = await sendTransaction(wagmiAdapter.wagmiConfig, {
         to: address,
         value: parseEther("0.0001"),
@@ -35,5 +29,6 @@ export const signMessage = (provider, address) => {
         method: 'eth_getBalance',
         params: [address, 'latest']
       })
-      return formatUnits(balance, 18)
+     const ethBalance = formatUnits(BigInt(balance), 18)
+     return ethBalance
   }
