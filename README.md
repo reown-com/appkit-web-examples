@@ -1,6 +1,6 @@
 # Web AppKit Examples
 
-This repository provides examples of how to integrate and use **AppKit** in various frameworks, including **Next.js**, **React**, and **Vue**. These examples are designed to demonstrate best practices and simplify the integration process.
+This repository provides examples of how to integrate and use **AppKit** in various frameworks, including **Javascript**,**Next.js**, **React**, and **Vue**. These examples are designed to demonstrate best practices and simplify the integration process.
 
 ## Examples Included
 
@@ -8,6 +8,10 @@ Each framework has examples for the implementation with wagmi, ethers, solana, b
 
 | Framework | Integration   | Live Demo                                                                                     | Fork on Stackblitz                                                                                              |
 |-----------|---------------|-----------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------|
+| **Javascript** | ethers        | [Demo](https://appkit-web-examples-javascript-ethers.reown.com/)                                   | [Fork](https://stackblitz.com/github/reown-com/appkit-web-examples/tree/main/javascript/javascript-ethers/)                |
+|           | wagmi         | [Demo](https://appkit-web-examples-javascript-wagmi.reown.com/)                                    | [Fork](https://stackblitz.com/github/reown-com/appkit-web-examples/tree/main/javascript/javascript-wagmi/)                 |
+|           | Solana        | [Demo](https://appkit-web-examples-javascript-solana.reown.com/)                                   | [Fork](https://stackblitz.com/github/reown-com/appkit-web-examples/tree/main/javascript/javascript-solana/)                |
+|           | Bitcoin       | [Demo](https://appkit-web-examples-javascript-bitcoin.reown.com/)                                  | [Fork](https://stackblitz.com/github/reown-com/appkit-web-examples/tree/main/javascript/javascript-bitcoin/)              |
 | **Next.js** | ethers        | [Demo](https://appkit-web-examples-next-ethers.reown.com/)                                   | [Fork](https://stackblitz.com/github/reown-com/appkit-web-examples/tree/main/nextjs/next-ethers-app-router/)                |
 |           | wagmi         | [Demo](https://appkit-web-examples-next-wagmi.reown.com/)                                    | [Fork](https://stackblitz.com/github/reown-com/appkit-web-examples/tree/main/nextjs/next-wagmi-app-router/)                 |
 |           | Solana        | [Demo](https://appkit-web-examples-next-solana.reown.com/)                                   | [Fork](https://stackblitz.com/github/reown-com/appkit-web-examples/tree/main/nextjs/next-solana-app-router/)                |
@@ -31,6 +35,11 @@ Each framework has examples for the implementation with wagmi, ethers, solana, b
 
 ```plaintext
 .
+├── javascript/   # Web AppKit with NextJS
+├──────── javascript-bitcoin
+├──────── javascript-wagmi
+├──────── javascript-ethers
+├──────── javascript-solana
 ├── nextjs/   # Web AppKit with NextJS
 ├──────── next-bitcoin-app-router
 ├──────── next-wagmi-app-router
