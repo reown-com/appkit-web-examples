@@ -35,7 +35,7 @@ Each framework has examples for the implementation with wagmi, ethers, solana, b
 
 ```plaintext
 .
-├── javascript/   # Web AppKit with NextJS
+├── javascript/   # Web AppKit with Javascript
 ├──────── javascript-bitcoin
 ├──────── javascript-wagmi
 ├──────── javascript-ethers
