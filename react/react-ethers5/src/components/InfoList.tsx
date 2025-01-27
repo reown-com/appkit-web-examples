@@ -30,6 +30,7 @@ export const InfoList = () => {
                 Account Type: {embeddedWalletInfo?.accountType}<br />
                 {embeddedWalletInfo?.user?.email && (`Email: ${embeddedWalletInfo?.user?.email}\n`)}
                 {embeddedWalletInfo?.user?.username && (`Username: ${embeddedWalletInfo?.user?.username}\n`)}
+                {embeddedWalletInfo?.authProvider && (`Provider: ${embeddedWalletInfo?.authProvider}\n`)}
             </pre>
         </section>
 
