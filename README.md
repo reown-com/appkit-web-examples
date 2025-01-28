@@ -1,4 +1,7 @@
+<img src="https://github.com/user-attachments/assets/befd1901-8387-4a4c-8fbc-282dd9802889" height="100" alt="Reown">
+
 # Web AppKit Examples
+
 
 This repository provides examples of how to integrate and use **AppKit** in various frameworks, including **Javascript**,**Next.js**, **React**, and **Vue**. These examples are designed to demonstrate best practices and simplify the integration process.
 
