@@ -26,6 +26,11 @@ export const evmNetworks: [AppKitNetwork, ...AppKitNetwork[]] = [
   sepolia,
 ];
 
+export const networks = [
+  ...bitcoinNetworks,
+  ...evmNetworks,
+];
+
 // Set up Bitcoin Adapter
 export const bitcoinAdapter = new BitcoinAdapter({
   projectId,

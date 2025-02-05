@@ -8,19 +8,19 @@ import {
     useAppKitAccount,
     useWalletInfo
      } from '@reown/appkit/react'
-
+import { useClientMounted } from "@/hooks/useClientMount";
 export const InfoList = () => {
     const kitTheme = useAppKitTheme();
     const state = useAppKitState();
     const {address, caipAddress, isConnected, embeddedWalletInfo} = useAppKitAccount();
     const events = useAppKitEvents()
     const walletInfo = useWalletInfo()
-
+    const mounted = useClientMounted();
     useEffect(() => {
         console.log("Events: ", events);
     }, [events]);
 
-  return (
+  return !mounted ? null : (
     <>
         <section>
             <h2>useAppKit</h2>
@@ -48,13 +48,18 @@ export const InfoList = () => {
         </section>
 
         <section>
-            <h2>WalletInfo</h2>
+            <h2>Embedded Wallet</h2>
             <pre>
-                Name: {walletInfo.walletInfo?.name?.toString()}<br />
                 Account Type: {embeddedWalletInfo?.accountType}<br />
                 {embeddedWalletInfo?.user?.email && (`Email: ${embeddedWalletInfo?.user?.email}\n`)}
                 {embeddedWalletInfo?.user?.username && (`Username: ${embeddedWalletInfo?.user?.username}\n`)}
                 {embeddedWalletInfo?.authProvider && (`Provider: ${embeddedWalletInfo?.authProvider}\n`)}
+            </pre>
+        </section>
+        <section>
+            <h2>Wallet Info</h2>
+            <pre>
+                {JSON.stringify(walletInfo)}
             </pre>
         </section>
     </>
