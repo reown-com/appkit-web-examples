@@ -8,6 +8,7 @@ import {
     useAppKitAccount,
     useWalletInfo
      } from '@reown/appkit/react'
+import { useClientMounted } from "@/hooks/useClientMount";
 
 export const InfoList = () => {
     const kitTheme = useAppKitTheme();
@@ -15,13 +16,15 @@ export const InfoList = () => {
     const {address, caipAddress, isConnected, embeddedWalletInfo} = useAppKitAccount();
     const events = useAppKitEvents()
     const walletInfo = useWalletInfo()
+    const mounted = useClientMounted();
 
     useEffect(() => {
         console.log("Events: ", events);
     }, [events]);
 
-  return (
-    < >
+
+  return !mounted ? null : (
+    <>
         <section>
             <h2>useAppKit</h2>
             <pre>
@@ -45,7 +48,7 @@ export const InfoList = () => {
         <section>
             <h2>State</h2>
             <pre>
-                activeChain: {state.activeChain}<br />
+                Selected Network ID: {state.selectedNetworkId?.toString()}<br />
                 loading: {state.loading.toString()}<br />
                 open: {state.open.toString()}<br />
             </pre>

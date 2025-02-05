@@ -8,6 +8,7 @@ import {
     useAppKitAccount,
     useWalletInfo
      } from '@reown/appkit/react'
+import { useClientMounted } from "@/hooks/useClientMount";
 
 export const InfoList = () => {
     const kitTheme = useAppKitTheme();
@@ -15,13 +16,13 @@ export const InfoList = () => {
     const {address, caipAddress, isConnected, embeddedWalletInfo} = useAppKitAccount();
     const events = useAppKitEvents()
     const walletInfo = useWalletInfo()
-
+    const mounted = useClientMounted();
     useEffect(() => {
         console.log("Events: ", events);
     }, [events]);
 
-  return (
-    < >
+  return !mounted ? null : (
+    <>
         <section>
             <h2>useAppKit</h2>
             <pre>

@@ -17,16 +17,16 @@
     "bip322-js": "^2.0.0",
     "bs58": "^6.0.0",
     "next": "15.0.3",
-    "react": "19.0.0-rc-66855b96-20241106",
-    "react-dom": "19.0.0-rc-66855b96-20241106",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
     "tweetnacl": "^1.0.3",
     "viem": "^2.22.12",
     "wagmi": "^2.14.9"
   },
   "devDependencies": {
     "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
+    "@types/react": "19.0.0",
+    "@types/react-dom": "19.0.0",
     "eslint": "^8",
     "eslint-config-next": "15.0.3",
     "typescript": "^5"
