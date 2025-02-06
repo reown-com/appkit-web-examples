@@ -10,8 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@reown/appkit": "1.6.5",
-    "@reown/appkit-adapter-solana": "1.6.5",
+    "@reown/appkit": "1.6.6-rc.3.0",
+    "@reown/appkit-adapter-solana": "1.6.6-rc.3.0",
     "@solana/wallet-adapter-wallets": "^0.19.32",
     "@solana/web3.js": "^1.95.8",
     "bs58": "^6.0.0",
