@@ -37,7 +37,8 @@ export const ActionButtonList =  ({ sendHash, sendSignMsg, sendBalance }: Action
       const provider = new BrowserProvider(walletProvider, chainId);
       const signer = new JsonRpcSigner(provider, address)
       
-      const tx = await signer.sendTransaction(TEST_TX);
+      const tx = await signer.sendTransaction(TEST_TX); 
+      await tx.wait(); // This will wait for the transaction to be mined
     
       sendHash(tx.hash); 
     }
