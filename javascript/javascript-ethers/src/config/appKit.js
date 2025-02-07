@@ -14,5 +14,8 @@ export const appKit = createAppKit({
   themeMode: 'light',
   themeVariables: {
     '--w3m-accent': '#000000',
-  }
+  },
+  features: {
+    analytics: true,
+  },
 })

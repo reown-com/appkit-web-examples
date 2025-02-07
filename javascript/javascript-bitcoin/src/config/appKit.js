@@ -16,6 +16,9 @@ export const appKit = createAppKit({
   networks: [bitcoin],
   projectId,
   themeMode: 'light',
+  features: {
+    analytics: true,
+  },
   themeVariables: {
     '--w3m-accent': '#000000',
   }
