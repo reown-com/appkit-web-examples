@@ -1,6 +1,6 @@
 {
-  "name": "vite-template-solid",
-  "version": "0.0.0",
+  "name": "vite-template-solid-appkit",
+  "version": "0.0.1",
   "description": "",
   "type": "module",
   "scripts": {
@@ -15,8 +15,8 @@
     "vite-plugin-solid": "^2.11.1"
   },
   "dependencies": {
-    "@reown/appkit": "^1.6.8",
-    "@reown/appkit-adapter-wagmi": "^1.6.8",
+    "@reown/appkit": "1.6.8",
+    "@reown/appkit-adapter-wagmi": "1.6.8",
     "@wagmi/core": "^2.16.4",
     "solid-js": "^1.9.3",
     "viem": "^2.23.1",
