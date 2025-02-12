@@ -1,6 +1,7 @@
 import { createAppKit } from '@reown/appkit/react'
 import { networks, projectId, metadata, ethersAdapter } from './config'
 import { ActionButtonList } from './components/ActionButtonList'
+import { SmartContractActionButtonList } from './components/SmartContractActionButtonList'
 import { InfoList } from './components/InfoList'
 import { useState } from 'react'
 
@@ -45,6 +46,7 @@ export function App() {
       <h1>AppKit ethers React dApp Example</h1>
           <appkit-button />
           <ActionButtonList sendHash={receiveHash} sendSignMsg={receiveSignedMsg} sendBalance={receivebalance}/>
+          <SmartContractActionButtonList />
           <div className="advice">
             <p>
               This projectId only works on localhost. <br/>
