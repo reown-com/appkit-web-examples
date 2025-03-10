@@ -7,13 +7,13 @@
     "build": "vite build"
   },
   "dependencies": {
-    "@reown/appkit": "1.6.8",
-    "@reown/appkit-adapter-wagmi": "1.6.8",
+    "@reown/appkit": "1.6.9",
+    "@reown/appkit-adapter-wagmi": "1.6.9",
     "@wagmi/core": "^2.16.3",
     "viem": "^2.22.8",
     "wagmi": "^2.13.3"
   },
   "devDependencies": {
-    "vite": "5.2.11"
+    "vite": "6.2.0"
   }
 }
