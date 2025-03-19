@@ -11,8 +11,8 @@
     "type-check": "vue-tsc --build --force"
   },
   "dependencies": {
-    "@reown/appkit": "1.6.9",
-    "@reown/appkit-adapter-ethers": "1.6.9",
+    "@reown/appkit": "1.7.0",
+    "@reown/appkit-adapter-ethers": "1.7.0",
     "ethers": "^6.13.4",
     "vue": "^3.5.12"
   },
