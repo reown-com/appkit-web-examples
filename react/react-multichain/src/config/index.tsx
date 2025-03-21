@@ -2,7 +2,6 @@ import { WagmiAdapter } from '@reown/appkit-adapter-wagmi'
 import { mainnet, arbitrum, solana, solanaDevnet, solanaTestnet, } from '@reown/appkit/networks'
 import type { AppKitNetwork } from '@reown/appkit/networks'
 import { SolanaAdapter } from '@reown/appkit-adapter-solana/react'
-import { PhantomWalletAdapter, SolflareWalletAdapter } from '@solana/wallet-adapter-wallets'
 
 
 // Get projectId from https://cloud.reown.com
@@ -29,8 +28,6 @@ export const wagmiAdapter = new WagmiAdapter({
 })
 
 // Set up Solana Adapter
-export const solanaWeb3JsAdapter = new SolanaAdapter({
-  wallets: [new PhantomWalletAdapter(), new SolflareWalletAdapter()]
-})
+export const solanaWeb3JsAdapter = new SolanaAdapter()
 
 export const config = wagmiAdapter.wagmiConfig
