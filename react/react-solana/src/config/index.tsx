@@ -1,7 +1,6 @@
 import { solana, solanaTestnet, solanaDevnet } from '@reown/appkit/networks'
 import type { AppKitNetwork } from '@reown/appkit/networks'
 import { SolanaAdapter } from '@reown/appkit-adapter-solana/react'
-import { PhantomWalletAdapter, SolflareWalletAdapter } from '@solana/wallet-adapter-wallets'
 
 
 // Get projectId from https://cloud.reown.com
@@ -22,6 +21,4 @@ export const metadata = {
 export const networks: [AppKitNetwork, ...AppKitNetwork[]] = [solana, solanaTestnet, solanaDevnet]
 
 // Set up Solana Adapter
-export const solanaWeb3JsAdapter = new SolanaAdapter({
-  wallets: [new PhantomWalletAdapter(), new SolflareWalletAdapter()]
-})
+export const solanaWeb3JsAdapter = new SolanaAdapter()
