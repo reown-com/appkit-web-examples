@@ -6,6 +6,7 @@ Address: {{ accountInfo.address }}
 caip Address: {{ accountInfo.caipAddress }}
 Connected: {{ accountInfo.isConnected }}
 Status: {{ accountInfo.status }}
+User Email: {{ accountInfo?.embeddedWalletInfo?.user?.email }}
       </pre>
     </section>
 
@@ -32,8 +33,8 @@ Name: {{ walletInfo }}<br />
     </section>
 </template>
   
-<script>
-import { onMounted } from "vue";
+<script lang="ts">
+import { onMounted, watch } from "vue";
 import {
   useAppKitState,
   useAppKitTheme,
@@ -41,6 +42,7 @@ import {
   useAppKitAccount,
   useWalletInfo,
 } from "@reown/appkit/vue";
+import type { DefineComponent } from 'vue';
 
 export default {
   name: "InfoList",
@@ -62,5 +64,5 @@ export default {
       walletInfo,
     };
   },
-};
+} as DefineComponent;
 </script>
