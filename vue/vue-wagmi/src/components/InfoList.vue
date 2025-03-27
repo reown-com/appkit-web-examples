@@ -33,8 +33,8 @@ Name: {{ walletInfo }}<br />
     </section>
 </template>
   
-<script lang="ts">
-import { onMounted, watch } from "vue";
+<script>
+import { defineComponent, onMounted } from "vue";
 import {
   useAppKitState,
   useAppKitTheme,
@@ -42,7 +42,6 @@ import {
   useAppKitAccount,
   useWalletInfo,
 } from "@reown/appkit/vue";
-import type { DefineComponent } from 'vue';
 
 export default {
   name: "InfoList",
@@ -64,5 +63,5 @@ export default {
       walletInfo,
     };
   },
-} as DefineComponent;
+}
 </script>
