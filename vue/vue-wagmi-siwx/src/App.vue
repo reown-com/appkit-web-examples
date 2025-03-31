@@ -2,7 +2,7 @@
 <template>
    <div class="pages">
       <img src="/reown.svg" alt="Reown" width="150" height="150" />
-      <h1>AppKit wagmi vue Example</h1>
+      <h1>AppKit wagmi SIWX vue Example</h1>
 
       <appkit-button />
       <ActionButtonList />
