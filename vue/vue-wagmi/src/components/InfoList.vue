@@ -6,6 +6,7 @@ Address: {{ accountInfo.address }}
 caip Address: {{ accountInfo.caipAddress }}
 Connected: {{ accountInfo.isConnected }}
 Status: {{ accountInfo.status }}
+User Email: {{ accountInfo?.embeddedWalletInfo?.user?.email }}
       </pre>
     </section>
 
@@ -33,7 +34,7 @@ Name: {{ walletInfo }}<br />
 </template>
   
 <script>
-import { onMounted } from "vue";
+import { defineComponent, onMounted } from "vue";
 import {
   useAppKitState,
   useAppKitTheme,
@@ -62,5 +63,5 @@ export default {
       walletInfo,
     };
   },
-};
+}
 </script>
