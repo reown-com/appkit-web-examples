@@ -82,16 +82,25 @@ export const SmartContractActionButtonList = () => {
       const response = await fetch("/api/signer");
       const { key: dAppECDSAPublicKey } = await response.json();
       const dataForRequest = {
-        expiry: Math.floor(Date.now() / 1000) + 24 * 60 * 60, // 24 hours
         dAppECDSAPublicKey: dAppECDSAPublicKey as `0x${string}`,
-        userAddress: address as `0x${string}`,
-        chainId: Number(chainId),
         contractAddress: storageSC as `0x${string}`,
         abi: storageABI,
-        functionName: 'store'
+        functionName: 'store',
+        expiry: Math.floor(Date.now() / 1000) + 24 * 60 * 60, // Default 24 hours 
+        userAddress: address as `0x${string}`, // Default actual address
+        chainId: Number(chainId), // Default actual chain
       }
       
+      // Grant permissions for smart session
+      // This step requests permission from the user's wallet to allow the dApp to make contract calls on their behalf
+      // Once approved, these permissions will be used to create a smart session on the backend
       const approvedPermissions = await grantPermissions(generateRequest(dataForRequest));
+
+      console.log("approvedPermissions", approvedPermissions);
+
+      // Call the backend API to create a smart session using the approved permissions
+      // The backend will store these permissions and use them to make contract calls on behalf of the user
+      // This enables automated/scheduled transactions without requiring user interaction each time
       const responseSS = await fetch("/api/create-smart-session", {
         method: "POST",
         headers: {
@@ -101,7 +110,8 @@ export const SmartContractActionButtonList = () => {
           permissions: approvedPermissions,
         }),
       });
-      
+
+      console.log("responseSS", responseSS);
     }
 
     type dataForRequestType = {

@@ -63,7 +63,9 @@ app.post('/create-smart-session"', async (req, res) => {
     }
     const serverPrivateAccount = privateKeyToAccount(APPLICATION_PRIVATE_KEY);
 
-    const txHash = await createGame(account, userAddress);
+    //const txHash = await createGame(serverPrivateAccount, userAddress);
+    
+    setSmartSession({ grantedPermissions: permissions });
 
     return res.status(200).json({ transactionHash: txHash });
 
@@ -74,6 +76,26 @@ app.post('/create-smart-session"', async (req, res) => {
       error: e.message 
     });
   }
+
+  const setSmartSession = ({ grantedPermissions }) => {
+    // Store permissions in memory (in production, use a proper database)
+    const smartSessions = new Map();
+    smartSessions.set(grantedPermissions.address.toLowerCase(), {
+      permissions: grantedPermissions,
+      createdAt: Date.now()
+    });
+  }
+
+  const getSmartSession = (address) => {
+    if (!address) return null;
+    return smartSessions.get(address.toLowerCase());
+  }
+
+  const clearSmartSession = (address) => {
+    if (!address) return;
+    smartSessions.delete(address.toLowerCase());
+  }
+
   
   /* 
     try {
