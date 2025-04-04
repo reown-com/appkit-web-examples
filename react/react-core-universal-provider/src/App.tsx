@@ -1,12 +1,10 @@
 import { useState, useEffect } from 'react'
 
 import { ActionButtonList } from './components/ActionButtonList'
-import {  initializeProvider, initializeModal } from './config'
+import { initializeProvider, initializeModal } from './config'
 import UniversalProvider from '@walletconnect/universal-provider'
 
 import "./App.css"
-
-
 
 export function App() {
   const [provider, setProvider] = useState<UniversalProvider>();
@@ -17,18 +15,9 @@ export function App() {
       console.log("dataProvider", dataProvider);
       initializeModal(dataProvider);
       setProvider(dataProvider);
-      //setAppKit(dataAppKit)
-/*       initializeModal(universalProvider)
-  
-      if (universalProvider.session) {
-        setSession(universalProvider.session)
-        setAccount(universalProvider.session?.namespaces['eip155']?.accounts?.[0]?.split(':')[2])
-        setNetwork(universalProvider.session?.namespaces['eip155']?.chains?.[0])
-      } */
     }
     init()
   }, [])
-
       
   useEffect(() => {
     const handleDisplayUri = (uri: string) => {
@@ -60,7 +49,6 @@ export function App() {
                 Go to <a href="https://cloud.reown.com" target="_blank" className="link-button" rel="Reown Cloud">Reown Cloud</a> to get your own.
               </p>
             </div>
-           {/*  <InfoList signedMsg={signedMsg} /> */}
     </div>
   )
 }
