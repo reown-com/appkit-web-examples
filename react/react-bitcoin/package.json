@@ -15,8 +15,7 @@
     "@reown/appkit-adapter-bitcoin": "1.7.2",
     "bitcoinjs-lib": "^6.1.7",
     "react": "19.0.0",
-    "react-dom": "19.0.0",
-    "vite-plugin-node-polyfills": "^0.23.0"
+    "react-dom": "19.0.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",
