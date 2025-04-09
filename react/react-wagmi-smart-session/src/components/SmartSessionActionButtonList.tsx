@@ -60,22 +60,14 @@ export const SmartContractActionButtonList = () => {
       }
     }, [isSuccess])
 
+    // 1. Read Smart Contract
     const handleReadSmartContract = async () => {
       console.log("Read Sepolia Smart Contract");
       const { data } = await readContract.refetch();
       console.log("data: ", data)
     }
 
-    const handleWriteSmartContract = () => {
-        console.log("Write Sepolia Smart Contract")
-        writeContract({
-          address: storageSC,
-          abi: storageABI,
-          functionName: 'store',
-          args: [123n],
-        })
-    }
-
+    // 2. Grant Permissions
     const handleGrantPermissions = async () => {
       console.log("Call Smart Session")
       // chainId <> undefined
@@ -113,6 +105,17 @@ export const SmartContractActionButtonList = () => {
 
       console.log("responseSS", responseSS);
     }
+
+    // 3. Write Smart Contract
+    const handleWriteSmartContract = () => {
+      console.log("Write Sepolia Smart Contract")
+      writeContract({
+        address: storageSC,
+        abi: storageABI,
+        functionName: 'store',
+        args: [123n],
+      })
+  }
 
     type dataForRequestType = {
       chainId: number,
