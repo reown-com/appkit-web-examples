@@ -26,10 +26,11 @@ export function App() {
     }
 
     const handleConnect = async (session: any) => {
+      console.log("session", session);
       const modal = initializeModal(provider)
       await modal?.close()
-      setAddress(session?.namespaces['polkadot']?.accounts?.[0]?.split(':')[2])
-      console.log("session", session);
+      
+      setAddress(session?.session?.namespaces['polkadot']?.accounts?.[0]?.split(':')[2])
     }
 
     provider?.on('display_uri', handleDisplayUri)
