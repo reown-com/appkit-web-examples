@@ -3,8 +3,10 @@
 import { wagmiAdapter, projectId, networks } from '@/config'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { createAppKit } from '@reown/appkit/react'
-import React, { type ReactNode } from 'react'
+import React, { useEffect, type ReactNode } from 'react'
 import { cookieToInitialState, WagmiProvider, type Config } from 'wagmi'
+import { passportInstance } from '../config/passport';
+
 
 // Set up queryClient
 const queryClient = new QueryClient()
@@ -16,6 +18,8 @@ const metadata = {
   url: 'https://github.com/0xonerb/next-reown-appkit-ssr', // origin must match your domain & subdomain
   icons: ['https://avatars.githubusercontent.com/u/179229932']
 }
+
+
 
 // Create the modal
 export const modal = createAppKit({
@@ -33,6 +37,15 @@ export const modal = createAppKit({
 })
 
 function ContextProvider({ children, cookies }: { children: ReactNode; cookies: string | null }) {
+  useEffect(() => {
+    const init = async () => {
+
+    // calling connectEVM() makes Passport available as an option to Wagmi
+      await passportInstance.connectEvm();
+    }
+  
+    init();
+  }, []);
   const initialState = cookieToInitialState(wagmiAdapter.wagmiConfig as Config, cookies)
 
   return (
