@@ -1,5 +1,10 @@
-
-
+class UserOpBuilderApiError extends Error {
+  constructor(status, message) {
+    super(message);
+    this.status = status;
+    this.name = 'UserOpBuilderApiError';
+  }
+}
 
 export async function prepareCalls(args) {
     const projectId = process.env["SERVER_PROJECT_ID"];

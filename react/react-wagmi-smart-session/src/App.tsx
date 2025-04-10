@@ -62,7 +62,6 @@ export function App() {
         <QueryClientProvider client={queryClient}>
             <appkit-button />
             <ActionButtonList sendHash={receiveHash} sendSignMsg={receiveSignedMsg} sendBalance={receivebalance}/>
-            <SmartContractActionButtonList />
             <SmartSessionActionButtonList />
             <div className="advice">
               <p>

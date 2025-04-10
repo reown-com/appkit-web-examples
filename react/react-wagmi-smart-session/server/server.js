@@ -1,8 +1,8 @@
 import cors from 'cors';
 import express from 'express';
-import { isAddress, encodeFunctionData } from "viem";
+import { isAddress, encodeFunctionData, toHex, parseEther } from "viem";
 //import { SmartSessionGrantPermissionsResponse } from "@reown/appkit-experimental/smart-session";
-import { privateKeyToAccount } from "viem/accounts";
+import { privateKeyToAccount  } from "viem/accounts";
 import { prepareCalls, handleFetchReceipt, sendPreparedCalls } from "./util/prepareCalls.js";
 
 // get env variables
@@ -11,11 +11,40 @@ dotenv.config();
 // get Project ID
 const projectId = process.env.PROJECT_ID;
 
+const storageABI = [
+	{
+		"inputs": [],
+		"name": "retrieve",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "num",
+				"type": "uint256"
+			}
+		],
+		"name": "store",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	}
+]
+
 const app = express();
 
 // configure cors and sessions
 app.use(cors({
-  origin: 'http://localhost:5174', // frontend URL
+  origin: ['http://localhost:5173', 'http://localhost:5174'], // frontend URLs
   credentials: true,
 }))
 app.use(express.json())
@@ -33,12 +62,10 @@ app.get('/api/signer', (req, res) => {
   try {
     const APPLICATION_PRIVATE_KEY = process.env.APPLICATION_PRIVATE_KEY;
     if (!APPLICATION_PRIVATE_KEY) {
-      console.error("Missing APPLICATION_PRIVATE_KEY environment variable");
       return res.status(400).json({ message: "Missing required environment variables" });
     }
-    console.log("APPLICATION_PRIVATE_KEY: ", APPLICATION_PRIVATE_KEY);
+
     const serverPrivateAccount = privateKeyToAccount(APPLICATION_PRIVATE_KEY);
-    console.log("serverPrivateAccount: ", serverPrivateAccount);
     res.json({ publicKey: serverPrivateAccount.publicKey });
   } catch (err) {
     console.error("Error in /api/signer endpoint:", err);
@@ -50,8 +77,9 @@ app.get('/api/signer', (req, res) => {
 });
 
 
-app.post('/create-smart-session"', async (req, res) => {
+app.post('/api/create-smart-session', async (req, res) => {
   try {
+    console.log("create-smart-session server");
     const APPLICATION_PRIVATE_KEY = process.env.APPLICATION_PRIVATE_KEY;
     if (!APPLICATION_PRIVATE_KEY) {
       return res.status(400).json({ message: "Missing required environment variables" });
@@ -64,9 +92,10 @@ app.post('/create-smart-session"', async (req, res) => {
     }
 
     //setSmartSession({ grantedPermissions: permissions });
+    console.log("permissions: ", permissions);
 
     const userAddress = permissions.address;
-    const chainId = permissions.chainId;
+    //const chainId = permissions.chainId;
     const context = permissions.context;
 
 
@@ -74,7 +103,7 @@ app.post('/create-smart-session"', async (req, res) => {
       throw new Error("Invalid User address");
     }
     const serverPrivateAccount = privateKeyToAccount(APPLICATION_PRIVATE_KEY);
-
+    console.log("data: ", data);
     const prepareCallsArgs = {
       from: userAddress,
       chainId: toHex(data.chainId),
@@ -82,19 +111,19 @@ app.post('/create-smart-session"', async (req, res) => {
         {
           to: data.contractAddress,
           data: encodeFunctionData({
-            abi: data.abi,
-            functionName: data.functionName,
-            args: data.args,
+            abi: storageABI,
+            functionName: "store",
+            args: [321]
           }),
-          value: data.value,
+          value: parseEther("0") // in case of a transfer parseEther("0.0001"),
         }
       ],
       capabilities: {
-        permissions: { context: permissionsContext },
+        permissions: { context: context }
       }
     }
     const prepareCallsResponse = await prepareCalls(prepareCallsArgs);
-
+    
     if (prepareCallsResponse.length !== 1 && prepareCallsResponse[0]) {
       throw new Error("Invalid response type");
     }
