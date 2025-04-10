@@ -6,6 +6,7 @@ import { useState } from 'react'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ActionButtonList } from './components/ActionButtonList'
 import { SmartContractActionButtonList } from './components/SmartContractActionButtonList'
+import { SmartSessionActionButtonList } from './components/SmartSessionActionButtonList'
 import { InfoList } from './components/InfoList'
 import { projectId, metadata, networks, wagmiAdapter } from './config'
 
@@ -62,6 +63,7 @@ export function App() {
             <appkit-button />
             <ActionButtonList sendHash={receiveHash} sendSignMsg={receiveSignedMsg} sendBalance={receivebalance}/>
             <SmartContractActionButtonList />
+            <SmartSessionActionButtonList />
             <div className="advice">
               <p>
                 This projectId only works on localhost. <br/>

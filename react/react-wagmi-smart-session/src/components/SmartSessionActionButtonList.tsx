@@ -3,10 +3,9 @@
 //
 
 import { useAppKitNetwork, useAppKitAccount, useDisconnect  } from '@reown/appkit/react'
-import { useReadContract, useWriteContract } from 'wagmi'
-import { useEffect } from 'react'
-import { grantPermissions, SmartSessionGrantPermissionsRequest } from '@reown/appkit-experimental/smart-session'
-import { networks } from '../config'
+import { useReadContract } from 'wagmi'
+import {  useState } from 'react'
+import { grantPermissions, SmartSessionGrantPermissionsRequest, SmartSessionGrantPermissionsResponse } from '@reown/appkit-experimental/smart-session'
 import { toHex } from 'viem'
 
 const storageABI = [
@@ -40,11 +39,14 @@ const storageABI = [
 
 const storageSC = "0xEe6D291CC60d7CeD6627fA4cd8506912245c8cA4" 
 
-export const SmartContractActionButtonList = () => {
+export const SmartSessionActionButtonList = () => {
+
+  const [permissions, setPermissions] = useState<SmartSessionGrantPermissionsResponse>({} as SmartSessionGrantPermissionsResponse);
+  const [ECDSAPublicKey, setECDSAPublicKey] = useState<string>("");
     const { isConnected, address } = useAppKitAccount() 
     const { disconnect } = useDisconnect()
     const { chainId } = useAppKitNetwork()
-    const { writeContract, isSuccess } = useWriteContract()
+    //const { writeContract, isSuccess } = useWriteContract()
     const readContract = useReadContract({
       address: storageSC,
       abi: storageABI,
@@ -54,11 +56,6 @@ export const SmartContractActionButtonList = () => {
       }
     })
 
-    useEffect(() => {
-      if (isSuccess) {
-        console.log("contract write success");
-      }
-    }, [isSuccess])
 
     // 1. Read Smart Contract
     const handleReadSmartContract = async () => {
@@ -69,19 +66,13 @@ export const SmartContractActionButtonList = () => {
 
     // 2. Grant Permissions
     const handleGrantPermissions = async () => {
-      console.log("Call Smart Session")
+      console.log("Call Smart Session Grant Permissions")
       // chainId <> undefined
       const response = await fetch("/api/signer");
       const { key: dAppECDSAPublicKey } = await response.json();
-      const dataForRequest = {
-        dAppECDSAPublicKey: dAppECDSAPublicKey as `0x${string}`,
-        contractAddress: storageSC as `0x${string}`,
-        abi: storageABI,
-        functionName: 'store',
-        expiry: Math.floor(Date.now() / 1000) + 24 * 60 * 60, // Default 24 hours 
-        userAddress: address as `0x${string}`, // Default actual address
-        chainId: Number(chainId), // Default actual chain
-      }
+      console.log("dAppECDSAPublicKey: ", dAppECDSAPublicKey);
+      setECDSAPublicKey(dAppECDSAPublicKey);
+      const dataForRequest = getDataForRequest();
       
       // Grant permissions for smart session
       // This step requests permission from the user's wallet to allow the dApp to make contract calls on their behalf
@@ -89,7 +80,14 @@ export const SmartContractActionButtonList = () => {
       const approvedPermissions = await grantPermissions(generateRequest(dataForRequest));
 
       console.log("approvedPermissions", approvedPermissions);
+      setPermissions(approvedPermissions);
+    }
 
+
+
+     // 3. Write Smart Contract
+    const handleWriteSmartContract = async () => {
+      console.log("Write Sepolia Smart Contract")
       // Call the backend API to create a smart session using the approved permissions
       // The backend will store these permissions and use them to make contract calls on behalf of the user
       // This enables automated/scheduled transactions without requiring user interaction each time
@@ -99,23 +97,25 @@ export const SmartContractActionButtonList = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          permissions: approvedPermissions,
+          permissions: permissions,
+          data: getDataForRequest()
         }),
       });
 
       console.log("responseSS", responseSS);
-    }
+  } 
 
-    // 3. Write Smart Contract
-    const handleWriteSmartContract = () => {
-      console.log("Write Sepolia Smart Contract")
-      writeContract({
-        address: storageSC,
+    const getDataForRequest = () => {
+      return {
+        dAppECDSAPublicKey: ECDSAPublicKey as `0x${string}`,
+        contractAddress: storageSC as `0x${string}`,
         abi: storageABI,
         functionName: 'store',
-        args: [123n],
-      })
-  }
+        expiry: Math.floor(Date.now() / 1000) + 24 * 60 * 60, // Default 24 hours 
+        userAddress: address as `0x${string}`, // Default actual address
+        chainId: Number(chainId), // Default actual chain
+      };
+    }
 
     type dataForRequestType = {
       chainId: number,
@@ -169,7 +169,7 @@ export const SmartContractActionButtonList = () => {
           <div>3. You can disconnect your account</div>
           <button onClick={() => disconnect()}>Disconnect</button>
           <div>4. Make a call on your behalf</div>
-          <button onClick={handleWriteSmartContractSS}>Write Smart Contract without signing</button>
+          <button onClick={handleWriteSmartContract}>Write Smart Contract without signing</button>
           <div>5. Read again the Smart Contract to view the change</div>
           <button onClick={handleReadSmartContract}>Read Smart Contract</button>
         </div>

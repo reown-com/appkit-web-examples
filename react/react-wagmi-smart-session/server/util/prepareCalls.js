@@ -9,7 +9,6 @@ export async function prepareCalls(args) {
 
     // i have to find the correct URL
     const url = `https://rpc.walletconnect.org/v1/wallet?projectId=${projectId}`;
-    //const url = `https://rpc.walletconnect.org/v1/wallets/prepareCalls?projectId=${projectId}`;
   
     return jsonRpcRequest("wallet_prepareCalls", [args], url);
   }
@@ -20,7 +19,6 @@ export async function prepareCalls(args) {
       throw new Error("SERVER_PROJECT_ID is not set");
     }
     const url = `https://rpc.walletconnect.org/v1/wallet?projectId=${projectId}`;
-    //const url = `https://rpc.walletconnect.org/v1/wallets/prepareCalls?projectId=${projectId}`;
   
     return jsonRpcRequest("wallet_sendPreparedCalls", [args], url);
   }
@@ -53,6 +51,26 @@ export async function prepareCalls(args) {
     }
 
     return data.result; // Return the result if successful
+  }
+
+  export async function handleFetchReceipt(userOpHash, options = {}) {
+    const { timeout = 30000, interval = 3000 } = options;
+    const endTime = Date.now() + timeout;
+  
+    while (Date.now() < endTime) {
+      const response = await getCallsStatus(userOpHash);
+  
+      if (response.status === "CONFIRMED") {
+        return response;
+      }
+  
+      await new Promise((resolve) => setTimeout(resolve, interval));
+    }
+  
+    throw new AppError(
+      ErrorCodes.TIMEOUT_ERROR,
+      'Timeout: Transaction is still processing'
+    );
   }
 
   export function bigIntReplacer(_key, value) {

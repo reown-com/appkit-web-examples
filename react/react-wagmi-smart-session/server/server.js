@@ -1,9 +1,9 @@
 import cors from 'cors';
 import express from 'express';
-import { isAddress } from "viem";
-import { SmartSessionGrantPermissionsResponse } from "@reown/appkit-experimental/smart-session";
+import { isAddress, encodeFunctionData } from "viem";
+//import { SmartSessionGrantPermissionsResponse } from "@reown/appkit-experimental/smart-session";
 import { privateKeyToAccount } from "viem/accounts";
-
+import { prepareCalls, handleFetchReceipt, sendPreparedCalls } from "./util/prepareCalls.js";
 
 // get env variables
 import dotenv from 'dotenv';
@@ -29,16 +29,23 @@ app.use(express.json())
 
 
 // get the signer public key
-app.get('/signer', (req, res) => {
+app.get('/api/signer', (req, res) => {
   try {
     const APPLICATION_PRIVATE_KEY = process.env.APPLICATION_PRIVATE_KEY;
     if (!APPLICATION_PRIVATE_KEY) {
+      console.error("Missing APPLICATION_PRIVATE_KEY environment variable");
       return res.status(400).json({ message: "Missing required environment variables" });
     }
+    console.log("APPLICATION_PRIVATE_KEY: ", APPLICATION_PRIVATE_KEY);
     const serverPrivateAccount = privateKeyToAccount(APPLICATION_PRIVATE_KEY);
-    res.json(serverPrivateAccount.publicKey);
+    console.log("serverPrivateAccount: ", serverPrivateAccount);
+    res.json({ publicKey: serverPrivateAccount.publicKey });
   } catch (err) {
-    return res.status(500).json({ message: "Error getting application signer" });
+    console.error("Error in /api/signer endpoint:", err);
+    return res.status(500).json({ 
+      message: "Error getting application signer",
+      error: err.message 
+    });
   }
 });
 
@@ -50,24 +57,73 @@ app.post('/create-smart-session"', async (req, res) => {
       return res.status(400).json({ message: "Missing required environment variables" });
     }
 
-    const { permissions } = req.body;
+    const { permissions, data } = req.body;
 
     if (!permissions) {
       return res.status(400).json({ message: "No permissions provided" });
     }
 
+    //setSmartSession({ grantedPermissions: permissions });
+
     const userAddress = permissions.address;
+    const chainId = permissions.chainId;
+    const context = permissions.context;
+
 
     if (!userAddress || !isAddress(userAddress)) {
       throw new Error("Invalid User address");
     }
     const serverPrivateAccount = privateKeyToAccount(APPLICATION_PRIVATE_KEY);
 
-    //const txHash = await createGame(serverPrivateAccount, userAddress);
-    
-    setSmartSession({ grantedPermissions: permissions });
+    const prepareCallsArgs = {
+      from: userAddress,
+      chainId: toHex(data.chainId),
+      calls: [
+        {
+          to: data.contractAddress,
+          data: encodeFunctionData({
+            abi: data.abi,
+            functionName: data.functionName,
+            args: data.args,
+          }),
+          value: data.value,
+        }
+      ],
+      capabilities: {
+        permissions: { context: permissionsContext },
+      }
+    }
+    const prepareCallsResponse = await prepareCalls(prepareCallsArgs);
 
-    return res.status(200).json({ transactionHash: txHash });
+    if (prepareCallsResponse.length !== 1 && prepareCallsResponse[0]) {
+      throw new Error("Invalid response type");
+    }
+    const response = prepareCallsResponse[0];
+    if (!response || response.preparedCalls.type !== "user-operation-v07") {
+      throw new Error("Invalid response type");
+    }
+
+    const signature = await signatureCall(serverPrivateAccount, response.signatureRequest.hash);
+
+    const sendPreparedCallsResponse = await sendPreparedCalls({
+      context: response.context,
+      preparedCalls: response.preparedCalls,
+      signature: signature,
+    });
+
+    const userOpIdentifier = sendPreparedCallsResponse[0];
+
+    const receipt = await handleFetchReceipt(userOpIdentifier);
+    const txHash = receipt.receipts?.[0]?.transactionHash;
+      
+      const finalJSON = {
+        message: `OK`,
+        status: receipt.receipts?.[0]?.status === '0x1' ? 'success' : 'error',
+        userOpIdentifier,
+        txLink: txHash,
+        value: data.args.value,
+      };
+    return res.status(200).json({ finalJSON });
 
   } catch (e) {
     console.error("Error:", e);
@@ -76,78 +132,65 @@ app.post('/create-smart-session"', async (req, res) => {
       error: e.message 
     });
   }
-
-  const setSmartSession = ({ grantedPermissions }) => {
-    // Store permissions in memory (in production, use a proper database)
-    const smartSessions = new Map();
-    smartSessions.set(grantedPermissions.address.toLowerCase(), {
-      permissions: grantedPermissions,
-      createdAt: Date.now()
-    });
-  }
-
-  const getSmartSession = (address) => {
-    if (!address) return null;
-    return smartSessions.get(address.toLowerCase());
-  }
-
-  const clearSmartSession = (address) => {
-    if (!address) return;
-    smartSessions.delete(address.toLowerCase());
-  }
-
   
-  /* 
-    try {
-      if (!req.body.message) {
-        return res.status(400).json({ error: 'SiweMessage is undefined' });
-      }
-      const message = req.body.message;
-
-      const address = getAddressFromMessage(message);
-      let chainId = getChainIdFromMessage(message);
-      
-
-// for the moment, the verifySignature is not working with social logins and emails  with non deployed smart accounts    
-
-      const publicClient = createPublicClient(
-        {
-          transport: http(
-            `https://rpc.walletconnect.org/v1/?chainId=${chainId}&projectId=${projectId}`
-          )
-        }
-      );
-      const isValid = await publicClient.verifyMessage({
-        message,
-        address,
-        signature: req.body.signature
-      });
-// end o view verifyMessage      
-
-      if (!isValid) {
-        // throw an error if the signature is invalid
-        throw new Error('Invalid signature');
-      }
-      if (chainId.includes(":")) {
-        chainId = chainId.split(":")[1];
-      }
-      // Convert chainId to a number
-      chainId = Number(chainId);
-
-      if (isNaN(chainId)) {
-          throw new Error("Invalid chainId");
-      }
-      
-      // save the session with the address and chainId (SIWESession)
-      req.session.siwe = { address, chainId };
-      req.session.save(() => res.status(200).send(true));
-    } catch (e) {
-      // clean the session
-      req.session.siwe = null;
-      req.session.nonce = null;
-      req.session.save(() => res.status(500).json({ message: e.message }));
-    } */
   });
+
+const signatureCall = async (privateKey, messageHash) => {
+  return await signMessage({
+    privateKey: privateKey,
+    message: { raw: messageHash },
+  });
+}
+
+
+  // ------------------------------------------------------------
+
+// Store sessions in memory at module level so they persist between requests
+const smartSessions = new Map();
+
+const setSmartSession = ({ grantedPermissions }) => {
+  if (!grantedPermissions?.address) return;
+  
+  // Add session with expiry check
+  smartSessions.set(grantedPermissions.address.toLowerCase(), {
+    permissions: grantedPermissions,
+    createdAt: Date.now(),
+    expiresAt: grantedPermissions.expiry * 1000 // Convert UNIX timestamp to milliseconds
+  });
+
+  // Clean up expired sessions
+  cleanExpiredSessions();
+}
+
+const getSmartSession = (address) => {
+  if (!address) return null;
+  
+  const session = smartSessions.get(address.toLowerCase());
+  if (!session) return null;
+
+  // Check if session is expired
+  if (Date.now() > session.expiresAt) {
+    clearSmartSession(address);
+    return null;
+  }
+
+  return session;
+}
+
+const clearSmartSession = (address) => {
+  if (!address) return;
+  smartSessions.delete(address.toLowerCase());
+}
+
+const cleanExpiredSessions = () => {
+  const now = Date.now();
+  for (const [address, session] of smartSessions.entries()) {
+    if (now > session.expiresAt) {
+      smartSessions.delete(address);
+    }
+  }
+}
+
 
 
 // start the server

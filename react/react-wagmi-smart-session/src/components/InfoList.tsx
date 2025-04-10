@@ -25,13 +25,9 @@ export const InfoList = ({ hash, signedMsg, balance }: InfoListProps) => {
         timeout: 300000,    // Timeout in milliseconds (5 minutes)
         pollingInterval: 1000,  })
 
-    useEffect(() => {
+  /*   useEffect(() => {
         console.log("Events: ", events);
-    }, [events]);
-
-    useEffect(() => {
-        console.log("Embedded Wallet Info: ", embeddedWalletInfo);
-    }, [embeddedWalletInfo]);
+    }, [events]); */
 
   return (
     <>
