@@ -1,13 +1,14 @@
-
-import { useDisconnect, useAppKit, useAppKitNetwork, useAppKitAccount  } from '@reown/appkit/react'
+import { useDisconnect, useAppKit, useAppKitNetwork, useAppKitAccount, useAppKitProvider, type Provider } from '@reown/appkit/react'
 import { networks } from '../config'
-
+import { useEffect } from 'react';
 
 export const ActionButtonList = () => {
     const { disconnect } = useDisconnect(); // AppKit hook to disconnect
     const { open } = useAppKit(); // AppKit hook to open the modal
     const { switchNetwork } = useAppKitNetwork(); // AppKithook to switch network
-    const { isConnected } = useAppKitAccount() // AppKit hook to get the address and check if the user is connected
+    const { address, isConnected } = useAppKitAccount() // AppKit hook to get the address and check if the user is connected
+    const { walletProvider } = useAppKitProvider<Provider>('eip155')
+
 
     const handleDisconnect = async () => {
       try {
@@ -17,6 +18,21 @@ export const ActionButtonList = () => {
       }
     };
 
+    // function to sing a msg 
+    const handleSignMsg = async () => {
+      const message = "Hello Reown AppKit!" // message to sign
+      try {
+        const result = await walletProvider.request({
+          method: 'personal_sign',
+          params: [message, address]
+        }) as { signature: string }
+        
+        console.log("result", result);
+      } catch (error: any) {
+        console.log("error", error);
+        throw new Error(error);
+      }
+    }
 
   return (
     isConnected && (
@@ -24,7 +40,7 @@ export const ActionButtonList = () => {
         <button onClick={() => open()}>Open</button>
         <button onClick={handleDisconnect}>Disconnect</button>
         <button onClick={() => switchNetwork(networks[1]) }>Switch</button>
-
+        <button onClick={handleSignMsg}>Sign</button>
     </div>
     )
   )
