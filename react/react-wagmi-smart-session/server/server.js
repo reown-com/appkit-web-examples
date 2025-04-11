@@ -145,7 +145,7 @@ const makePrepareCalls = async (userAddress, chainId, contractAddress, abi, func
         data: encodeFunctionData({
           abi: abi,
           functionName: functionName,
-          args: [334]
+          args: [Math.floor(Math.random() * 1000) + 1]
         }),
         value: parseEther("0") // in case of a transfer parseEther("0.0001"),
       }
