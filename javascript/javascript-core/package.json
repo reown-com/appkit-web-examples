@@ -1,0 +1,15 @@
+{
+  "name": "vanillajs-appkite-core",
+  "private": true,
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "vite --port 3011",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "@reown/appkit": "1.7.2"
+  },
+  "devDependencies": {
+    "vite": "6.2.0"
+  }
+}
