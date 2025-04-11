@@ -4,40 +4,11 @@
 
 import { useAppKitNetwork, useAppKitAccount, useDisconnect  } from '@reown/appkit/react'
 import { useReadContract } from 'wagmi'
-import {  useState } from 'react'
+import { useState } from 'react'
 import { grantPermissions, SmartSessionGrantPermissionsRequest, SmartSessionGrantPermissionsResponse } from '@reown/appkit-experimental/smart-session'
 import { toHex } from 'viem'
 
-const storageABI = [
-	{
-		"inputs": [],
-		"name": "retrieve",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "num",
-				"type": "uint256"
-			}
-		],
-		"name": "store",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	}
-]
-
-const storageSC = "0xEe6D291CC60d7CeD6627fA4cd8506912245c8cA4" 
+import { storageABI, storageSC, apiURL, storeFunctionName } from '../config/configSmartSession'
 
 export const SmartSessionActionButtonList = () => {
 
@@ -46,7 +17,6 @@ export const SmartSessionActionButtonList = () => {
     const { isConnected, address } = useAppKitAccount() 
     const { disconnect } = useDisconnect()
     const { chainId } = useAppKitNetwork()
-    //const { writeContract, isSuccess } = useWriteContract()
     const readContract = useReadContract({
       address: storageSC,
       abi: storageABI,
@@ -61,26 +31,25 @@ export const SmartSessionActionButtonList = () => {
     const handleReadSmartContract = async () => {
       console.log("Read Sepolia Smart Contract");
       const { data } = await readContract.refetch();
-      console.log("data: ", data)
+      console.log("readContract: ", data)
     }
 
     // 2. Grant Permissions
     const handleGrantPermissions = async () => {
       console.log("Call Smart Session Grant Permissions")
       // chainId <> undefined
-      const response = await fetch("http://localhost:8080/api/signer");
+      const response = await fetch(`${apiURL}/api/signer`);
       const { publicKey: dAppECDSAPublicKey } = await response.json();
       setECDSAPublicKey(dAppECDSAPublicKey);
-      const dataForRequest = getDataForRequest();
+      const dataForRequest = getDataForRequest(dAppECDSAPublicKey);
       const request = generateRequest(dataForRequest);
-      console.log("request", request);
-      console.log("dAppECDSAPublicKey", dAppECDSAPublicKey);
+
+    
       // Grant permissions for smart session
       // This step requests permission from the user's wallet to allow the dApp to make contract calls on their behalf
       // Once approved, these permissions will be used to create a smart session on the backend
       const approvedPermissions = await grantPermissions(request);
 
-      console.log("approvedPermissions", approvedPermissions);
       setPermissions(approvedPermissions);
     }
 
@@ -88,12 +57,12 @@ export const SmartSessionActionButtonList = () => {
 
      // 3. Write Smart Contract
     const handleWriteSmartContract = async () => {
-      console.log("Write Sepolia Smart Contract")
-      console.log("data", getDataForRequest());
+      console.log("Write Sepolia Smart Contract");
+
       // Call the backend API to create a smart session using the approved permissions
       // The backend will store these permissions and use them to make contract calls on behalf of the user
       // This enables automated/scheduled transactions without requiring user interaction each time
-      const responseSS = await fetch("http://localhost:8080/api/create-smart-session", {
+      const responseSS = await fetch(`${apiURL}/api/create-smart-session`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -104,16 +73,18 @@ export const SmartSessionActionButtonList = () => {
         }),
       });
 
-      console.log("responseSS", responseSS);
+      console.log("response Smart Session", responseSS);
   } 
 
-    const getDataForRequest = () => {
+    const getDataForRequest = (publickey = "") => {
+      if (publickey === "") {
+        publickey = ECDSAPublicKey;
+      }
       return {
-        dAppECDSAPublicKey: ECDSAPublicKey as `0x${string}`,
+        dAppECDSAPublicKey: publickey as `0x${string}`,
         contractAddress: storageSC as `0x${string}`,
         abi: storageABI,
-        functionName: 'store',
-        args: [321],
+        functionName: storeFunctionName,
         expiry: Math.floor(Date.now() / 1000) + 24 * 60 * 60, // Default 24 hours 
         userAddress: address as `0x${string}`, // Default actual address
         chainId: Number(chainId), // Default actual chain
@@ -161,7 +132,7 @@ export const SmartSessionActionButtonList = () => {
 
 
   return (
-    isConnected && chainId === 11155111 && (
+    isConnected && chainId === 84532 && (
       <div>
         <div>
           <b>Steps to try Smart Sessions</b><br/>

@@ -34,7 +34,7 @@ const storageABI = [
 	}
 ]
 
-const storageSC = "0xEe6D291CC60d7CeD6627fA4cd8506912245c8cA4" 
+const storageSC = "0x2D506af8f3499b1e49aced92B72bE8C22616ed95" 
 
 export const SmartContractActionButtonList = () => {
     const { isConnected } = useAppKitAccount() // AppKit hook to get the address and check if the user is connected

@@ -5,7 +5,7 @@ import { useState } from 'react'
 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ActionButtonList } from './components/ActionButtonList'
-import { SmartContractActionButtonList } from './components/SmartContractActionButtonList'
+//import { SmartContractActionButtonList } from './components/SmartContractActionButtonList'
 import { SmartSessionActionButtonList } from './components/SmartSessionActionButtonList'
 import { InfoList } from './components/InfoList'
 import { projectId, metadata, networks, wagmiAdapter } from './config'

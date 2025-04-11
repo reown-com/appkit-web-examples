@@ -64,7 +64,6 @@ export async function prepareCalls(args) {
   
     while (Date.now() < endTime) {
       const response = await getCallsStatus(userOpHash);
-  
       if (response.status === "CONFIRMED") {
         return response;
       }
@@ -75,6 +74,32 @@ export async function prepareCalls(args) {
     throw new AppError(
       ErrorCodes.TIMEOUT_ERROR,
       'Timeout: Transaction is still processing'
+    );
+  }
+
+  export async function getCallsStatus(args, options = {}) {
+    const projectId = process.env["SERVER_PROJECT_ID"];
+    if (!projectId) {
+      throw new Error("SERVER_PROJECT_ID is not set");
+    }
+    const url = `https://rpc.walletconnect.org/v1/wallet?projectId=${projectId}`;
+  
+    const { timeout = 30000, interval = 3000 } = options; // Default timeout to 30 seconds and interval to 2 second
+    const endTime = Date.now() + timeout;
+    while (Date.now() < endTime) {
+      console.log("args: ", args);
+      const response = await jsonRpcRequest("wallet_getCallsStatus", [args], url);
+      console.log("response: ", response);
+      // Check if the response is valid (not null)
+      if (response.status === "CONFIRMED") {
+        return response;
+      }
+  
+      // Wait for the specified interval before polling again
+      await new Promise((resolve) => setTimeout(resolve, interval));
+    }
+    throw new Error(
+      "Timeout: No valid response received from wallet_getCallsStatus",
     );
   }
 
