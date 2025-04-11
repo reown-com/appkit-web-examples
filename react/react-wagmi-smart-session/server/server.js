@@ -92,8 +92,9 @@ app.post('/api/create-smart-session', async (req, res) => {
     // make the prepare calls
     const response = await makePrepareCalls(userAddress, data.chainId, data.contractAddress, storageABI, data.functionName, context);
     
+    console.log("response: ", response);
     // sign the hash
-    const signature = await signatureCall(APPLICATION_PRIVATE_KEY, response.preparedCalls.hash);
+    const signature = await signatureCall(APPLICATION_PRIVATE_KEY, response.signatureRequest.hash);
 
     // send the prepared calls
     const sendPreparedCallsResponse = await sendPreparedCalls({
