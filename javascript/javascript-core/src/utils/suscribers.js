@@ -4,7 +4,8 @@ import { polygon, mainnet } from '@reown/appkit/networks'
 
 export const initializeSubscribers = (modal) => {
   modal.subscribeProviders(state => {
-    updateStore('bip122Provider', state['bip122'])
+    console.log("state", state)
+    updateStore('eip155', state['eip155'])
   })
 
   modal.subscribeAccount(state => {

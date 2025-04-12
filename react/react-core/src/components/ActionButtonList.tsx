@@ -1,6 +1,6 @@
 import { useDisconnect, useAppKit, useAppKitNetwork, useAppKitAccount, useAppKitProvider, type Provider } from '@reown/appkit/react'
 import { networks } from '../config'
-import { useEffect } from 'react';
+
 
 export const ActionButtonList = () => {
     const { disconnect } = useDisconnect(); // AppKit hook to disconnect
