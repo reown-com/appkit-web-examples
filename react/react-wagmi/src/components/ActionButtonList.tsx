@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useDisconnect, useAppKit, useAppKitNetwork, useAppKitAccount  } from '@reown/appkit/react'
 import { parseGwei, type Address } from 'viem'
 import { useEstimateGas, useSendTransaction, useSignMessage, useBalance } from 'wagmi'
+import { useAppKitWallet } from "@reown/appkit-wallet-button/react"
 import { networks } from '../config'
 
 // test transaction
@@ -21,6 +22,7 @@ export const ActionButtonList = ({ sendHash, sendSignMsg, sendBalance }: ActionB
     const { open } = useAppKit(); // AppKit hook to open the modal
     const { switchNetwork } = useAppKitNetwork(); // AppKithook to switch network
     const { address, isConnected } = useAppKitAccount() // AppKit hook to get the address and check if the user is connected
+    const { isReady, isPending, connect } = useAppKitWallet();
 
     const { data: gas } = useEstimateGas({...TEST_TX}); // Wagmi hook to estimate gas
     const { data: hash, sendTransaction, } = useSendTransaction(); // Wagmi hook to send a transaction
@@ -48,6 +50,9 @@ export const ActionButtonList = ({ sendHash, sendSignMsg, sendBalance }: ActionB
       }
     }
 
+    const handleWC = async () => {
+      await connect("walletConnect")
+    }
     // function to sing a msg 
     const handleSignMsg = async () => {
       const msg = "Hello Reown AppKit!" // message to sign
@@ -71,15 +76,19 @@ export const ActionButtonList = ({ sendHash, sendSignMsg, sendBalance }: ActionB
 
 
   return (
-    isConnected && (
+    
     <div >
+      <button onClick={handleWC}>Open WalletConnect</button>
+    {isConnected && (  
+      <>
         <button onClick={() => open()}>Open</button>
         <button onClick={handleDisconnect}>Disconnect</button>
         <button onClick={() => switchNetwork(networks[1]) }>Switch</button>
         <button onClick={handleSignMsg}>Sign msg</button>
         <button onClick={handleSendTx}>Send tx</button>
-        <button onClick={handleGetBalance}>Get Balance</button>  
+        
+      </>
+    )}
     </div>
-    )
   )
 }
