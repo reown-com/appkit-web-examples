@@ -132,9 +132,10 @@ export const SmartSessionActionButtonList = () => {
 
 
   return (
-    isConnected && chainId === 84532 && (
+    chainId === 84532 && (
       <div>
         <div>
+          <br/>
           <b>Steps to try Smart Sessions</b><br/>
           <button onClick={handleReadSmartContract}>1. Read Smart Contract</button>
           <button onClick={handleGrantPermissions}>2. Grant Permissions</button>
