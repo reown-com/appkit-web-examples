@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VanillaJS Bitcoin Example</title>
+    <link rel="stylesheet" href="css/App.css" />
+  </head>
+
+  <body>
+    <div class="pages" id="app">
+      <img src="/reown.svg" alt="Reown" style="width: 150px; height: 150px" />
+      <h1>AppKit Bitcoin VanillaJS dApp Example</h1>
+
+      <!-- AppKit UI Components -->
+      <div class="button-group">
+        <appkit-button />
+      </div>
+
+      <!-- Modal Controls -->
+      <div class="button-group">
+        <button id="open-connect-modal" data-connected-only>Open Connect Modal</button>
+        <button id="disconnect" data-connected-only>Disconnect</button>
+        <button id="sign-message" data-connected-only>Sign Message</button>
+      </div>
+
+      <!-- State Displays -->
+        <section id="balanceSection" style="display: none;">
+          <h2>Balance</h2>
+          <pre id="balanceState"></pre>
+        </section>
+
+        <section id="txSection" style="display: none;">
+          <h2>Tx</h2>
+          <pre id="txState"></pre>
+        </section>
+
+        <section id="signatureSection" style="display: none;">
+          <h2>Signature</h2>
+          <pre id="signatureState"></pre>
+        </section>
+
+        <section>
+          <h2>Account</h2>
+          <pre id="accountState"></pre>
+        </section>
+
+        <section>
+          <h2>Network</h2>
+          <pre id="networkState"></pre>
+        </section>
+
+        <section>
+          <h2>Modal State</h2>
+          <pre id="appKitState"></pre>
+        </section>
+
+        <section>
+          <h2>Theme</h2>
+          <pre id="themeState"></pre>
+        </section>
+
+        <section>
+          <h2>Events</h2>
+          <pre id="events"></pre>
+        </section>
+
+        <section>
+          <h2>Wallet Info</h2>
+          <pre id="walletInfo"></pre>
+        </section>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
