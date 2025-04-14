@@ -39,25 +39,34 @@ Each framework has examples for the implementation with wagmi, ethers, solana, b
 ```plaintext
 .
 ├── javascript/   # Web AppKit with Javascript
-├──────── javascript-bitcoin
-├──────── javascript-wagmi
+├──────── javascript-bitcoin    
+├──────── javascript-core    # AppKit Core
 ├──────── javascript-ethers
+├──────── javascript-multichain    # Wagmi + Solana
+├──────── javascript-wagmi
 ├──────── javascript-solana
 ├── nextjs/   # Web AppKit with NextJS
 ├──────── next-bitcoin-app-router
+├──────── next-core-app-router    # AppKit Core
+├──────── next-siwe-next-auth
+├──────── next-siwx-multichain-supabase-storage
+├──────── next-siwx-multichain
 ├──────── next-wagmi-app-router
 ├──────── next-ethers-app-router
 ├──────── next-solana-app-router
-├──────── next-multichain-app-router (wagmi+solana)
+├──────── next-multichain-app-router    # Wagmi + Solana
 ├── react/    # Web AppKit with React
 ├──────── react-bitcoin
+├──────── react-core    # AppKit Core
 ├──────── react-wagmi
 ├──────── react-ethers
 ├──────── react-ethers5
-├──────── react-multichain (wagmi+solana)
+├──────── react-multichain    # Wagmi + Solana
 ├──────── react-solana
+├──────── react-siwe-server-example
 ├── vue/      # Web AppKit with Vue
-├──────── vue-bitcoin
+├──────── vue-bitcoin    # AppKit Core
+├──────── vue-core
 ├──────── vue-ethers
 ├──────── vue-multichain (wagmi+solana)
 ├──────── vue-solana
