@@ -71,12 +71,36 @@ export const SmartContractActionButtonList = () => {
         })
     }
 
+    const onApprove = async () => {
+      const tokenAddress = "0x7b79995e5f793A07Bc00c21412e50Ecae098E7f9";
+      const spenderAddress = "0xcB6A062a349F60832F21Db6A5bE71603107884C7"; 
+      
+       await writeContract(
+        {
+          address: tokenAddress,
+          abi: [{
+            type: 'function',
+            name: 'approve',
+            stateMutability: 'nonpayable',
+            inputs: [
+              { name: 'spender', type: 'address' },
+              { name: 'amount', type: 'uint256' },
+            ],
+            outputs: [{ type: 'bool' }],
+          }],
+          functionName: 'approve',
+          args: [spenderAddress, 123n], // Approving 123 tokens
+      });
+
+  };
+
 
   return (
     isConnected && chainId === 11155111 && ( // Only show the buttons if the user is connected to Sepolia
     <div >
         <button onClick={handleReadSmartContract}>Read Sepolia Smart Contract</button>
         <button onClick={handleWriteSmartContract}>Write Sepolia Smart Contract</button>  
+        <button onClick={onApprove}>Approve</button>
     </div>
     )
   )
