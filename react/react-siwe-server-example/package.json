@@ -12,9 +12,9 @@
   "dependencies": {
     "@tanstack/react-query": "^5.53.1",
     "@wagmi/core": "^2.13.4",
-		"@reown/appkit-siwe": "1.7.2",
-    "@reown/appkit": "1.7.2",
-    "@reown/appkit-adapter-wagmi": "1.7.2",
+		"@reown/appkit-siwe": "1.7.3",
+    "@reown/appkit": "1.7.3",
+    "@reown/appkit-adapter-wagmi": "1.7.3",
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "viem": "^2.23.9",

@@ -11,8 +11,8 @@
     "type-check": "vue-tsc --build --force"
   },
   "dependencies": {
-    "@reown/appkit": "1.7.2",
-    "@reown/appkit-adapter-solana": "1.7.2",
+    "@reown/appkit": "1.7.3",
+    "@reown/appkit-adapter-solana": "1.7.3",
     "viem": "^2.21.39",
     "vue": "^3.5.12"
   },
