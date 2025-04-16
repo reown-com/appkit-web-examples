@@ -10,8 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@reown/appkit": "1.7.2",
-    "@reown/appkit-adapter-ethers5": "1.7.2",
+    "@reown/appkit": "1.7.3",
+    "@reown/appkit-adapter-ethers5": "1.7.3",
     "ethers": "^5.7.2",
     "react": "19.0.0",
     "react-dom": "19.0.0"
