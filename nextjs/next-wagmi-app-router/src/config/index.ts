@@ -1,8 +1,7 @@
-import { cookieStorage, createStorage,CreateConnectorFn  } from 'wagmi'
+import { cookieStorage, createStorage  } from 'wagmi'
 import { WagmiAdapter } from '@reown/appkit-adapter-wagmi'
 import { immutableZkEvmTestnet } from '@reown/appkit/networks'
 import type { AppKitNetwork } from '@reown/appkit/networks'
-import { walletConnect, injected } from 'wagmi/connectors'
 
 
 // Get projectId from https://cloud.reown.com
