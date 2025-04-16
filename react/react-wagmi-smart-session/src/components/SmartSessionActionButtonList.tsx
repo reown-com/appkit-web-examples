@@ -62,7 +62,7 @@ export const SmartSessionActionButtonList = () => {
       // Call the backend API to create a smart session using the approved permissions
       // The backend will store these permissions and use them to make contract calls on behalf of the user
       // This enables automated/scheduled transactions without requiring user interaction each time
-      const responseSS = await fetch(`${apiURL}/api/create-smart-session`, {
+      const responseSS = await fetch(`${apiURL}/api/executeFunction`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

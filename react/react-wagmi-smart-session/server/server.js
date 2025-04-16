@@ -68,7 +68,7 @@ app.get('/api/signer', (_, res) => {
 });
 
 
-app.post('/api/create-smart-session', async (req, res) => {
+app.post('/api/executeFunction', async (req, res) => {
   try {
     console.log("create-smart-session server");
     const APPLICATION_PRIVATE_KEY = process.env.APPLICATION_PRIVATE_KEY;
