@@ -1,7 +1,6 @@
 import { useDisconnect, useAppKit, useAppKitNetwork, useAppKitProvider, useAppKitAccount } from '@reown/appkit/react'
 import type { BitcoinConnector } from '@reown/appkit-adapter-bitcoin'
 import { networks } from '../config'
-import { createPSBT, getBalance } from '../utils/BitcoinUtil';
 
 interface ActionButtonListProps {
   sendSignPSBT: (hash: string ) => void;
@@ -55,10 +54,12 @@ export const ActionButtonList = ({ sendSignPSBT, sendSignMsg, sendSendTx, sendBa
     // function to sign a PSBT
     const handleSignPSBT = async () => {
       if (!walletProvider || !address || !caipNetwork) throw Error('user is disconnected');
-      const amount = 10000;
-      const recipientAddress = address;
 
-      const params = await createPSBT(caipNetwork, amount, address, recipientAddress);
+      const params = {
+        broadcast: false,
+        psbt: "",
+        signInputs: []
+      }
       
       params.broadcast = false // change to true to broadcast the tx
 
@@ -69,15 +70,15 @@ export const ActionButtonList = ({ sendSignPSBT, sendSignMsg, sendSendTx, sendBa
     const handleGetBalance = async () => {
       if (!walletProvider || !address || !caipNetwork) throw Error('user is disconnected');
         
-      const balance = await getBalance(caipNetwork, address);
-      sendBalance(balance.toString()  );
+      
+      sendBalance('0');
     }
 
     const handleGetPublicKey = async () => {
       if (!walletProvider || !address || !caipNetwork) throw Error('user is disconnected');
       
       const bip122Account = allAccounts?.find(a => a.address === address)
-      let publicKey = bip122Account?.publicKey || ""
+      const publicKey = bip122Account?.publicKey || ""
 
       sendPublicKey(publicKey)
     }
