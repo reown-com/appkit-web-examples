@@ -51,8 +51,9 @@ export default {
     const accountInfo = useAppKitAccount();
     const events = useAppKitEvents();
     const { walletInfo }  = useWalletInfo();
-    const provider = useAppKitProvider();
+    const provider = useAppKitProvider('eip155');
     console.log(">> provider: ", provider);
+
 
     onMounted(() => {
       console.log("Events: ", events);
