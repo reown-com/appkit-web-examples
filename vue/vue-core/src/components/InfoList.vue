@@ -40,6 +40,7 @@ import {
   useAppKitEvents,
   useAppKitAccount,
   useWalletInfo,
+  useAppKitProvider,
 } from "@reown/appkit/vue";
 
 export default {
@@ -50,6 +51,8 @@ export default {
     const accountInfo = useAppKitAccount();
     const events = useAppKitEvents();
     const { walletInfo }  = useWalletInfo();
+    const provider = useAppKitProvider();
+    console.log(">> provider: ", provider);
 
     onMounted(() => {
       console.log("Events: ", events);
