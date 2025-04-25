@@ -36,21 +36,25 @@ export const SmartSessionActionButtonList = () => {
 
     // 2. Grant Permissions
     const handleGrantPermissions = async () => {
-      console.log("Call Smart Session Grant Permissions")
-      // chainId <> undefined
-      const response = await fetch(`${apiURL}/api/signer`);
-      const { publicKey: dAppECDSAPublicKey } = await response.json();
-      setECDSAPublicKey(dAppECDSAPublicKey);
-      const dataForRequest = getDataForRequest(dAppECDSAPublicKey);
-      const request = generateRequest(dataForRequest);
+      if (isConnected) {
+        console.log("Call Smart Session Grant Permissions")
+        // chainId <> undefined
+        const response = await fetch(`${apiURL}/api/signer`);
+        const { publicKey: dAppECDSAPublicKey } = await response.json();
+        setECDSAPublicKey(dAppECDSAPublicKey);
+        const dataForRequest = getDataForRequest(dAppECDSAPublicKey);
+        const request = generateRequest(dataForRequest);
 
-    
-      // Grant permissions for smart session
-      // This step requests permission from the user's wallet to allow the dApp to make contract calls on their behalf
-      // Once approved, these permissions will be used to create a smart session on the backend
-      const approvedPermissions = await grantPermissions(request);
+      
+        // Grant permissions for smart session
+        // This step requests permission from the user's wallet to allow the dApp to make contract calls on their behalf
+        // Once approved, these permissions will be used to create a smart session on the backend
+        const approvedPermissions = await grantPermissions(request);
 
-      setPermissions(approvedPermissions);
+        setPermissions(approvedPermissions);
+      } else {
+        console.log("Please connect your wallet to call Smart Session Grant Permissions")
+      }
     }
 
 

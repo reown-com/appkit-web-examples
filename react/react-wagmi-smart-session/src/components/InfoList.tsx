@@ -1,8 +1,6 @@
-import { useEffect } from 'react'
 import {
     useAppKitState,
     useAppKitTheme,
-    useAppKitEvents,
     useAppKitAccount,
     useWalletInfo
      } from '@reown/appkit/react'
@@ -18,16 +16,12 @@ export const InfoList = ({ hash, signedMsg, balance }: InfoListProps) => {
     const kitTheme = useAppKitTheme(); // AppKit hook to get the theme information and theme actions 
     const state = useAppKitState(); // AppKit hook to get the state
     const {address, caipAddress, isConnected, status, embeddedWalletInfo } = useAppKitAccount(); // AppKit hook to get the account information
-    const events = useAppKitEvents() // AppKit hook to get the events
     const { walletInfo } = useWalletInfo() // AppKit hook to get the wallet info
 
     const { data: receipt } = useWaitForTransactionReceipt({ hash, confirmations: 2,  // Wait for at least 2 confirmation
         timeout: 300000,    // Timeout in milliseconds (5 minutes)
         pollingInterval: 1000,  })
 
-  /*   useEffect(() => {
-        console.log("Events: ", events);
-    }, [events]); */
 
   return (
     <>
