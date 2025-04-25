@@ -27,12 +27,14 @@ const generalConfig = {
 // Create modal
 createAppKit({
   adapters: [wagmiAdapter],
+  defaultAccountTypes: { eip155: "smartAccount" },
   ...generalConfig,
   features: {
     email: true,
     socials: [],
     emailShowWallets: false,
     analytics: true,
+    
   },
 })
 
