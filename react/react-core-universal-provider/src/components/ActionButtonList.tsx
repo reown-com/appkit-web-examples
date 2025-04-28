@@ -11,11 +11,11 @@ export const ActionButtonList = ({ provider, address }: ActionButtonListProps) =
       const message = "Hello Reown AppKit!" // message to sign
       console.log("address", address);
       try {
-        const method = "polkadot_signMessage"
+        const method = "personal_sign"
         const result = await provider!.request<{ signature: string }>({
           method,
           params: { address, message },
-        }, "polkadot:91b171bb158e2d3848fa23a9f1c25182");
+        }, "eip155:1");
         
         console.log("result", result.signature);
       } catch (error: any) {
@@ -41,11 +41,16 @@ export const ActionButtonList = ({ provider, address }: ActionButtonListProps) =
         }
         await provider.connect({
           optionalNamespaces: {
-            polkadot: {
-              methods: ['polkadot_signMessage', 'polkadot_signTransaction'],
-              chains: ["polkadot:91b171bb158e2d3848fa23a9f1c25182"],
-              events: []
-            }
+            solana: {
+              methods: ['solana_signTransaction', 'solana_signMessage'],
+              chains: ['solana:5eykt4UsFv8P8NJdTREpY1vzqKqZKvdp'],
+              events: ['chainChanged', 'accountsChanged'],
+            },
+            eip155: {
+              methods: ['eth_sendTransaction', 'personal_sign', 'eth_signTypedData_v4', 'wallet_addEthereumChain'],
+              chains: ['eip155:1'],
+              events: ['chainChanged', 'accountsChanged'],
+            },
           }
         })
       } catch (error) {

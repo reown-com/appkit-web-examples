@@ -22,7 +22,9 @@ export function App() {
   useEffect(() => {
     const handleDisplayUri = (uri: string) => {
       const modal = initializeModal(provider)
+      console.log("modal", modal);
       modal?.open({ uri, view: 'ConnectingWalletConnectBasic' })
+      console.log("modal 2", modal);
     }
 
     const handleConnect = async (session: any) => {
@@ -42,7 +44,7 @@ export function App() {
     <div className={"pages"}>
       <img src="/reown.svg" alt="Reown" style={{ width: '150px', height: '150px' }} />
       <h1>AppKit React AppKit Core Example</h1>
-      <h2> UP + Polkadot</h2>
+      <h2> UP + Solana + EVM</h2>
             <ActionButtonList  provider={provider} address={address} />
             <div className="advice">
               <p>
