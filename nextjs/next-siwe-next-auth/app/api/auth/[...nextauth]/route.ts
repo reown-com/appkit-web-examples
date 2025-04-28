@@ -15,12 +15,12 @@ declare module 'next-auth' {
   }
 }
 
-const nextAuthSecret = process.env.NEXTAUTH_SECRET;
+const nextAuthSecret = process.env.NEXTAUTH_SECRET || "change it";
 if (!nextAuthSecret) {
   throw new Error('NEXTAUTH_SECRET is not set');
 }
 
-const projectId = process.env.NEXT_PUBLIC_PROJECT_ID;
+const projectId = process.env.NEXT_PUBLIC_PROJECT_ID || "b56e18d47c72ab683b10814fe9495694"; // this is a public projectId only to use on localhost
 if (!projectId) {
   throw new Error('NEXT_PUBLIC_PROJECT_ID is not set');
 }
