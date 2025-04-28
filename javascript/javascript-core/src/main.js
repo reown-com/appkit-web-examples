@@ -10,6 +10,13 @@ initializeSubscribers(appKit);
 // Create AppKit Wallet Button
 const appKitWalletButton = createAppKitWalletButton();
 
+appKitWalletButton.subscribeIsReady(({ isReady }) => {
+  const walletButton = document.getElementById('walletButton');
+  if (walletButton) {
+    walletButton.style.display = isReady ? '' : 'none';
+  }
+})
+
 // Initial check
 updateButtonVisibility(appKit.getIsConnectedState());
 
