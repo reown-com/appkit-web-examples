@@ -65,8 +65,8 @@ Each framework has examples for the implementation with wagmi, ethers, solana, b
 ├──────── react-solana
 ├──────── react-siwe-server-example
 ├── vue/      # Web AppKit with Vue
-├──────── vue-bitcoin    # AppKit Core
-├──────── vue-core
+├──────── vue-bitcoin    
+├──────── vue-core    # AppKit Core
 ├──────── vue-ethers
 ├──────── vue-multichain (wagmi+solana)
 ├──────── vue-solana
