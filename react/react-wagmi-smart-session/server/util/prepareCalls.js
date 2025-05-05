@@ -84,22 +84,37 @@ export async function prepareCalls(args) {
     }
     const url = `https://rpc.walletconnect.org/v1/wallet?projectId=${projectId}`;
   
-    const { timeout = 30000, interval = 3000 } = options; // Default timeout to 30 seconds and interval to 2 second
+    const { timeout = 60000, interval = 2000 } = options; // Increased timeout to 60 seconds, reduced interval to 2 seconds
     const endTime = Date.now() + timeout;
     while (Date.now() < endTime) {
-      console.log("args: ", args);
-      const response = await jsonRpcRequest("wallet_getCallsStatus", [args], url);
-      console.log("response: ", response);
-      // Check if the response is valid (not null)
-      if (response.status === "CONFIRMED") {
-        return response;
+      try {
+        console.log("args: ", args);
+        const response = await jsonRpcRequest("wallet_getCallsStatus", [args], url);
+        console.log("response: ", response);
+        
+        // Handle different status cases
+        if (response.status === "CONFIRMED") {
+          return response;
+        } else if (response.status === "FAILED") {
+          throw new Error(`Transaction failed: ${response.error || 'Unknown error'}`);
+        } else if (response.status === "PENDING") {
+          // Continue polling
+        } else {
+          console.warn(`Unexpected status: ${response.status}`);
+        }
+      } catch (error) {
+        console.error("Error polling transaction status:", error);
+        // Continue polling on non-fatal errors
+        if (error.message.includes("SERVER_PROJECT_ID") || error.message.includes("Invalid response")) {
+          throw error; // Re-throw critical errors
+        }
       }
   
       // Wait for the specified interval before polling again
       await new Promise((resolve) => setTimeout(resolve, interval));
     }
     throw new Error(
-      "Timeout: No valid response received from wallet_getCallsStatus",
+      `Timeout: Transaction not confirmed after ${timeout/1000} seconds. Last status: ${response?.status || 'unknown'}`
     );
   }
 

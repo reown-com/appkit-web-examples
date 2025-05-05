@@ -80,13 +80,12 @@ app.post('/api/executeFunction', async (req, res) => {
     // get the receipt
     const receipt = await handleFetchReceipt(userOpIdentifier);
     const txHash = receipt.receipts?.[0]?.transactionHash;
-      
+
     const finalJSON = {
       message: `OK`,
       status: receipt.receipts?.[0]?.status === '0x1' ? 'success' : 'error',
       userOpIdentifier,
-      txLink: txHash,
-      value: data.args.value,
+      txLink: txHash
     };
     return res.status(200).json({ finalJSON });
 
