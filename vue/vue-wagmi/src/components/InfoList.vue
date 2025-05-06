@@ -33,8 +33,9 @@ Name: {{ walletInfo }}<br />
     </section>
 </template>
   
-<script>
+<script lang="ts">
 import { defineComponent, onMounted } from "vue";
+import type { DefineComponent } from 'vue';
 import {
   useAppKitState,
   useAppKitTheme,
@@ -42,15 +43,24 @@ import {
   useAppKitAccount,
   useWalletInfo,
 } from "@reown/appkit/vue";
+import type { ThemeMode, CaipNetworkId } from "@reown/appkit/vue";
 
-export default {
+
+export interface ComponentData {
+  kitTheme: ReturnType<typeof useAppKitTheme>;
+  state: ReturnType<typeof useAppKitState>;
+  accountInfo: ReturnType<typeof useAppKitAccount>;
+  walletInfo: ReturnType<typeof useWalletInfo>;
+}
+
+export default defineComponent({
   name: "InfoList",
-  setup() {
+  setup(): ComponentData {
     const kitTheme = useAppKitTheme();
     const state = useAppKitState();
     const accountInfo = useAppKitAccount();
     const events = useAppKitEvents();
-    const { walletInfo } = useWalletInfo();
+    const walletInfo = useWalletInfo();
 
     onMounted(() => {
       console.log("Events: ", events);
@@ -63,5 +73,5 @@ export default {
       walletInfo,
     };
   },
-}
+});
 </script>
