@@ -14,7 +14,7 @@
     "@reown/appkit": "1.7.4",
     "@reown/appkit-adapter-wagmi": "1.7.4",
     "@tanstack/vue-query": "^5.59.16",
-    "@wagmi/vue": "^0.0.56",
+    "@wagmi/vue": "0.1.18",
     "viem": "^2.21.39",
     "vue": "^3.5.12"
   },
@@ -23,9 +23,9 @@
     "@types/node": "^20.17.0",
     "@vitejs/plugin-vue": "^5.1.4",
     "@vitejs/plugin-vue-jsx": "^4.0.1",
-    "@vue/tsconfig": "^0.5.1",
-    "npm-run-all2": "^7.0.1",
-    "typescript": "~5.6.0",
+    "@vue/tsconfig": "^0.7.0",
+    "npm-run-all2": "^8.0.1",
+    "typescript": "~5.8.3",
     "vite": "^6.2.0",
     "vue-tsc": "^2.1.6"
   }

@@ -50,7 +50,7 @@ export default {
     const state = useAppKitState();
     const accountInfo = useAppKitAccount();
     const events = useAppKitEvents();
-    const { walletInfo } = useWalletInfo();
+    const walletInfo = useWalletInfo();
 
     onMounted(() => {
       console.log("Events: ", events);
