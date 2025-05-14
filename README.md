@@ -71,3 +71,14 @@ Each framework has examples for the implementation with wagmi, ethers, solana, b
 ├──────── vue-multichain (wagmi+solana)
 ├──────── vue-solana
 └──────── vue-wagmi
+```
+
+## Reference
+
+- [AppKit Docs](https://docs.reown.com/appkit/overview)
+- [React AppKit Quickstart](https://docs.reown.com/appkit/react/core/installation)
+- [Next.js AppKit Quickstart](https://docs.reown.com/appkit/next/core/installation)
+- [Vue AppKit Quickstart](https://docs.reown.com/appkit/vue/core/installation)
+- [Javascript AppKit Quickstart](https://docs.reown.com/appkit/javascript/core/installation)
+- [Discord for Questions](https://discord.gg/reown)
+- [Dashboard to create a projectId to use AppKit](https://cloud.reown.com/)
