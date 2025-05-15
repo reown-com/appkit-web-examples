@@ -31,18 +31,8 @@ export const ActionButtonList = () => {
     };
 
     const handlePay = async () => {
-      // Configure a custom paymentAsset
-     /*  const paymentAssetDetails = {
-        network: 'eip155:8453', // Base Mainnet
-        asset: 'native', // Or USDC in Base: '0x833589fcd6edb6e08f4c7c32d4f71b54bda02913'
-        metadata: {
-            name: 'Ethereum', // Or 'USD Coin'
-            symbol: 'ETH',    // Or 'USDC'
-            decimals: 18      // Or 6 for USDC
-        },
-
-      } as const; */
-
+      // Check docs to Configure a custom paymentAsset
+     /// https://docs.reown.com/appkit/react/payments/pay-with-exchange
 
       // open resolves when the modal closes, but onSuccess/onError handle the actual payment result
       await openPay({ 
