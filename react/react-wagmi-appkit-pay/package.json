@@ -10,9 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@reown/appkit": "1.7.5-72f4658597bb9c15b94836cc3be4fa2078b1e163.0",
-    "@reown/appkit-adapter-wagmi": "1.7.5-72f4658597bb9c15b94836cc3be4fa2078b1e163.0",
-    "@reown/appkit-pay": "1.7.5-72f4658597bb9c15b94836cc3be4fa2078b1e163.0",
+    "@reown/appkit": "1.7.5",
+    "@reown/appkit-adapter-wagmi": "1.7.5",
+    "@reown/appkit-pay": "1.7.5",
     "@tanstack/react-query": "^5.56.2",
     "react": "19.0.0",
     "react-dom": "19.0.0",
