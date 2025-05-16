@@ -5,6 +5,49 @@
 
 This repository provides examples of how to integrate and use **AppKit** in various frameworks, including **Javascript**,**Next.js**, **React**, and **Vue**. These examples are designed to demonstrate best practices and simplify the integration process.
 
+## 🔧 About Reown AppKit
+
+**Reown AppKit** is a comprehensive, open-source SDK designed to streamline the development of modern Web3 applications. It offers a suite of modular tools that simplify user onboarding, authentication, transactions, and engagement across multiple blockchain networks.
+
+### 🚀 Key Features
+
+- **Universal Authentication**  
+  Support for email, social logins, and one-click authentication using SIWX, enabling seamless user access across EVM, Solana, and Bitcoin networks.  
+  [Read more →](https://docs.reown.com/appkit/features/authentication)
+
+- **Smart Accounts**  
+  Enhance user security and convenience with multi-signature authorization and automated transaction workflows.  
+  [Read more →](https://docs.reown.com/appkit/features/smart-accounts)
+
+- **Smart Sessions**  
+  Enable dApps to perform specific blockchain actions on behalf of users for a defined period, eliminating the need for repeated approvals.  
+  [Read more →](https://docs.reown.com/appkit/features/smart-sessions)
+
+- **On-Ramp & Swaps**  
+  Let users buy crypto and swap tokens directly within your app.  
+  [Read more →](https://docs.reown.com/appkit/features/onramp)
+
+- **Notifications**  
+  Deliver important updates directly to users’ wallets or in-app using Web3-native notifications.  
+  [Read more →](https://docs.reown.com/appkit/next/notifications/overview)
+
+- **Multi-Chain Support**  
+  Works seamlessly with EVM chains, Solana, and Bitcoin.  
+  [Read more →](https://docs.reown.com/appkit/overview)
+
+- **Customizable UI**  
+  Themeable components with support for light/dark modes and brand styling.  
+  [Read more →](https://docs.reown.com/appkit/overview)
+
+- **Extensive Wallet Compatibility**  
+  Connects with over 600 wallets including MetaMask, Coinbase Wallet, Trust Wallet, and more.  
+  [Read more →](https://docs.reown.com/appkit/overview)
+
+Reown AppKit is framework-agnostic and supports React, Vue, Next.js, React Native, Flutter, Android, iOS, and Unity — giving developers the flexibility to build seamless and secure Web3 experiences across platforms.
+
+📚 Explore the full documentation: [docs.reown.com/appkit](https://docs.reown.com/appkit/overview)
+
+
 ## Examples Included
 
 Each framework has examples for the implementation with wagmi, ethers, solana, bitcoin and multichain (wagmi & solana)
