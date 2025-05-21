@@ -1,8 +1,7 @@
-import { useEffect } from 'react'
+
 import {
     useAppKitState,
     useAppKitTheme,
-    useAppKitEvents,
     useAppKitAccount,
     useWalletInfo
      } from '@reown/appkit/react'

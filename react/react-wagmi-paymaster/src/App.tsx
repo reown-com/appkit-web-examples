@@ -28,6 +28,7 @@ createAppKit({
   adapters: [wagmiAdapter],
   ...generalConfig,
   defaultAccountTypes: {eip155: 'smartAccount'},
+  defaultNetwork: networks[0],
   features: {
     analytics: true, // Optional - defaults to your Cloud configuration
     connectMethodsOrder: ['social', 'email'],

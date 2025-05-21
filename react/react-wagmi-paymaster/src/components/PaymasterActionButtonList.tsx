@@ -1,7 +1,8 @@
-import { useAppKitNetwork, useAppKitAccount  } from '@reown/appkit/react'
+import { useAppKitNetwork, useAppKitAccount } from '@reown/appkit/react'
 import { useReadContract, useSendCalls } from 'wagmi'
 import { storageABI, storageAddress } from '../abi/storage'
 import { parseEther, encodeFunctionData } from 'viem'
+import  { projectId } from '../config'
 
 const randomNumber = Math.floor(Math.random() * 999) + 1;
 
@@ -43,17 +44,23 @@ export const PaymasterActionButtonList = () => {
     const handleReadSmartContract = async () => {
       console.log("Read Sepolia Smart Contract");
       const { data } = await readContract.refetch();
-      console.log("data: ", data)
+      console.log("value SC: ", data)
     }
 
     const handleWriteSmartContract = () => {
         console.log("Write Sepolia GASLESS Smart Contract")
+   
         sendCalls({
           calls: [STORAGE_TEST_TX],
-          chainId: 11155111,
+          chainId: 0x2105, // hex chain id for base
           capabilities: {
             paymasterService: {
-              url: "https://paymaster-api.reown.com/11155111/rpc?projectId=07fe00193f4e4938dd3bee5142803995", // for sepolia 
+                url: "https://paymaster-api.reown.com/8453/rpc?projectId=" + projectId, // for base 
+                context: {
+                  reown: {
+                    policyId: "<FILL_YOUR_POLICY_ID>"
+                  }
+                }
             }
           }
         })
@@ -62,7 +69,7 @@ export const PaymasterActionButtonList = () => {
 
 
   return (
-    isConnected && chainId === 11155111 && ( // Only show the buttons if the user is connected to Sepolia
+    isConnected && chainId === 8453 && ( // Only show the buttons if the user is connected to Sepolia
     <div>
         <button onClick={handleReadSmartContract}>Read Sepolia Smart Contract</button>
         <button onClick={handleWriteSmartContract}>Write Sepolia Gasless Smart Contract</button>  
