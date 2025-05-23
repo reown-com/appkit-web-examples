@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import { useDisconnect, useAppKit, useAppKitNetwork } from "@reown/appkit/vue";
+import { useDisconnect, useAppKit, useAppKitNetwork } from "@reown/appkit/vue-core";
 import { networks } from "../config/index";
 
 export default {

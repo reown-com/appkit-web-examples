@@ -1,5 +1,5 @@
 'use client'
-import { useDisconnect, useAppKit, useAppKitNetwork, type Provider, useAppKitProvider, useAppKitAccount  } from '@reown/appkit/react'
+import { useDisconnect, useAppKit, useAppKitNetwork, type Provider, useAppKitProvider, useAppKitAccount  } from '@reown/appkit/react-core'
 import { networks } from '@/config'
 
 export const ActionButtonList = () => {

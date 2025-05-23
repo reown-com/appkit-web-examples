@@ -40,7 +40,7 @@ import {
   useAppKitEvents,
   useAppKitAccount,
   useWalletInfo,
-} from "@reown/appkit/vue";
+} from "@reown/appkit/vue-core";
 
 export default {
   name: "InfoList",
