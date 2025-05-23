@@ -5,7 +5,7 @@ import {
     useAppKitEvents,
     useAppKitAccount,
     useWalletInfo
-     } from '@reown/appkit/react'
+     } from '@reown/appkit/react-core'
 
 export const InfoList = () => {
     const kitTheme = useAppKitTheme(); // AppKit hook to get the theme information and theme actions 
