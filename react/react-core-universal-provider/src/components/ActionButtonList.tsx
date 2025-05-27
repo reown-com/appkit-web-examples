@@ -2,9 +2,11 @@ import UniversalProvider from '@walletconnect/universal-provider'
 interface ActionButtonListProps {
   provider: UniversalProvider | undefined;
   address: string | undefined;
+  session: any;
+  setSession: (session: any) => void;
 }
 
-export const ActionButtonList = ({ provider, address }: ActionButtonListProps) => {
+export const ActionButtonList = ({ provider, address, session, setSession }: ActionButtonListProps) => {
  
     // function to sing a msg 
     const handleSignMsg = async () => {
@@ -28,6 +30,8 @@ export const ActionButtonList = ({ provider, address }: ActionButtonListProps) =
       try {
         if (!provider) return;
         await provider.disconnect()
+        setSession(null);
+        console.log("disconnected");
       } catch (error) {
         console.error("Failed to disconnect:", error);
       }
@@ -57,9 +61,18 @@ export const ActionButtonList = ({ provider, address }: ActionButtonListProps) =
   return (
     (
     <div >
+      {session ? (
+        <>
+          <button onClick={handleDisconnect}>Disconnect</button>
+          <button onClick={handleSignMsg}>Sign msg</button>
+          <div>
+            <p>Session: {session?.namespaces?.polkadot?.accounts?.[0]}</p>
+          </div>
+          <br/>
+        </>
+      ) : (
         <button onClick={handleConnect}>Open</button>
-        <button onClick={handleDisconnect}>Disconnect</button>
-        <button onClick={handleSignMsg}>Sign msg</button>
+      )}
     </div>
     )
   )

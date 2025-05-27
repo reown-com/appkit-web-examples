@@ -30,7 +30,15 @@ let modal: AppKit | undefined
 
 export async function initializeProvider() {
   if (!provider) {
-    provider = await UniversalProvider.init({ projectId })
+    provider = await UniversalProvider.init(
+      { projectId, 
+        metadata: {
+          name: "WalletConnect x Polkadot",
+          description: "Tron integration with WalletConnect's Universal Provider",
+          url: "https://walletconnect.com/",
+          icons: ["https://avatars.githubusercontent.com/u/37784886"],
+        }
+      })
   }
   return provider
 }

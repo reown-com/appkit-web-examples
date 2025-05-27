@@ -10,17 +10,17 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@reown/appkit": "1.7.2",
-    "@walletconnect/universal-provider": "2.19.1",
+    "@reown/appkit": "1.7.6",
+    "@walletconnect/universal-provider": "2.20.3",
     "react": "19.0.0",
     "react-dom": "19.0.0",
-    "ethers": "6.13.5"
+    "ethers": "6.14.1"
   },
   "devDependencies": {
     "@types/react": "19.0.0",
     "@types/react-dom": "19.0.0",
     "@vitejs/plugin-react": "4.2.1",
     "typescript": "^5.5.3",
-    "vite": "^6.2.0"
+    "vite": "^6.3.5"
   }
 }
