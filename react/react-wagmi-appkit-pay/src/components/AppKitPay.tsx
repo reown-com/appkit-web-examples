@@ -1,5 +1,5 @@
 import { usePay } from '@reown/appkit-pay/react';
-import { baseUSDC } from '@reown/appkit-pay'
+import { baseUSDC } from '@reown/appkit-pay';
 import './AppKitPay.css';
 
 export const AppKitPay = () => {
@@ -20,12 +20,13 @@ export const AppKitPay = () => {
     const handlePay = async (amount: number) => {
       // Check docs to Configure a custom paymentAsset
      /// https://docs.reown.com/appkit/react/payments/pay-with-exchange
-      const recipientAddress = document.querySelector('input[name="recipientAddress"]')?.value || '';
+      const recipientAddress = (document.querySelector('input[name="recipientAddress"]') as HTMLInputElement)?.value || '';
       
       if (!recipientAddress) {
         alert('Please enter a recipient address');
         return;
       }
+      console.log("recipientAddress:", recipientAddress);
       
       // open resolves when the modal closes, but onSuccess/onError handle the actual payment result
       await openPay({ 
