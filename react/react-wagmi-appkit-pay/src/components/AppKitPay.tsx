@@ -46,7 +46,7 @@ export const AppKitPay = () => {
                 <p>A delicious glazed donut, perfect for a quick treat.</p>
                 <div className="price">$1.00</div>
             </div>
-            <button onClick={() => handlePay(1)}>Pay with Crypto</button>
+            <button onClick={() => handlePay(10)}>Pay with Crypto</button>
         </div>
         <div className="card">
         <img src="/donut2.jpg" alt="Single Donut" className="donut-image" />
@@ -55,7 +55,7 @@ export const AppKitPay = () => {
                 <p>6 donuts perfect for sharing with friends or colleagues.</p>
                 <div className="price">$6.00</div>
             </div>
-            <button onClick={() => handlePay(6)}>Pay with Crypto</button>
+            <button onClick={() => handlePay(15)}>Pay with Crypto</button>
         </div> 
         <div className="card" style={{ width: '100%' }}>
             <div className="content">
@@ -65,6 +65,8 @@ export const AppKitPay = () => {
                     type="text" 
                     name="recipientAddress"
                     placeholder="0x..." 
+                    autoComplete="off"
+                    data-1p-ignore
                     style={{
                         width: '100%',
                         padding: '10px',
