@@ -55,7 +55,7 @@ export const AppKitPay = () => {
                 <div className="price">$6.00</div>
             </div>
             <button onClick={() => handlePay(6)}>Pay with Crypto</button>
-        </div>
+        </div> 
         <div className="card" style={{ width: '100%' }}>
             <div className="content">
                 <div className="title">Destination Address</div>
