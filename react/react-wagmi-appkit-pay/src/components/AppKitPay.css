@@ -1,0 +1,184 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+  font-family: sans-serif;
+  max-width: 1200px;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+.card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  min-width: 280px;
+  max-width: 380px;
+  transition: transform 0.2s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.card img {
+  width: 100%;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.content {
+  padding: 15px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-weight: bold;
+  font-size: clamp(18px, 2vw, 24px);
+  margin-bottom: 8px;
+}
+
+.price {
+  font-weight: bold;
+  font-size: clamp(16px, 1.5vw, 20px);
+  margin-top: 10px;
+  color: #2c5282;
+}
+
+button {
+  width: calc(100% - 30px);
+  background: #000;
+  color: #fff;
+  padding: 12px;
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+  margin: 15px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.2s ease;
+  align-self: center;
+}
+
+button:hover {
+  background: #333;
+}
+
+.donut-image {
+  object-fit: cover;
+  height: 200px;
+  width: 100%;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+  
+  .card {
+    min-width: 100%;
+  }
+  
+  .donut-image {
+    height: 180px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 5px;
+  }
+  
+  .content {
+    padding: 10px;
+  }
+  
+  .donut-image {
+    height: 160px;
+  }
+  
+  button {
+    padding: 10px;
+    font-size: 14px;
+  }
+}
+
+/* Payment status section */
+section {
+  width: 100%;
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: #f8f9fa;
+}
+
+section h2 {
+  font-size: clamp(18px, 2vw, 24px);
+  margin-bottom: 10px;
+}
+
+section p {
+  font-size: clamp(14px, 1.5vw, 16px);
+  margin: 5px 0;
+}
+
+/* Input field styles */
+input[type="text"] {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-top: 10px;
+  transition: border-color 0.2s ease;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  border-color: #2c5282;
+  box-shadow: 0 0 0 2px rgba(44, 82, 130, 0.1);
+}
+
+@media (max-width: 480px) {
+  input[type="text"] {
+    padding: 10px;
+    font-size: 14px;
+  }
+}
+
+.circle {
+  width: 30px; /* Adjust the size as needed */
+  height: 30px; /* Adjust the size as needed */
+  background-color: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: add a shadow for better visual effect */
+  margin-top: 20px;
+}
+
+.circle img {
+  width: 70%; /* Adjust as needed */
+  height: 70%; /* Adjust as needed */
+
+  align-items: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.circle a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
