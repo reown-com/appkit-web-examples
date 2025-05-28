@@ -9,8 +9,8 @@ export const passportInstance = new passport.Passport({
     publishableKey
   },
   clientId,
-  redirectUri: 'http://localhost:3000/redirect', // replace with one of your redirect URIs from Hub
-  logoutRedirectUri: 'http://localhost:3000/logout', // replace with one of your logout URIs from Hub
+  redirectUri: 'http://appkit-web-examples-next-wagmi-lr7t6a41z-reown-com.vercel.app/redirect', // replace with one of your redirect URIs from Hub
+  logoutRedirectUri: 'http://appkit-web-examples-next-wagmi-lr7t6a41z-reown-com.vercel.app/logout', // replace with one of your logout URIs from Hub
   audience: 'platform_api',
   scope: 'openid offline_access email transact',
   popupOverlayOptions: {
