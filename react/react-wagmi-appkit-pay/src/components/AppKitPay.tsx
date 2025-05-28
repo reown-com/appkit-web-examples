@@ -44,7 +44,7 @@ export const AppKitPay = () => {
             <div className="content">
                 <div className="title">Single Donut</div>
                 <p>A delicious glazed donut, perfect for a quick treat.</p>
-                <div className="price">$1.00</div>
+                <div className="price">$10.00</div>
             </div>
             <button onClick={() => handlePay(10)}>Pay with Crypto</button>
         </div>
@@ -53,7 +53,7 @@ export const AppKitPay = () => {
             <div className="content">
                 <div className="title">Box of Donuts</div>
                 <p>6 donuts perfect for sharing with friends or colleagues.</p>
-                <div className="price">$6.00</div>
+                <div className="price">$15.00</div>
             </div>
             <button onClick={() => handlePay(15)}>Pay with Crypto</button>
         </div> 
