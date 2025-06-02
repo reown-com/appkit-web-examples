@@ -68,6 +68,7 @@ Each framework has examples for the implementation with wagmi, ethers, solana, b
 |           | Solana        | [Demo](https://appkit-web-examples-react-solana.reown.com/)                                  | [Fork](https://stackblitz.com/github/reown-com/appkit-web-examples/tree/main/react/react-solana/)              |
 |           | Bitcoin       | [Demo](https://appkit-web-examples-react-bitcoin.reown.com/)                                 | [Fork](https://stackblitz.com/github/reown-com/appkit-web-examples/tree/main/react/react-bitcoin/)             |
 |           | Multichain    | [Demo](https://appkit-web-examples-react-multichain.reown.com/)                              | [Fork](https://stackblitz.com/github/reown-com/appkit-web-examples/tree/main/react/react-multichain/)          |
+|           | AppKit Pay    | [Demo](https://appkit-web-examples-pay.reown.com/)                                           | [Fork](https://stackblitz.com/github/reown-com/appkit-web-examples/tree/main/react/react-wagmi-appkit-pay/)          |
 | **Vue**    | ethers        | [Demo](https://appkit-web-examples-vue-ethers.reown.com/)                                    | [Fork](https://stackblitz.com/github/reown-com/appkit-web-examples/tree/main/vue/vue-ethers/)                  |
 |           | wagmi         | [Demo](https://appkit-web-examples-vue-wagmi.reown.com/)                                     | [Fork](https://stackblitz.com/github/reown-com/appkit-web-examples/tree/main/vue/vue-wagmi/)                   |
 |           | Solana        | [Demo](https://appkit-web-examples-vue-solana.reown.com/)                                    | [Fork](https://stackblitz.com/github/reown-com/appkit-web-examples/tree/main/vue/vue-solana/)                  |
@@ -107,6 +108,7 @@ Each framework has examples for the implementation with wagmi, ethers, solana, b
 ├──────── react-multichain    # Wagmi + Solana
 ├──────── react-solana
 ├──────── react-siwe-server-example
+├──────── react-wagmi-appkit-pay
 ├── vue/      # Web AppKit with Vue
 ├──────── vue-bitcoin    
 ├──────── vue-core    # AppKit Core

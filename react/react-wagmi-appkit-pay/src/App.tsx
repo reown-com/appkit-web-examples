@@ -3,10 +3,11 @@ import { createAppKit } from '@reown/appkit/react'
 import { WagmiProvider } from 'wagmi'
 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { ActionButtonList } from './components/ActionButtonList'
 import { projectId, metadata, networks, wagmiAdapter } from './config'
+import { AppKitPay } from './components/AppKitPay'
 
 import "./App.css"
+
 
 const queryClient = new QueryClient()
 
@@ -34,18 +35,15 @@ export function App() {
     <div className={"pages"}>
       <img src="/reown.svg" alt="Reown" style={{ width: '150px', height: '150px' }} />
       <h1>AppKit Pay Example</h1>
-      <h3> React dApp</h3>
+      <h3>Purchase delicious donuts using your favorite cryptocurrency</h3>
       <br></br>
       <WagmiProvider config={wagmiAdapter.wagmiConfig}>
         <QueryClientProvider client={queryClient}>
-            <appkit-button />
-            <div className="advice">
-              <p>
-                This projectId only works on localhost. <br/>
-                Go to <a href="https://cloud.reown.com" target="_blank" className="link-button" rel="Reown Cloud">Reown Cloud</a> to get your own.
-              </p>
+            <AppKitPay />
+            <div className="circle">
+              <a href="https://github.com/reown-com/appkit-web-examples/tree/main/react/react-wagmi-appkit-pay" target="_blank"><img src="/github.png" alt="GitHub" width="50" /></a>
             </div>
-            <ActionButtonList />
+            <br />
         </QueryClientProvider>
       </WagmiProvider>
     </div>
