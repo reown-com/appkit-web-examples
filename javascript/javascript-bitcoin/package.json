@@ -7,10 +7,10 @@
     "build": "vite build"
   },
   "dependencies": {
-    "@reown/appkit": "1.7.7",
+    "@reown/appkit": "1.7.8",
     "@reown/appkit-adapter-bitcoin": "1.7.7"
   },
   "devDependencies": {
-    "vite": "6.2.0"
+    "vite": "6.2.7"
   }
 }
