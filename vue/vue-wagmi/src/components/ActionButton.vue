@@ -33,8 +33,9 @@
       const networkData = useAppKitNetwork();
       const accountData = useAppKitAccount() 
       const { data: gas } = useEstimateGas({...TEST_TX}); // Wagmi hook to estimate gas
-      const { data: hash, sendTransaction } = useSendTransaction(); // Wagmi hook to send a transaction
+      const { data: hash, sendTransaction,error } = useSendTransaction(); // Wagmi hook to send a transaction
       const { signMessageAsync } = useSignMessage() // Wagmi hook to sign a message
+
   
       const address = accountData.value.address;
       const openAppKit = () => open();
@@ -43,6 +44,12 @@
       watchEffect(() => {
         if (hash.value) {
           console.log("tx hash:", hash.value);
+        }
+      });
+
+      watchEffect(() => {
+        if (error.value) {
+          console.log("error:", error.value);
         }
       });
 
@@ -63,17 +70,17 @@
       }
 
        // function to send a tx
-    const handleSendTx = () => {
-      console.log("send Tx")
-      try {
-        sendTransaction({
-          ...TEST_TX,
-          gas // Add the gas to the transaction
-        });
-      } catch (err) {
-        console.log('Error sending transaction:', err);
+      const handleSendTx = () => {
+        console.log("send Tx")
+        try {
+          sendTransaction({
+            ...TEST_TX,
+            gas: gas.value // Add the gas to the transaction
+          });
+        } catch (err) {
+          console.log('Error sending transaction:', err);
+        }
       }
-    }
 
 
       return {
