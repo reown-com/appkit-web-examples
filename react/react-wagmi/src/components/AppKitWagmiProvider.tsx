@@ -3,7 +3,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { createAppKit } from '@reown/appkit/react'
 import { WagmiAdapter } from '@reown/appkit-adapter-wagmi'
 import type { AppKitNetwork } from '@reown/appkit/networks'
-import { ReactNode } from 'react'
+import { ReactNode, useMemo } from 'react' 
 
 const queryClient = new QueryClient()
 
@@ -13,9 +13,9 @@ interface AppKitWagmiProviderProps {
   networks: [AppKitNetwork, ...AppKitNetwork[]];
   metadata: {
     name: string;
-    description?: string;
-    url?: string;
-    icons?: string[];
+    description: string;
+    url: string;
+    icons: string[];
   };
   features: {
     analytics: boolean;
@@ -24,23 +24,19 @@ interface AppKitWagmiProviderProps {
 }
 
 export const AppKitWagmiProvider = ({ children, projectId, networks, metadata, features }: AppKitWagmiProviderProps) => {
-  const generalConfig = {
-    projectId,
-    networks,
-    metadata,
-    features
-  }
-
-  const wagmiAdapter = new WagmiAdapter({
-    projectId,
-    networks
-  })
-
-  createAppKit({
-    adapters: [wagmiAdapter],
-    ...generalConfig
-  })
-
+  const [wagmiAdapter, _] = useMemo(() => {
+    const adapter = new WagmiAdapter({ projectId, networks })
+  
+    const appkit = createAppKit({
+      adapters: [adapter],
+      projectId,
+      networks,
+      metadata,
+      features
+    })
+  
+    return [adapter, appkit]
+  }, [projectId, networks, metadata, features])
 
   return (
     <WagmiProvider config={wagmiAdapter.wagmiConfig}>
