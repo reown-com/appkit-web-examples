@@ -1,14 +1,17 @@
-# Reown AppKit Example using wagmi (Vite + React)
+# Reown AppKit Paymaster Example using wagmi (Vite + React)
 
 This is a [Vite](https://vitejs.dev) project together with React.
+
 
 ## Usage
 
 1. Go to [Reown Cloud](https://cloud.reown.com) and create a new project.
 2. Copy your `Project ID`
 3. Rename `.env.example` to `.env` and paste your `Project ID` as the value for `VITE_PROJECT_ID`
-4. Run `pnpm install` to install dependencies
-5. Run `pnpm run dev` to start the development server
+4. Create a new policy in the project and copy the `Policy ID`
+5. Add the `Policy ID` to the `.env` file as the value for `POLICY_ID`
+6. Run `pnpm install` to install dependencies
+7. Run `pnpm run dev` to start the development server
 
 ## Resources
 
