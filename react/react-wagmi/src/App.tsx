@@ -9,6 +9,8 @@ import { SmartContractActionButtonList } from './components/SmartContractActionB
 import { InfoList } from './components/InfoList'
 import { projectId, metadata, networks, wagmiAdapter } from './config'
 
+import { CloudAuthSIWX } from '@reown/appkit-siwx'
+
 import "./App.css"
 
 const queryClient = new QueryClient()
@@ -27,6 +29,7 @@ const generalConfig = {
 createAppKit({
   adapters: [wagmiAdapter],
   ...generalConfig,
+  siwx: new CloudAuthSIWX(),
   features: {
     analytics: true // Optional - defaults to your Cloud configuration
   }
