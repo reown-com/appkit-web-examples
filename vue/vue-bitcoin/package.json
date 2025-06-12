@@ -11,8 +11,8 @@
     "type-check": "vue-tsc --build --force"
   },
   "dependencies": {
-    "@reown/appkit": "1.7.8",
-    "@reown/appkit-adapter-bitcoin": "1.7.8",
+    "@reown/appkit": "1.7.9",
+    "@reown/appkit-adapter-bitcoin": "1.7.9",
     "vue": "^3.5.12"
   },
   "devDependencies": {
