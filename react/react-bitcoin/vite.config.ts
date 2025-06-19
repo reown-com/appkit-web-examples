@@ -7,6 +7,7 @@ export default defineConfig({
   plugins: [react(), nodePolyfills()],
   define: {
     'process.env': {},
+    'process.version': '"v0.0.1"',
     'window.ethereum': 'undefined'
   },
 })
