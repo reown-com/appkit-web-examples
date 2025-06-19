@@ -1,10 +1,16 @@
-import { createAppKit } from '@reown/appkit/react'
-import { useState } from 'react'
-import { networks, projectId, metadata, bitcoinAdapter } from './config'
-import { ActionButtonList } from './components/ActionButtonList'
-import { InfoList } from './components/InfoList'
+import { createAppKit } from "@reown/appkit/react";
+import { useState } from "react";
+import { networks, projectId, metadata } from "./config";
+import { ActionButtonList } from "./components/ActionButtonList";
+import { InfoList } from "./components/InfoList";
 
-import "./App.css"
+import "./App.css";
+import { BitcoinAdapter } from "@reown/appkit-adapter-bitcoin";
+
+// Set up Bitcoin Adapter
+const bitcoinAdapter = new BitcoinAdapter({
+  projectId,
+});
 
 // Create a AppKit instance
 createAppKit({
@@ -12,16 +18,16 @@ createAppKit({
   networks,
   metadata,
   projectId,
-  themeMode: 'light',
+  themeMode: "light",
   features: {
     analytics: true, // Optional - defaults to your Cloud configuration
     socials: [],
     email: false,
   },
   themeVariables: {
-    '--w3m-accent': '#000000',
-  }
-})
+    "--w3m-accent": "#000000",
+  },
+});
 
 export function App() {
   const [psbt, setPSBT] = useState<string>("");
@@ -38,33 +44,58 @@ export function App() {
     setSignedMsg(signedMsg); // Update the state with the transaction hash
   };
 
-  const receiveTxHash= (hash: string) => {
-    setTxHash(hash)
-  }
+  const receiveTxHash = (hash: string) => {
+    setTxHash(hash);
+  };
 
-  const receiveBalance= (amount: string) => {
-    setBalance(amount)
-  }
+  const receiveBalance = (amount: string) => {
+    setBalance(amount);
+  };
 
   const receivePublicKey = (publicKey: string) => {
-    setPublicKey(publicKey)
-  }
+    setPublicKey(publicKey);
+  };
 
   return (
     <div className={"pages"}>
-      <img src="/reown.svg" alt="Reown" style={{ width: '150px', height: '150px' }} />
+      <img
+        src="/reown.svg"
+        alt="Reown"
+        style={{ width: "150px", height: "150px" }}
+      />
       <h1>AppKit bitcoin React dApp Example</h1>
-          <appkit-button />
-          <ActionButtonList sendSignPSBT={receivePSBT} sendSignMsg={receiveSignedMsg} sendSendTx={receiveTxHash} sendBalance={receiveBalance} sendPublicKey={receivePublicKey} />
-          <div className="advice">
-            <p>
-              This projectId only works on localhost. <br/>
-              Go to <a href="https://cloud.reown.com" target="_blank" className="link-button" rel="Reown Cloud">Reown Cloud</a> to get your own.
-            </p>
-          </div>
-          <InfoList psbt={psbt} signedMsg={signedMsg} txHash={txHash} balance={balance} publicKey={publicKey} />
+      <appkit-button />
+      <ActionButtonList
+        sendSignPSBT={receivePSBT}
+        sendSignMsg={receiveSignedMsg}
+        sendSendTx={receiveTxHash}
+        sendBalance={receiveBalance}
+        sendPublicKey={receivePublicKey}
+      />
+      <div className="advice">
+        <p>
+          This projectId only works on localhost. <br />
+          Go to{" "}
+          <a
+            href="https://cloud.reown.com"
+            target="_blank"
+            className="link-button"
+            rel="Reown Cloud"
+          >
+            Reown Cloud
+          </a>{" "}
+          to get your own.
+        </p>
+      </div>
+      <InfoList
+        psbt={psbt}
+        signedMsg={signedMsg}
+        txHash={txHash}
+        balance={balance}
+        publicKey={publicKey}
+      />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
