@@ -1,6 +1,7 @@
 import { bitcoin, bitcoinTestnet } from '@reown/appkit/networks'
 import type { AppKitNetwork } from '@reown/appkit/networks'
 import { BitcoinAdapter } from '@reown/appkit-adapter-bitcoin'
+import type { CaipNetwork } from '@reown/appkit'
 
 // Get projectId from https://cloud.reown.com
 export const projectId = import.meta.env.VITE_PROJECT_ID || "b56e18d47c72ab683b10814fe9495694" // this is a public projectId only to use on localhost
@@ -22,5 +23,6 @@ export const networks = [bitcoin, bitcoinTestnet] as [AppKitNetwork, ...AppKitNe
 
 // Set up Bitcoin Adapter
 export const bitcoinAdapter = new BitcoinAdapter({
-  projectId
+  projectId,
+  networks: networks as CaipNetwork[],
 })
