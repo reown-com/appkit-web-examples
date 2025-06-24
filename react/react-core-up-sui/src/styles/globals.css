@@ -1,0 +1,39 @@
+/* Blueberry Button styles */
+.blueberry-button {
+  background-color: #3b82f6; /* bg-blue-500 */
+  color: white;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.blueberry-button:hover {
+  background-color: white;
+  color: black;
+}
+
+.blueberry-button:disabled {
+  background-color: white;
+  color: black;
+  opacity: 1;
+}
+
+/* Send Button Active State */
+.send-button-active {
+  background: linear-gradient(90deg, #4d4d4d 0%, #a0a0a0 100%);
+}
+
+.send-button-active:hover {
+  background: white;
+  color: black;
+}
+
+.send-button-active:disabled {
+  background: white;
+  color: black;
+  opacity: 1;
+}
+
+/* Send Button Active Text */
+/* ... existing code ... */ 
