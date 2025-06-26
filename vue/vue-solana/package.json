@@ -13,7 +13,7 @@
   "dependencies": {
     "@reown/appkit": "1.7.11",
     "@reown/appkit-adapter-solana": "1.7.11",
-    "viem": "^2.21.39",
+    "viem": "^2.31.3",
     "vue": "^3.5.12"
   },
   "devDependencies": {
