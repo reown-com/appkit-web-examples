@@ -1,10 +1,12 @@
-
 <template>
   <div class="pages">
      <img src="/reown.svg" alt="Reown" width="150" height="150" />
      <h1>AppKit solana vue Example</h1>
 
      <appkit-button />
+     <button @click="() => appKitWalletButton.connect('metamask')" :disabled="!isReady">
+       Connect to MetaMask
+     </button>
      <ActionButtonList />
      <div className="advice">
         <p>
@@ -18,15 +20,18 @@
 
 
 <script lang="ts">
+import { ref, onMounted } from 'vue'
 import {
   createAppKit,
 } from '@reown/appkit/vue'
-import {solanaWeb3JsAdapter , networks, projectId } from './config/index'
+import { solanaWeb3JsAdapter, networks, projectId } from './config/index'
 
 import ActionButtonList from "./components/ActionButton.vue"
 import InfoList from "./components/InfoList.vue";
+import { createAppKitWalletButton } from '@reown/appkit-wallet-button'
 
-// Initialize AppKit
+
+
 createAppKit({
   adapters: [solanaWeb3JsAdapter],
   networks,
@@ -46,11 +51,33 @@ createAppKit({
   }
 })
 
+const appKitWalletButton = createAppKitWalletButton()
+
 export default {
   name: "App",
   components: {
     ActionButtonList,
     InfoList
   },
-};
+  setup() {
+    const isReady = ref(false)
+
+    onMounted(() => {
+      if (appKitWalletButton.isReady()) {
+        console.log("isReady", appKitWalletButton.isReady())
+        isReady.value = true
+      } else {
+        appKitWalletButton.subscribeIsReady(state => {
+          console.log("state", state)
+          isReady.value = state.isReady
+        })
+      }
+    })
+
+    return {
+      appKitWalletButton,
+      isReady
+    }
+  }
+}
 </script>
