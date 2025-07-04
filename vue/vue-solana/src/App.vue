@@ -4,8 +4,8 @@
      <h1>AppKit solana vue Example</h1>
 
      <appkit-button />
-     <button @click="() => appKitWalletButton.connect('metamask')" :disabled="!isReady">
-       Connect to MetaMask
+     <button @click="() => appKitWalletButton.connect('google')" :disabled="!isReady">
+       Connect to Google
      </button>
      <ActionButtonList />
      <div className="advice">
