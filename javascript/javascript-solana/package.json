@@ -7,8 +7,8 @@
     "build": "vite build"
   },
   "dependencies": {
-    "@reown/appkit": "1.7.11",
-    "@reown/appkit-adapter-solana": "1.7.11",
+    "@reown/appkit": "1.7.13",
+    "@reown/appkit-adapter-solana": "1.7.13",
     "@solana/web3.js": "^1.95.8"
   },
   "devDependencies": {
