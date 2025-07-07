@@ -18,6 +18,7 @@ createAppKit({
   projectId, 
   siweConfig, 
   metadata,
+  themeMode: 'light',
   features: {
     email: true, // default to true
     socials: ['google', 'x', 'github', 'discord', 'apple', 'facebook', 'farcaster'],
