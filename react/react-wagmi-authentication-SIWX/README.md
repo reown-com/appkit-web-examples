@@ -1,4 +1,4 @@
-# Reown AppKit Example using wagmi (Vite + React)
+# Reown Authentication SIWX AppKit
 
 This is a [Vite](https://vitejs.dev) project together with React.
 
