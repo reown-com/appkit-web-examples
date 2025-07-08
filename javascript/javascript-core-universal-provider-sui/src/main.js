@@ -4,17 +4,31 @@ import { signMessage } from './services/wallet.js'
 let session = null
 let address = null
 
+/**
+ * Main setup function that initializes the provider, sets up event listeners,
+ * and configures button click handlers
+ */
 async function setup() {
   const prov = await initializeProvider()
   let appkit = initializeAppKit(prov)
 
   // Listen for session events
+  
+  /**
+   * Handles initial connection event
+   * Updates session state and UI when wallet first connects
+   */
   prov.on('connect', (sess) => {
     session = sess.session
     updateSession()
     updateAccount()
     updateButtons()
   })
+
+  /**
+   * Handles disconnect event
+   * Clears session and address, updates UI when wallet disconnects
+   */
   prov.on('disconnect', () => {
     session = null
     address = null
@@ -23,6 +37,10 @@ async function setup() {
     updateButtons()
   })
 
+  /**
+   * Handles successful connection
+   * Updates session state and closes modal after connection
+   */
   prov.on('connect', async (sess) => {
     session = sess.session
     const modal = initializeAppKit(provider)
@@ -32,6 +50,10 @@ async function setup() {
     updateButtons()
   })
 
+  /**
+   * Handles QR code display
+   * Opens AppKit modal with WalletConnect URI when QR needs to be shown
+   */
   prov.on('display_uri', (uri) => {
     appkit = initializeAppKit(prov)
     appkit?.open({ uri, view: 'ConnectingWalletConnectBasic' })
@@ -68,15 +90,27 @@ async function setup() {
   updateButtons()
 }
 
+/**
+ * Updates the session state display in the UI
+ * Shows the current session information in JSON format or empty if no session
+ */
 function updateSession() {
   document.getElementById('sessionState').textContent = session ? JSON.stringify(session, null, 2) : ''
 }
 
+/**
+ * Updates the account address display in the UI
+ * Extracts and shows the SUI address from the session namespace
+ */
 function updateAccount() {
   address = session?.namespaces?.sui?.accounts?.[0]?.split(':')[2]
   document.getElementById('accountState').textContent = address || ''
 }
 
+/**
+ * Updates the visibility of connect, disconnect and sign buttons
+ * Shows/hides buttons based on whether there is an active session
+ */
 function updateButtons() {
   const connectBtn = document.getElementById('open-connect-modal');
   const disconnectBtn = document.getElementById('disconnect');
@@ -92,4 +126,4 @@ function updateButtons() {
   }
 }
 
-setup() 
+setup()
