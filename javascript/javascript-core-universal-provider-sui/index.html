@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VanillaJS SUI Universal Provider Example</title>
+    <link rel="stylesheet" href="css/App.css" />
+  </head>
+  <body>
+    <div class="pages" id="app">
+      <img src="/reown.svg" alt="Reown" style="width: 150px; height: 150px" />
+      <h1>AppKit SUI Universal Provider VanillaJS Example</h1>
+      <div class="advice">
+        <p>
+          This projectId only works on localhost. <br/>
+          Go to <a href="https://cloud.reown.com" target="_blank" class="link-button" rel="Reown Cloud">Reown Cloud</a> to get your own.
+        </p>
+      </div>
+      <div class="button-group">
+        <button id="open-connect-modal">Open Connect Modal</button>
+        <button id="disconnect">Disconnect</button>
+        <button id="sign-message">Sign Message</button>
+      </div>
+      <section>
+        <h2>Account</h2>
+        <pre id="accountState"></pre>
+      </section>
+      <section>
+        <h2>Session</h2>
+        <pre id="sessionState"></pre>
+      </section>
+      <section>
+        <h2>Signature</h2>
+        <pre id="signatureState"></pre>
+      </section>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html> 
