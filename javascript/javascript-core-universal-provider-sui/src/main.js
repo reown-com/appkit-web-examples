@@ -4,6 +4,13 @@ import { signMessage } from './services/wallet.js'
 let session = null
 let address = null
 
+
+const updateInfo = () => {
+  updateSession()
+  updateAccount()
+  updateButtons()
+}
+
 /**
  * Main setup function that initializes the provider, sets up event listeners,
  * and configures button click handlers
@@ -11,6 +18,12 @@ let address = null
 async function setup() {
   const prov = await initializeProvider()
   let appkit = initializeAppKit(prov)
+
+  // check if session is already connected
+  if (prov.session) {
+    session = prov.session
+    updateInfo();
+  }
 
   // Listen for session events
   
@@ -20,9 +33,7 @@ async function setup() {
    */
   prov.on('connect', (sess) => {
     session = sess.session
-    updateSession()
-    updateAccount()
-    updateButtons()
+    updateInfo();
   })
 
   /**
@@ -32,9 +43,7 @@ async function setup() {
   prov.on('disconnect', () => {
     session = null
     address = null
-    updateSession()
-    updateAccount()
-    updateButtons()
+    updateInfo();
   })
 
   /**
@@ -45,9 +54,7 @@ async function setup() {
     session = sess.session
     const modal = initializeAppKit(provider)
     await modal?.close()
-    updateSession()
-    updateAccount()
-    updateButtons()
+    updateInfo();
   })
 
   /**
@@ -76,9 +83,7 @@ async function setup() {
     await prov.disconnect()
     session = null
     address = null
-    updateSession()
-    updateAccount()
-    updateButtons()
+    updateInfo();
   })
 
   document.getElementById('sign-message').addEventListener('click', async () => {

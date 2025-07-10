@@ -9,7 +9,7 @@ This is a [Vite](https://vitejs.dev) project together with React (JavaScript ver
 3. Rename `.env.example` to `.env` and paste your `Project ID` as the value for `VITE_PROJECT_ID`
 4. Run `pnpm install` to install dependencies
 5. Run `pnpm run dev` to start the development server
-6. test it with https://react-wallet.reown.com/
+6. Test it at https://react-wallet.reown.com/.
 
 ## Resources
 
