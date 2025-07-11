@@ -7,11 +7,15 @@
     "build": "vite build"
   },
   "dependencies": {
-    "@reown/appkit": "1.7.11",
-    "@reown/appkit-adapter-solana": "1.7.11",
-    "@solana/web3.js": "^1.95.8"
+    "@reown/appkit": "1.7.13",
+    "@reown/appkit-adapter-solana": "1.7.13",
+    "@solana/web3.js": "^1.95.8",
+    "valtio": "1.12.0"
   },
   "devDependencies": {
     "vite": "6.2.7"
+  },
+  "resolutions": {
+    "valtio": "1.12.0"
   }
 }

@@ -10,13 +10,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@reown/appkit": "1.7.11",
-    "@reown/appkit-adapter-wagmi": "1.7.11",
-    "@reown/appkit-pay": "1.7.11",
+    "@reown/appkit": "1.7.13",
+    "@reown/appkit-adapter-wagmi": "1.7.13",
+    "@reown/appkit-pay": "1.7.13",
     "@tanstack/react-query": "^5.56.2",
     "react": "19.0.0",
     "react-dom": "19.0.0",
-    "viem": "^2.23.6",
+    "viem": "2.31.7",
     "wagmi": "^2.14.12"
   },
   "devDependencies": {
