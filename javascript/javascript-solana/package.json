@@ -9,13 +9,9 @@
   "dependencies": {
     "@reown/appkit": "1.7.15",
     "@reown/appkit-adapter-solana": "1.7.15",
-    "@solana/web3.js": "^1.95.8",
-    "valtio": "1.12.0"
+    "@solana/web3.js": "^1.95.8"
   },
   "devDependencies": {
     "vite": "6.2.7"
-  },
-  "resolutions": {
-    "valtio": "1.12.0"
   }
 }
