@@ -1,20 +1,22 @@
-import { usePay } from '@reown/appkit-pay/react';
-import { baseUSDC } from '@reown/appkit-pay';
+import { useState } from 'react';
+import { baseSepoliaETH, pay } from '@reown/appkit-pay';
 import './AppKitPay.css';
 
 export const AppKitPay = () => {
+    const [isSuccess, setIsSuccess] = useState(false);
+    const [errorMsg, setErrorMsg] = useState<string | null>(null);
+
     const handleSuccess = (data: any) => {
       console.log("Payment successful:", data);
+      setIsSuccess(true);
     };
 
     const handleError = (error: any) => {
       console.error("Payment error:", error);
+      setIsSuccess(false);
+      setErrorMsg(error);
     };
     
-    const { open: openPay, isPending, isSuccess, data, error } = usePay({
-      onSuccess: handleSuccess, 
-      onError: handleError,
-    });
 
 
     const handlePay = async (amount: number) => {
@@ -28,12 +30,22 @@ export const AppKitPay = () => {
       }
       console.log("recipientAddress:", recipientAddress);
       
-      // open resolves when the modal closes, but onSuccess/onError handle the actual payment result
-      await openPay({ 
-        paymentAsset: baseUSDC,
+      // Call the pay function to initiate a crypto payment
+      // paymentAsset: The token/currency to pay with (using baseSepoliaETH here)
+      // recipient: The wallet address that will receive the payment
+      // amount: The payment amount in USD
+      const result = await pay({ 
+        paymentAsset: baseSepoliaETH,
         recipient: recipientAddress,
         amount
       });
+
+      const { success, result: data, error } = result;
+      if (success) {
+        handleSuccess(data);
+      } else {
+        handleError(error);
+      }
     };
 
 
@@ -77,18 +89,14 @@ export const AppKitPay = () => {
                 />
             </div>
         </div>
-        {(isSuccess || isPending || error) && (
+        {(isSuccess || errorMsg) && (
           <section>
             <h2>Payment Status</h2>
             {isSuccess && (
-              <p>Payment successful: {data}</p>
-            )}
-            {isPending && (
-              <p>Payment pending: {data}</p>
-            )}
-            {error && (
-              <p>Payment error: {error}</p>
-            )}
+              <p>Payment successful !</p>
+            )} else {
+              <p>Payment error: {errorMsg}</p>
+            }
           </section>
         )}
     </div> 
