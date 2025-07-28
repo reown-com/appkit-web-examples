@@ -9,9 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@reown/appkit": "1.7.15",
-    "@reown/appkit-adapter-solana": "1.7.15",
-    "@reown/appkit-adapter-wagmi": "1.7.15",
+    "@reown/appkit": "1.7.17",
+    "@reown/appkit-adapter-solana": "1.7.17",
+    "@reown/appkit-adapter-wagmi": "1.7.17",
     "@solana/web3.js": "^1.98.0",
     "@tanstack/react-query": "5.62.8",
     "next": "15.3.3",
