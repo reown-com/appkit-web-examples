@@ -69,15 +69,9 @@ export const ActionButtonList = ({ sendHash, sendSignMsg, sendBalance }: ActionB
       }
     };
 
-    const openSEND = () => {
-      open({view: "WalletSend"});
-    }
-
-
   return (
     <>
-    <button onClick={() => openSEND()}>Open SEND</button>  
-    isConnected && (
+    { isConnected && (
     <div >
         <button onClick={() => open()}>Open</button>
         <button onClick={handleDisconnect}>Disconnect</button>
@@ -88,6 +82,7 @@ export const ActionButtonList = ({ sendHash, sendSignMsg, sendBalance }: ActionB
         <button onClick={handleGetBalance}>Get open</button>  
     </div>
     )
+    }
   </>
   )
 }
