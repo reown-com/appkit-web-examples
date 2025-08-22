@@ -9,8 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@reown/appkit": "1.7.17",
-    "@reown/appkit-adapter-ethers": "1.7.17",
+    "@reown/appkit": "1.7.20",
+    "@reown/appkit-adapter-ethers": "1.7.20",
     "ethers": "^6.13.4",
     "next": "15.3.3",
     "react": "19.0.0",
