@@ -9,15 +9,15 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@reown/appkit": "1.7.17",
-    "@reown/appkit-adapter-solana": "1.7.17",
-    "@reown/appkit-adapter-wagmi": "1.7.17",
+    "@reown/appkit": "1.7.20",
+    "@reown/appkit-adapter-solana": "1.7.20",
+    "@reown/appkit-adapter-wagmi": "1.7.20",
     "@solana/web3.js": "^1.98.0",
     "@tanstack/react-query": "5.62.8",
     "next": "15.3.3",
     "react": "19.0.0",
     "react-dom": "19.0.0",
-    "viem": "2.32.0",
+    "viem": "2.34.0",
     "wagmi": "^2.12.31"
   },
   "devDependencies": {

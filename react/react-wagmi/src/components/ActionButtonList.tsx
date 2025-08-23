@@ -69,17 +69,18 @@ export const ActionButtonList = ({ sendHash, sendSignMsg, sendBalance }: ActionB
       }
     };
 
-
   return (
-    isConnected && (
-    <div >
+    <div>
+    {isConnected && ( 
+    <>
         <button onClick={() => open()}>Open</button>
         <button onClick={handleDisconnect}>Disconnect</button>
         <button onClick={() => switchNetwork(networks[1]) }>Switch</button>
         <button onClick={handleSignMsg}>Sign msg</button>
         <button onClick={handleSendTx}>Send tx</button>
         <button onClick={handleGetBalance}>Get Balance</button>  
-    </div>
-    )
+    </>
+    )}
+  </div>
   )
 }
