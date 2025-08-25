@@ -35,13 +35,18 @@ export const ActionButtonList = () => {
     }
 
   return (
-    isConnected && (
+    isConnected ? (
     <div >
         <button onClick={() => open()}>Open</button>
         <button onClick={handleDisconnect}>Disconnect</button>
         <button onClick={() => switchNetwork(networks[1]) }>Switch</button>
         <button onClick={handleSignMsg}>Sign</button>
     </div>
+    ): (
+      <div>
+          <button onClick={() => open({ view: 'Connect', namespace: 'eip155' })}>Open EVM</button>
+          <button onClick={() => open({ view: 'Connect', namespace: 'solana' })}>Open Solana</button>
+      </div>
     )
   )
 }
