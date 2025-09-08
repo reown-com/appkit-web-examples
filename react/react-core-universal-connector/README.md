@@ -1,4 +1,4 @@
-# Reown AppKit Example using wagmi (Vite + React)
+# Reown AppKit Core Example using Universal Connector
 
 This is a [Vite](https://vitejs.dev) project together with React.
 
@@ -9,6 +9,7 @@ This is a [Vite](https://vitejs.dev) project together with React.
 3. Rename `.env.example` to `.env` and paste your `Project ID` as the value for `VITE_PROJECT_ID`
 4. Run `pnpm install` to install dependencies
 5. Run `pnpm run dev` to start the development server
+6. You can test it with https://react-wallet.reown.com/
 
 ## Resources
 
