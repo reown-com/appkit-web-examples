@@ -12,7 +12,7 @@ import { cookieStorage, createStorage } from 'wagmi';
 import { arbitrum, mainnet, sepolia, optimism, AppKitNetwork } from '@reown/appkit/networks'
 import { getAddress } from 'viem';
 
-// Get projectId from https://cloud.reown.com
+// Get projectId from https://dashboard.reown.com
 export const projectId = process.env.NEXT_PUBLIC_PROJECT_ID;
 
 if (!projectId) throw new Error('Project ID is not defined');
