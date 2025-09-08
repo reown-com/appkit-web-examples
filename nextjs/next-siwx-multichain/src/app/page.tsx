@@ -16,12 +16,12 @@ export default function Home() {
           This projectId only works on localhost. <br />
           Go to{" "}
           <a
-            href="https://cloud.reown.com"
+            href="https://dashboard.reown.com"
             target="_blank"
             className="link-button"
-            rel="Reown Cloud"
+            rel="Reown Dashboard"
           >
-            Reown Cloud
+            Reown Dashboard
           </a>{" "}
           to get your own.
         </p>

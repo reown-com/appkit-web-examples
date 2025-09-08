@@ -126,4 +126,4 @@ Each framework has examples for the implementation with wagmi, ethers, solana, b
 - [Vue AppKit Quickstart](https://docs.reown.com/appkit/vue/core/installation)
 - [Javascript AppKit Quickstart](https://docs.reown.com/appkit/javascript/core/installation)
 - [Discord for Questions](https://discord.gg/reown)
-- [Dashboard to create a projectId to use AppKit](https://cloud.reown.com/)
+- [Dashboard to create a projectId to use AppKit](https://dashboard.reown.com/)

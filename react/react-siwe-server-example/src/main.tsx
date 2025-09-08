@@ -15,7 +15,7 @@ import "./styles.css"
 // 0. Setup queryClient
 const queryClient = new QueryClient();
 
-// 1. Get projectId at https://cloud.reown.com
+// 1. Get projectId at https://dashboard.reown.com
 const projectId = import.meta.env.VITE_PROJECT_ID;
 if (!projectId) throw new Error("Project ID is undefined");
 
