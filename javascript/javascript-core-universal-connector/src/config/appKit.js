@@ -29,44 +29,30 @@ export const networks = [suiMainnet, stacksMainnet]
 export let connector
 
 export async function getUniversalConnector() {
-  const universalConnector = await UniversalConnector.init({
-    projectId,
-    metadata: {
-      name: 'Universal Connector',
-      description: 'Universal Connector',
-      url: 'https://appkit.reown.com',
-      icons: ['https://appkit.reown.com/icon.png']
-    },
-    networks: [
-      {
-        methods: ['sui_signPersonalMessage'],
-        chains: [suiMainnet],
-        events: [],
-        namespace: 'sui'
-      },
-      {
-        methods: ['stx_signMessage'],
-        chains: [stacksMainnet],
-        events: ['stx_chainChanged'],
-        namespace: 'stacks'
-      }
-    ]
-  })
-
-  return universalConnector
-}
-
-export async function initializeProvider() {
-  if (!provider) {
-    provider = await UniversalProvider.init({
+  if (!connector) {
+    connector = await UniversalConnector.init({
       projectId,
       metadata: {
-        name: "WalletConnect x Sui",
-        description: "Sui integration with WalletConnect's Universal Provider",
-        url: "https://walletconnect.com/", // origin must match your domain & subdomain
-        icons: ["https://avatars.githubusercontent.com/u/37784886"],
-      }
+        name: 'Universal Connector',
+        description: 'Universal Connector',
+        url: 'https://appkit.reown.com',
+        icons: ['https://appkit.reown.com/icon.png']
+      },
+      networks: [
+        {
+          methods: ['sui_signPersonalMessage'],
+          chains: [suiMainnet],
+          events: [],
+          namespace: 'sui'
+        },
+        {
+          methods: ['stx_signMessage'],
+          chains: [stacksMainnet],
+          events: ['stx_chainChanged'],
+          namespace: 'stacks'
+        }
+      ]
     })
   }
-  return provider
+  return connector
 }
