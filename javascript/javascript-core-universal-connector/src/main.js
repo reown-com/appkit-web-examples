@@ -1,8 +1,9 @@
 import { getUniversalConnector } from './config/appKit.js'
-import { signMessage } from './services/wallet.js'
+import { signMessageStacks, signMessageSui } from './services/wallet.js'
 
 let session = null
 let address = null
+let addressStacks = null
 
 /**
  * Main setup function that initializes the provider, sets up event listeners,
@@ -45,11 +46,19 @@ async function setup() {
     updateInfo();
   })
 
-  document.getElementById('sign-message').addEventListener('click', async () => {
+
+  document.getElementById('sign-message-stacks').addEventListener('click', async () => {
     if (!session) return
-    const signature = await signMessage(universalConnector, address)
-    document.getElementById('signatureState').textContent = signature
+    const signature = await signMessageStacks(universalConnector, addressStacks)
+    document.getElementById('signatureState').textContent = typeof signature === 'object' ? JSON.stringify(signature, null, 2) : signature
   })
+
+  document.getElementById('sign-message-sui').addEventListener('click', async () => {
+    if (!session) return
+    const signature = await signMessageSui(universalConnector, address)
+    document.getElementById('signatureState').textContent = typeof signature === 'object' ? JSON.stringify(signature, null, 2) : signature
+  })
+
   updateButtons()
 }
 
@@ -67,7 +76,9 @@ function updateSession() {
  */
 function updateAccount() {
   address = session?.namespaces?.sui?.accounts?.[0]?.split(':')[2]
-  document.getElementById('accountState').textContent = address || ''
+  addressStacks = session?.namespaces?.stacks?.accounts?.[0]?.split(':')[2]
+  document.getElementById('accountState').textContent = "sui: " + address || ''
+  document.getElementById('accountStateStacks').textContent = "stacks: " + addressStacks || ''
 }
 
 /**
@@ -77,15 +88,18 @@ function updateAccount() {
 function updateButtons() {
   const connectBtn = document.getElementById('open-connect-modal');
   const disconnectBtn = document.getElementById('disconnect');
-  const signBtn = document.getElementById('sign-message');
+  const signBtnStacks = document.getElementById('sign-message-stacks');
+  const signBtnSui = document.getElementById('sign-message-sui');
   if (session) {
     connectBtn.style.display = 'none';
     disconnectBtn.style.display = '';
-    signBtn.style.display = '';
+    signBtnStacks.style.display = '';
+    signBtnSui.style.display = '';
   } else {
     connectBtn.style.display = '';
     disconnectBtn.style.display = 'none';
-    signBtn.style.display = 'none';
+    signBtnStacks.style.display = 'none';
+    signBtnSui.style.display = 'none';
   }
 }
 

@@ -3,13 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>VanillaJS SUI Universal Provider Example</title>
+    <title>VanillaJS SUI/Stacks Universal Connector Example</title>
     <link rel="stylesheet" href="css/App.css" />
   </head>
   <body>
     <div class="pages" id="app">
       <img src="/reown.svg" alt="Reown" style="width: 150px; height: 150px" />
-      <h1>AppKit SUI Universal Provider VanillaJS Example</h1>
+      <h1>AppKit SUI + Stacks Universal Connector VanillaJS Example</h1>
       <div class="advice">
         <p>
           This projectId only works on localhost. <br/>
@@ -19,11 +19,13 @@
       <div class="button-group">
         <button id="open-connect-modal">Open Connect Modal</button>
         <button id="disconnect">Disconnect</button>
-        <button id="sign-message">Sign Message</button>
+        <button id="sign-message-stacks">Sign Message with Stacks</button>
+        <button id="sign-message-sui">Sign Message with SUI</button>
       </div>
       <section>
         <h2>Account</h2>
         <pre id="accountState"></pre>
+        <pre id="accountStateStacks"></pre>
       </section>
       <section>
         <h2>Session</h2>
