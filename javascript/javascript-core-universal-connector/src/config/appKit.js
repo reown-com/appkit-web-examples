@@ -6,15 +6,6 @@ if (!projectId) {
 }
 
 // you can configure your own network
-const sui = {
-  id: 784,
-  chainNamespace: 'sui',
-  caipNetworkId: 'sui:mainnet',
-  name: 'Sui',
-  nativeCurrency: { name: 'SUI', symbol: 'SUI', decimals: 9 },
-  rpcUrls: { default: { http: ['https://fullnode.mainnet.sui.io:443'] } }
-}
-
 const suiMainnet = {
   id: 784,
   chainNamespace: 'sui',
