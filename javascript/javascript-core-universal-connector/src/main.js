@@ -29,7 +29,7 @@ async function setup() {
     if (providerSession?.namespaces?.sui?.accounts?.[0]?.split(':')[2]) {
       address = providerSession?.namespaces?.sui?.accounts?.[0]?.split(':')[2]
     } else if (providerSession?.namespaces?.stacks?.accounts?.[0]?.split(':')[2]) {
-      address = providerSession?.namespaces?.stacks?.accounts?.[0]?.split(':')[2]
+      addressStacks = providerSession?.namespaces?.stacks?.accounts?.[0]?.split(':')[2]
     }
     // update the session
     session = providerSession;
