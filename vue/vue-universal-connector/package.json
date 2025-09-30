@@ -11,9 +11,9 @@
     "type-check": "vue-tsc --build --force"
   },
   "dependencies": {
-    "@reown/appkit": "1.8.7",
-    "@reown/appkit-universal-connector": "1.8.7",
-    "@reown/appkit-common": "1.8.7",
+    "@reown/appkit": "1.8.8",
+    "@reown/appkit-universal-connector": "1.8.8",
+    "@reown/appkit-common": "1.8.8",
     "vue": "^3.5.12"
   },
   "devDependencies": {
