@@ -8,7 +8,8 @@ import vue from '@vitejs/plugin-vue'
 export default defineConfig({
   resolve: {
     alias: {
-      buffer: 'buffer/'
+      buffer: 'buffer/',
+      'valtio/react': 'valtio/vanilla' // beware: only safe if nobody expects React-specific APIs
     }
   },
   plugins: [
