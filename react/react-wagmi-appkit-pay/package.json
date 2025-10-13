@@ -4,15 +4,15 @@
   "version": "0.0.1",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --port 3000",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
   "dependencies": {
-    "@reown/appkit": "1.8.8",
-    "@reown/appkit-adapter-wagmi": "1.8.8",
-    "@reown/appkit-pay": "1.8.8",
+    "@reown/appkit": "1.8.10",
+    "@reown/appkit-adapter-wagmi": "1.8.10",
+    "@reown/appkit-pay": "1.8.10",
     "@tanstack/react-query": "^5.56.2",
     "react": "19.0.0",
     "react-dom": "19.0.0",
