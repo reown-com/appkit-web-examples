@@ -11,8 +11,8 @@
   },
   "dependencies": {
     "@bitcoinerlab/secp256k1": "^1.2.0",
-    "@reown/appkit": "1.8.8",
-    "@reown/appkit-adapter-bitcoin": "1.8.8",
+    "@reown/appkit": "1.8.10",
+    "@reown/appkit-adapter-bitcoin": "1.8.10",
     "bitcoinjs-lib": "^6.1.7",
     "react": "19.0.0",
     "react-dom": "19.0.0",

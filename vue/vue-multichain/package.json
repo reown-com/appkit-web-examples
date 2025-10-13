@@ -11,9 +11,9 @@
     "type-check": "vue-tsc --build --force"
   },
   "dependencies": {
-    "@reown/appkit": "1.8.8",
-    "@reown/appkit-adapter-solana": "1.8.8",
-    "@reown/appkit-adapter-wagmi": "1.8.8",
+    "@reown/appkit": "1.8.10",
+    "@reown/appkit-adapter-solana": "1.8.10",
+    "@reown/appkit-adapter-wagmi": "1.8.10",
     "@tanstack/vue-query": "5.75.4",
     "@wagmi/vue": "0.1.18",
     "viem": "^2.31.3",
