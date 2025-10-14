@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { baseSepoliaETH, pay } from '@reown/appkit-pay';
+import { baseUSDC, pay } from '@reown/appkit-pay';
 import { useAvailableExchanges, usePayUrlActions } from '@reown/appkit-pay/react';
 import './AppKitPay.css';
 
@@ -8,11 +8,11 @@ export const AppKitPay = () => {
     const [errorMsg, setErrorMsg] = useState<string | null>(null);
     const { data: exchanges, fetch  } = useAvailableExchanges({
       shouldFetchOnInit: false,
-      asset: 'USDC',
+      asset: baseUSDC.asset,
       amount: 1,
       network: 'eip155:8453'
     });
-    const { getUrl, openUrl } = usePayUrlActions();
+    const { getUrl } = usePayUrlActions();
 
 
     const handleSuccess = (data: any) => {
@@ -37,14 +37,13 @@ export const AppKitPay = () => {
         alert('Please enter a recipient address');
         return;
       }
-      console.log("recipientAddress:", recipientAddress);
       
       // Call the pay function to initiate a crypto payment
       // paymentAsset: The token/currency to pay with (using baseSepoliaETH here)
       // recipient: The wallet address that will receive the payment
       // amount: The payment amount in USD
       const result = await pay({ 
-        paymentAsset: baseSepoliaETH,
+        paymentAsset: baseUSDC,
         recipient: recipientAddress,
         amount
       });
@@ -63,24 +62,28 @@ export const AppKitPay = () => {
         alert('Please enter a recipient address');
         return;
       }
-      console.log("recipientAddress:", recipientAddress);
       fetch();
     }
 
     useEffect(() => {
       console.log("exchanges:", exchanges);
-       const recipientAddress = (document.querySelector('input[name="recipientAddress"]') as HTMLInputElement)?.value || '';
+      const getURL = async (address: string) => {
+        await getUrl("binance", {
+          network: "eip155:8453",
+          asset: baseUSDC.asset,
+          amount: 10,
+          recipient: address || ""
+        })
+      }
+      const recipientAddress = (document.querySelector('input[name="recipientAddress"]') as HTMLInputElement)?.value || '';
+      console.log("recipientAddress:", recipientAddress);
       if (exchanges?.some((exchange: { id: string }) => exchange.id === 'binance')) {
         console.log('Binance is available');
       
-        getUrl("reown_test", {
-          network: "eip155:8453",
-          asset: "USDC",
-          amount: 10,
-          recipient: recipientAddress || ""
-        })
+        getURL(recipientAddress);
       }
-    }, [exchanges, getUrl, openUrl]);
+    }, [exchanges]);
+
 
 
     useEffect(() => {
