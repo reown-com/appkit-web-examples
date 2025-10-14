@@ -1,10 +1,19 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { baseSepoliaETH, pay } from '@reown/appkit-pay';
+import { useAvailableExchanges, usePayUrlActions } from '@reown/appkit-pay/react';
 import './AppKitPay.css';
 
 export const AppKitPay = () => {
     const [isSuccess, setIsSuccess] = useState(false);
     const [errorMsg, setErrorMsg] = useState<string | null>(null);
+    const { data: exchanges, fetch  } = useAvailableExchanges({
+      shouldFetchOnInit: false,
+      asset: 'USDC',
+      amount: 1,
+      network: 'eip155:8453'
+    });
+    const { getUrl, openUrl } = usePayUrlActions();
+
 
     const handleSuccess = (data: any) => {
       console.log("Payment successful:", data);
@@ -47,8 +56,43 @@ export const AppKitPay = () => {
         handleError(error);
       }
     };
+    const handleGetBinanceURL = async () => {
+      const recipientAddress = (document.querySelector('input[name="recipientAddress"]') as HTMLInputElement)?.value || '';
+      
+      if (!recipientAddress) {
+        alert('Please enter a recipient address');
+        return;
+      }
+      console.log("recipientAddress:", recipientAddress);
+      fetch();
+    }
+
+    useEffect(() => {
+      console.log("exchanges:", exchanges);
+       const recipientAddress = (document.querySelector('input[name="recipientAddress"]') as HTMLInputElement)?.value || '';
+      if (exchanges?.some((exchange: { id: string }) => exchange.id === 'binance')) {
+        console.log('Binance is available');
+      
+        getUrl("reown_test", {
+          network: "eip155:8453",
+          asset: "USDC",
+          amount: 10,
+          recipient: recipientAddress || ""
+        })
+      }
+    }, [exchanges, getUrl, openUrl]);
 
 
+    useEffect(() => {
+      // check ADDRESS env and set the recipient address
+      const recipientAddress = import.meta.env.VITE_ADDRESS || "";
+      if (recipientAddress) {
+        const input = document.querySelector('input[name="recipientAddress"]') as HTMLInputElement;
+        if (input) {
+          input.value = recipientAddress;
+        }
+      }
+    },[]);
   return (
     <div className="container">
         <div className="card">
@@ -68,6 +112,10 @@ export const AppKitPay = () => {
                 <div className="price">$10.00</div>
             </div>
             <button onClick={() => handlePay(10)}>Pay with Crypto</button>
+        </div> 
+        <div className="card">
+
+            <button onClick={handleGetBinanceURL}>Get Binance URL</button>
         </div> 
         <div className="card" style={{ width: '100%' }}>
             <div className="content">
