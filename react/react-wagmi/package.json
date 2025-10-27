@@ -10,8 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@reown/appkit": "1.8.10",
-    "@reown/appkit-adapter-wagmi": "1.8.10",
+    "@reown/appkit": "1.8.12",
+    "@reown/appkit-adapter-wagmi": "1.8.12",
     "@tanstack/react-query": "^5.90.3",
     "@wagmi/core": "^2.22.0",
     "react": "19.0.0",

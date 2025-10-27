@@ -9,8 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@reown/appkit": "1.8.10",
-    "@reown/appkit-adapter-solana": "1.8.10",
+    "@reown/appkit": "1.8.12",
+    "@reown/appkit-adapter-solana": "1.8.12",
     "@solana/web3.js": "^1.98.0",
     "next": "15.3.3",
     "react": "19.0.0",
