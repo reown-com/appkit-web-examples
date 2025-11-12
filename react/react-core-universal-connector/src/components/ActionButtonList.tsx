@@ -1,4 +1,5 @@
 import { UniversalConnector } from "@reown/appkit-universal-connector";
+import base58 from 'bs58'
 
 interface ActionButtonListProps {
   universalConnector: UniversalConnector | undefined;
@@ -9,60 +10,32 @@ interface ActionButtonListProps {
 export const ActionButtonList = ({ universalConnector, session, setSession}: ActionButtonListProps) => {
  
     // function to sing a msg 
-    const handleSignSUIMsg = async () => {
+    const handleSignSolanaMsg = async () => {
       if (!universalConnector) {
         return
       }
 
-      const message = "Hello Reown AppKit!" // message to sign
+      //const message = "Hello Reown AppKit!" // message to sign
       try {
-        const account = session?.namespaces['sui']?.accounts[0]
+        const account = session?.namespaces['solana']?.accounts[0]
         if (!account) {
           throw new Error('No account found')
         }
 
+        const encodedMessage = base58.encode(new TextEncoder().encode('Hello Appkit!'));
         const result = await universalConnector.request(
-          {
-            method: 'sui_signPersonalMessage',
-            params: [message]
-          },
-          'sui:mainnet'
-        )
-        // eslint-disable-next-line no-console
-        console.log('>> Sui Sign Message result', result)
+        {
+          method: 'solana_signMessage',
+          params: {
+            message: encodedMessage,
+            pubkey: account.split(':')[2]
+          }
+        },
+          'solana:5eykt4UsFv8P8NJdTREpY1vzqKqZKvdp'
+        );
+        console.log('>> Solana Sign Message result', result);
       } catch (error) {
-        // eslint-disable-next-line no-console
-        console.error('>> Sui Sign Message error', error)
-      }
-    }
-    
-    const handleSignStacksMsg = async () => {
-      if (!universalConnector) {
-        return
-      }
-
-      const message = "Hello Reown AppKit!" // message to sign
-      try {
-        const account = session?.namespaces['stacks']?.accounts[0].split(':')[2]
-        if (!account) {
-          throw new Error('No account found')
-        }
-
-        const result = await universalConnector.request(
-          {
-            method: 'stx_signMessage',
-            params: {
-              message,
-              address: account
-            }
-          },
-          'stacks:1'
-        )
-        // eslint-disable-next-line no-console
-        console.log('>> Stacks Sign Message result', result)
-      } catch (error) {
-        // eslint-disable-next-line no-console
-        console.error('>> Stacks Sign Message error', error)
+        console.error('>> Solana Sign Message error', error);
       }
     }
 
@@ -91,11 +64,10 @@ export const ActionButtonList = ({ universalConnector, session, setSession}: Act
       {session ? (
         <>
           <button onClick={handleDisconnect}>Disconnect</button>
-          <button onClick={handleSignSUIMsg}>Sign SUI msg</button>
-          <button onClick={handleSignStacksMsg}>Sign Stacks msg</button>
+          <button onClick={handleSignSolanaMsg}>Sign Solana msg</button>
           <div>
-            <p>Sui Account: {session.namespaces?.sui?.accounts?.[0]}</p>
-            <p>Stacks Account: {session.namespaces?.stacks?.accounts?.[0]}</p>
+            <p>Solana Account: {session.namespaces?.solana?.accounts?.[0]}</p>
+          
           </div>
           <br/>
         </>

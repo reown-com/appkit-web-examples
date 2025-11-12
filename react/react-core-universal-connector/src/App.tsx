@@ -21,7 +21,7 @@ export function App() {
     <div className={"pages"}>
       <img src="/reown.svg" alt="Reown" style={{ width: '150px', height: '150px' }} />
       <h1>AppKit React AppKit Core Example</h1>
-      <h2> Universal Connector + SUI + Stacks</h2>
+      <h2> Universal Connector + Solana</h2>
             <ActionButtonList session={session} universalConnector={universalConnector} setSession={setSession} />
             <div className="advice">
               <p>

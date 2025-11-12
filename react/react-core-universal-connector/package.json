@@ -11,11 +11,12 @@
   },
   "dependencies": {
     "@reown/appkit": "1.8.13",
-    "@reown/appkit-universal-connector": "1.8.13",
     "@reown/appkit-common": "1.8.13",
+    "@reown/appkit-universal-connector": "1.8.13",
+    "bs58": "^6.0.0",
+    "ethers": "6.15.0",
     "react": "19.1.1",
-    "react-dom": "19.1.1",
-    "ethers": "6.15.0"
+    "react-dom": "19.1.1"
   },
   "devDependencies": {
     "@types/react": "19.1.12",

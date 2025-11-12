@@ -8,26 +8,19 @@ export const projectId = import.meta.env.VITE_PROJECT_ID || "b56e18d47c72ab683b1
 if (!projectId) {
   throw new Error('Project ID is not defined')
 }
-const suiMainnet: CustomCaipNetwork<'sui'> = {
-  id: 784,
-  chainNamespace: 'sui' as const,
-  caipNetworkId: 'sui:mainnet',
-  name: 'Sui',
-  nativeCurrency: { name: 'SUI', symbol: 'SUI', decimals: 9 },
-  rpcUrls: { default: { http: ['https://fullnode.mainnet.sui.io:443'] } }
-}
 
-const stacksMainnet: CustomCaipNetwork<'stacks'> = {
-  id: 1,
-  chainNamespace: 'stacks' as const,
-  caipNetworkId: 'stacks:1',
-  name: 'Stacks',
-  nativeCurrency: { name: 'STX', symbol: 'STX', decimals: 6 },
-  rpcUrls: { default: { http: ['https://stacks-node-mainnet.stacks.co'] } }
+
+const solana: CustomCaipNetwork<'solana'> = {
+  id: "5eykt4UsFv8P8NJdTREpY1vzqKqZKvdp",
+  chainNamespace: 'Solana' as const,
+  caipNetworkId: 'solana:5eykt4UsFv8P8NJdTREpY1vzqKqZKvdp',
+  name: 'Solana',
+  nativeCurrency: { name: 'SOL', symbol: 'SOL', decimals: 9 },
+  rpcUrls: { default: { http: ['https://rpc.walletconnect.org/v1'] } }
 }
 
 // for custom networks visit -> https://docs.reown.com/appkit/react/core/custom-networks
-export const networks = [suiMainnet, stacksMainnet] as [AppKitNetwork, ...AppKitNetwork[]]
+export const networks = [solana] as [AppKitNetwork, ...AppKitNetwork[]]
 
 export async function getUniversalConnector() {
   const universalConnector = await UniversalConnector.init({
@@ -40,16 +33,10 @@ export async function getUniversalConnector() {
     },
     networks: [
       {
-        methods: ['sui_signPersonalMessage'],
-        chains: [suiMainnet as CustomCaipNetwork],
-        events: [],
-        namespace: 'sui'
-      },
-      {
-        methods: ['stx_signMessage'],
-        chains: [stacksMainnet as CustomCaipNetwork],
-        events: ['stx_chainChanged'],
-        namespace: 'stacks'
+        methods: ['solana_signMessage'],
+        chains: [solana as CustomCaipNetwork],
+        events: ['solana_chainChanged'],
+        namespace: 'solana'
       }
     ]
   })
