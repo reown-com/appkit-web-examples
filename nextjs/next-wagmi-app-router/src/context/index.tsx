@@ -29,7 +29,14 @@ export const modal = createAppKit({
   },
   themeVariables: {
     '--w3m-accent': '#000000',
-  }
+  },
+  customRpcUrls: {
+    'eip155:55931': [
+      {
+        url: 'https://services.datahaven-testnet.network/testnet',
+      }
+    ],
+  },
 })
 
 function ContextProvider({ children, cookies }: { children: ReactNode; cookies: string | null }) {
