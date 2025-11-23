@@ -3,7 +3,6 @@
 import { useAppKitAccount } from '@reown/appkit/react';
 import type { JSX } from 'react';
 import { useWriteContract } from 'wagmi';
-import { dataHavenTestnet } from '../config';
 import { defineChain } from 'viem';
 
 export const ABI = [
@@ -192,7 +191,7 @@ export const AddProxy = (): JSX.Element => {
       abi: ABI,
       functionName: 'addProxy',
       args: ['0xd693b7ed1f6d6e93983fdc3135f6b2ba771078ac', 0, 0],
-      gas: 1000000n,
+      gas: BigInt(1_000_000)
     });
   };
 
