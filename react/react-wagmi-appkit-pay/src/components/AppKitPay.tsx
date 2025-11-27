@@ -1,10 +1,16 @@
-import { useState } from 'react';
-import { baseSepoliaETH, pay } from '@reown/appkit-pay';
+import { useEffect, useState } from 'react';
+import { baseUSDC, pay } from '@reown/appkit-pay';
+import { useAppKitEvents } from "@reown/appkit/react";
 import './AppKitPay.css';
 
 export const AppKitPay = () => {
     const [isSuccess, setIsSuccess] = useState(false);
     const [errorMsg, setErrorMsg] = useState<string | null>(null);
+    const events = useAppKitEvents();
+
+    useEffect(() => {
+      console.log("Events Hook: ", events);
+    }, [events]);
 
     const handleSuccess = (data: any) => {
       console.log("Payment successful:", data);
@@ -35,7 +41,7 @@ export const AppKitPay = () => {
       // recipient: The wallet address that will receive the payment
       // amount: The payment amount in USD
       const result = await pay({ 
-        paymentAsset: baseSepoliaETH,
+        paymentAsset: baseUSDC,
         recipient: recipientAddress,
         amount
       });
