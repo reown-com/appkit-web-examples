@@ -150,29 +150,6 @@ export const PROXY_CONTRACT_ADDRESS =
   '0x000000000000000000000000000000000000080b';
 
 
-const viemDataHavenTestnet =defineChain({
-  id: 55931,
-  name: "DataHaven Testnet",
-  chainNamespace: 'eip155',
-  caipNetworkId: `eip155:55931`,
-  testnet: true,
-  nativeCurrency: {
-    name: "MOCK",
-    symbol: "MOCK",
-    decimals: 18,
-  },
-  rpcUrls: {
-    default: { http: ['https://services.datahaven-testnet.network/testnet'] },
-    public: { http: ['https://services.datahaven-testnet.network/testnet'] },
-  },
-  blockExplorers: {
-    default: {
-      name: "DataHaven Testnet",
-      url: "https://polkadot.js.org/apps?rpc=wss://services.datahaven-testnet.network/testnet#/explorer/query/",
-    },
-  },
-});
-
 export const AddProxy = (): JSX.Element => {
   const { address, isConnected, status } = useAppKitAccount();
 
@@ -186,12 +163,10 @@ export const AddProxy = (): JSX.Element => {
 
   const addProxy = async () => {
     writeContract({
-      chain: viemDataHavenTestnet,
       address: PROXY_CONTRACT_ADDRESS,
       abi: ABI,
       functionName: 'addProxy',
       args: ['0xd693b7ed1f6d6e93983fdc3135f6b2ba771078ac', 0, 0],
-      gas: BigInt(1_000_000)
     });
   };
 
