@@ -1,7 +1,6 @@
 import { WagmiAdapter } from "@reown/appkit-adapter-wagmi";
 import { defineChain } from "@reown/appkit/networks";
 import type { AppKitNetwork } from "@reown/appkit/networks";
-import { http } from "viem";
 
 // Get projectId from https://dashboard.reown.com
 export const projectId =
@@ -24,13 +23,6 @@ export const dataHavenTestnet = defineChain({
       ],
     },
   },
-  blockExplorers: {
-    default: {
-      name: "DhScan",
-      url: "https://testnet.dhscan.io/",
-    },
-  },
-  contracts: {},
   testnet: true,
 });
 
