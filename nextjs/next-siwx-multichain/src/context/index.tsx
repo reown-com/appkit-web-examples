@@ -1,8 +1,8 @@
 "use client";
 
 import {
-  bitcoinAdapter,
-  bitcoinNetworks,
+  solanaAdapter,
+  solanaNetworks,
   evmNetworks,
   projectId,
   wagmiAdapter,
@@ -10,9 +10,7 @@ import {
 import { createAppKit } from "@reown/appkit/react";
 import React, { useState, type ReactNode } from "react";
 import type { AppKitNetwork } from "@reown/appkit/networks";
-import { DefaultSIWX } from "@reown/appkit-siwx";
-import { EIP155Verifier } from "@/verifiers/EIP155Verifier";
-import { BIP122Verifier } from "@/verifiers/BIP20Verifier";
+import { ReownAuthentication } from "@reown/appkit-siwx";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { WagmiProvider } from "wagmi";
 
@@ -31,12 +29,12 @@ const metadata = {
 // Combine evm and bitcoin networks
 const allNetworks: [AppKitNetwork, ...AppKitNetwork[]] = [
   ...evmNetworks,
-  ...bitcoinNetworks,
+  ...solanaNetworks,
 ];
 
 // Create the modal
 export const modal = createAppKit({
-  adapters: [bitcoinAdapter, wagmiAdapter],
+  adapters: [solanaAdapter, wagmiAdapter],
   projectId,
   networks: allNetworks,
   metadata,
@@ -46,9 +44,15 @@ export const modal = createAppKit({
     socials: [],
     email: false,
   },
-  siwx: new DefaultSIWX({
-    verifiers: [new EIP155Verifier(), new BIP122Verifier()],
-  }),
+  customRpcUrls: {
+    "solana:mainnet": [
+      {
+        url: "https://mainnet.trueailabs.dev",
+        config: {}
+      }
+    ]
+  },
+  siwx: new ReownAuthentication(),
 });
 
 function ContextProvider({ children }: { children: ReactNode }) {
