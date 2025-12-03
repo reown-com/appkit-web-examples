@@ -9,10 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@reown/appkit": "1.8.13",
+    "@reown/appkit": "1.8.14",
     "next": "15.3.3",
-    "react": "19.0.0",
-    "react-dom": "19.0.0"
+    "react": "19.2.1",
+    "react-dom": "19.2.1"
   },
   "devDependencies": {
     "@types/node": "^22",

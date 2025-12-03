@@ -12,11 +12,11 @@
   "dependencies": {
     "@tanstack/react-query": "^5.53.1",
     "@wagmi/core": "^2.21.2",
-		"@reown/appkit-siwe": "1.8.13",
-    "@reown/appkit": "1.8.13",
-    "@reown/appkit-adapter-wagmi": "1.8.13",
-    "react": "19.0.0",
-    "react-dom": "19.0.0",
+		"@reown/appkit-siwe": "1.8.14",
+    "@reown/appkit": "1.8.14",
+    "@reown/appkit-adapter-wagmi": "1.8.14",
+    "react": "19.2.1",
+    "react-dom": "19.2.1",
     "viem": "^2.31.3",
     "wagmi": "^2.12.7"
   },
