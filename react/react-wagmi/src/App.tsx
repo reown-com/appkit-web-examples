@@ -1,17 +1,14 @@
 import { createAppKit } from '@reown/appkit/react'
 
-import { WagmiProvider } from 'wagmi'
 import { useState } from 'react'
 
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ActionButtonList } from './components/ActionButtonList'
 import { SmartContractActionButtonList } from './components/SmartContractActionButtonList'
 import { InfoList } from './components/InfoList'
 import { projectId, metadata, networks, wagmiAdapter } from './config'
+import { AppKitProvider } from '@reown/appkit/react'
 
 import "./App.css"
-
-const queryClient = new QueryClient()
 
 const generalConfig = {
   projectId,
@@ -54,8 +51,7 @@ export function App() {
     <div className={"pages"}>
       <img src="/reown.svg" alt="Reown" style={{ width: '150px', height: '150px' }} />
       <h1>AppKit Wagmi React dApp Example</h1>
-      <WagmiProvider config={wagmiAdapter.wagmiConfig}>
-        <QueryClientProvider client={queryClient}>
+      <AppKitProvider {...generalConfig}>
             <appkit-button />
             <ActionButtonList sendHash={receiveHash} sendSignMsg={receiveSignedMsg} sendBalance={receivebalance}/>
             <SmartContractActionButtonList />
@@ -66,8 +62,7 @@ export function App() {
               </p>
             </div>
             <InfoList hash={transactionHash} signedMsg={signedMsg} balance={balance}/>
-        </QueryClientProvider>
-      </WagmiProvider>
+        </AppKitProvider>
     </div>
   )
 }
