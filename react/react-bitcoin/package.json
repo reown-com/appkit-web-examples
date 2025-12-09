@@ -16,7 +16,7 @@
     "bitcoinjs-lib": "^6.1.7",
     "react": "19.2.1",
     "react-dom": "19.2.1",
-    "vite-plugin-node-polyfills": "^0.23.0"
+    "vite-plugin-node-polyfills": "^0.24.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",
