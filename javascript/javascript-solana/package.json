@@ -12,6 +12,6 @@
     "@solana/web3.js": "^1.95.8"
   },
   "devDependencies": {
-    "vite": "6.2.7"
+    "vite": "6.4.1"
   }
 }
