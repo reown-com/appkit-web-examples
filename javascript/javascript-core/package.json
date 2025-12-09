@@ -7,9 +7,9 @@
     "build": "vite build"
   },
   "dependencies": {
-    "@reown/appkit": "1.8.14"
+    "@reown/appkit": "1.8.15"
   },
   "devDependencies": {
-    "vite": "6.2.7"
+    "vite": "7.2.7"
   }
 }

@@ -10,8 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@reown/appkit": "1.8.14",
-    "@reown/appkit-adapter-ethers": "1.8.14",
+    "@reown/appkit": "1.8.15",
+    "@reown/appkit-adapter-ethers": "1.8.15",
     "ethers": "^6.13.2",
     "react": "19.2.1",  
     "react-dom": "19.2.1"
@@ -27,6 +27,6 @@
     "globals": "^15.9.0",
     "typescript": "^5.5.3",
     "typescript-eslint": "^8.0.1",
-    "vite": "^6.2.0"
+    "vite": "^7.2.7"
   }
 }
