@@ -12,9 +12,9 @@
   "dependencies": {
     "@tanstack/react-query": "^5.53.1",
     "@wagmi/core": "^2.21.2",
-		"@reown/appkit-siwe": "1.8.14",
-    "@reown/appkit": "1.8.14",
-    "@reown/appkit-adapter-wagmi": "1.8.14",
+		"@reown/appkit-siwe": "1.8.15",
+    "@reown/appkit": "1.8.15",
+    "@reown/appkit-adapter-wagmi": "1.8.15",
     "react": "19.2.1",
     "react-dom": "19.2.1",
     "viem": "^2.31.3",
@@ -30,6 +30,6 @@
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-react-refresh": "^0.4.11",
     "typescript": "^5.2.4",
-    "vite": "^6.2.1"
+    "vite": "^7.2.7"
   }
 }

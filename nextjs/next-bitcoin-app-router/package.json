@@ -9,8 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@reown/appkit": "1.8.14",
-    "@reown/appkit-adapter-bitcoin": "1.8.14",
+    "@reown/appkit": "1.8.15",
+    "@reown/appkit-adapter-bitcoin": "1.8.15",
     "next": "15.3.6",
     "react": "19.2.1",
     "react-dom": "19.2.1"
