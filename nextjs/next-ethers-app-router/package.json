@@ -12,7 +12,7 @@
     "@reown/appkit": "1.8.14",
     "@reown/appkit-adapter-ethers": "1.8.14",
     "ethers": "^6.13.4",
-    "next": "15.3.8",
+    "next": "15.4.10",
     "react": "19.2.1",
     "react-dom": "19.2.1"
   },
