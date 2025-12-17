@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@react-native-async-storage/async-storage": "^2.2.0",
     "@reown/appkit": "1.8.15",
     "@reown/appkit-adapter-bitcoin": "1.8.15",
     "@reown/appkit-adapter-wagmi": "1.8.15",
