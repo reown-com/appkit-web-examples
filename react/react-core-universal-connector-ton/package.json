@@ -10,8 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@reown/appkit-universal-connector": "1.8.15",
-    "@reown/appkit-common": "1.8.15",
+    "@reown/appkit-universal-connector": "1.8.16",
+    "@reown/appkit-common": "1.8.16",
     "react": "19.2.1",
     "react-dom": "19.2.1",
     "ethers": "6.15.0"
