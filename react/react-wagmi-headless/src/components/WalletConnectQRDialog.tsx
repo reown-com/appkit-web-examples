@@ -1,4 +1,5 @@
 import { useAppKitWallets } from '@reown/appkit/react'
+import { QRCodeSVG } from 'qrcode.react'
 
 export const WalletConnectQRDialog = () => {
   const { wcUri, connectingWallet, isFetchingWcUri, resetWcUri } = useAppKitWallets()
@@ -27,12 +28,7 @@ export const WalletConnectQRDialog = () => {
           ) : wcUri ? (
             <>
               <div className="qr-code-container">
-                {/* Using a simple QR code representation - in production you'd use a QR library */}
-                <img 
-                  src={`https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encodeURIComponent(wcUri)}`}
-                  alt="WalletConnect QR Code"
-                  className="qr-code"
-                />
+                <QRCodeSVG value={wcUri} size={250} />
               </div>
               <p className="qr-instructions">
                 Scan this QR code with your wallet app to connect

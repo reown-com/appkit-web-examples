@@ -1,7 +1,6 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useAppKitWallets } from '@reown/appkit/react'
 import { useAppKitWallet } from "@reown/appkit-wallet-button/react";
-import { useDebounceValue } from '../hooks/useDebounce'
 import { WalletListItem } from './WalletListItem'
 import { WalletConnectQRDialog } from './WalletConnectQRDialog'
 
@@ -10,41 +9,68 @@ interface AllWalletsViewProps {
 }
 
 export const AllWalletsView = ({ onBack }: AllWalletsViewProps) => {
-  const { 
-    wcWallets, 
-    isFetchingWallets, 
-    fetchWallets, 
-    connect, 
+  const {
+    wcWallets,
+    isFetchingWallets,
+    fetchWallets,
+    connect,
     page,
     count,
     connectingWallet
   } = useAppKitWallets()
-  
+
   const { connect: connectWithProvider } = useAppKitWallet()
   const [connectingSocial, setConnectingSocial] = useState<string | null>(null)
-  
-  const [inputValue, setInputValue] = useState('')
-  const searchQuery = useDebounceValue(inputValue, 500)
+  const [fetchError, setFetchError] = useState<string | null>(null)
+
+  const [searchQuery, setSearchQuery] = useState('')
+  const debounceTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+
+  const handleSearch = (value: string) => {
+    if (debounceTimerRef.current) {
+      clearTimeout(debounceTimerRef.current)
+    }
+    debounceTimerRef.current = setTimeout(async () => {
+      try {
+        setFetchError(null)
+        if (value.length > 0) {
+          await fetchWallets?.({ query: value })
+        } else {
+          await fetchWallets?.()
+        }
+        setSearchQuery(value)
+      } catch (err) {
+        setFetchError('Failed to search wallets')
+        console.error('Wallet search error:', err)
+      }
+    }, 500)
+  }
 
   // Initial fetch
   useEffect(() => {
-    fetchWallets?.()
+    const loadWallets = async () => {
+      try {
+        setFetchError(null)
+        await fetchWallets?.()
+      } catch (err) {
+        setFetchError('Failed to load wallets')
+        console.error('Wallet fetch error:', err)
+      }
+    }
+    loadWallets()
   }, [])
 
-  // Fetch when search query changes
-  useEffect(() => {
-    if (searchQuery.length > 0) {
-      fetchWallets?.({ query: searchQuery })
-    } else {
-      fetchWallets?.()
-    }
-  }, [searchQuery])
-
-  const handleLoadMore = () => {
-    if (searchQuery.length > 0) {
-      fetchWallets?.({ page: page + 1, query: searchQuery })
-    } else {
-      fetchWallets?.({ page: page + 1 })
+  const handleLoadMore = async () => {
+    try {
+      setFetchError(null)
+      if (searchQuery.length > 0) {
+        await fetchWallets?.({ page: page + 1, query: searchQuery })
+      } else {
+        await fetchWallets?.({ page: page + 1 })
+      }
+    } catch (err) {
+      setFetchError('Failed to load more wallets')
+      console.error('Wallet fetch error:', err)
     }
   }
 
@@ -117,11 +143,17 @@ export const AllWalletsView = ({ onBack }: AllWalletsViewProps) => {
         <input
           type="text"
           placeholder="Search wallets..."
-          value={inputValue}
-          onChange={(e) => setInputValue(e.target.value)}
+          onChange={(e) => handleSearch(e.target.value)}
           className="search-input"
         />
       </div>
+
+      {fetchError && (
+        <div className="error-message">
+          <p>{fetchError}</p>
+          <button onClick={() => handleSearch(searchQuery)}>Retry</button>
+        </div>
+      )}
 
       {isFetchingWallets && wcWallets.length === 0 ? (
         <div className="loading">
