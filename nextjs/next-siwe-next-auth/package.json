@@ -13,7 +13,7 @@
 		"@reown/appkit-siwe": "1.8.16",
     "@reown/appkit": "1.8.16",
     "@reown/appkit-adapter-wagmi": "1.8.16",
-    "next": "15.3.8",
+    "next": "15.3.9",
     "next-auth": "^4.24.11",
     "react": "19.2.1",
     "react-dom": "19.2.1",
