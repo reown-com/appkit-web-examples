@@ -9,8 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@reown/appkit": "1.8.16",
-    "@reown/appkit-adapter-ethers": "1.8.16",
+    "@reown/appkit": "1.8.19",
+    "@reown/appkit-adapter-ethers": "1.8.19",
     "ethers": "^6.13.4",
     "next": "15.3.9",
     "react": "19.2.1",
@@ -20,8 +20,8 @@
     "@types/node": "^22",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "eslint": "^9",
-    "eslint-config-next": "15.1.6",
+    "eslint": "^9.0.0",
+    "eslint-config-next": "15.3.9",
     "typescript": "^5"
   }
 }

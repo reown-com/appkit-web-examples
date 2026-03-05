@@ -10,14 +10,14 @@
   },
   "dependencies": {
     "@tanstack/react-query": "^5.53.1",
-		"@reown/appkit-siwe": "1.8.16",
-    "@reown/appkit": "1.8.16",
-    "@reown/appkit-adapter-wagmi": "1.8.16",
+		"@reown/appkit-siwe": "1.8.19",
+    "@reown/appkit": "1.8.19",
+    "@reown/appkit-adapter-wagmi": "1.8.19",
     "next": "15.3.9",
     "next-auth": "^4.24.11",
     "react": "19.2.1",
     "react-dom": "19.2.1",
-    "viem": "^2.31.3",
+    "viem": "^2.47.0",
     "wagmi": "^2.14.15"
   },
   "devDependencies": {
@@ -28,4 +28,5 @@
     "eslint": "^9.9.1",
     "eslint-config-next": "14.2.7"
   }
+  
 }

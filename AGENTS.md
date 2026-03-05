@@ -158,11 +158,12 @@ NEXT_PUBLIC_PROJECT_ID=your_project_id_here
 ```
 
 ## Running Examples
+always use pnpm if available
 
 ```bash
 cd react/react-wagmi  # or any example
-npm install
-npm run dev
+pnpm install
+pnpm  dev
 ```
 
 ## Resources

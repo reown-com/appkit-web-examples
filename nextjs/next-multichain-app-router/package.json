@@ -9,24 +9,24 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@reown/appkit": "1.8.16",
-    "@reown/appkit-adapter-solana": "1.8.16",
-    "@reown/appkit-adapter-wagmi": "1.8.16",
-    "@react-native-async-storage/async-storage": "^2.2.0",
+    "@reown/appkit": "1.8.19",
+    "@reown/appkit-adapter-solana": "1.8.19",
+    "@reown/appkit-adapter-wagmi": "1.8.19",
     "@solana/web3.js": "^1.98.0",
     "@tanstack/react-query": "5.90.3",
     "next": "15.3.9",
     "react": "19.2.1",
     "react-dom": "19.2.1",
-    "viem": "2.38.1",
+    "viem": "^2.47.0",
     "wagmi": "^2.18.0"
   },
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "eslint": "^8",
-    "eslint-config-next": "15.1.3",
+    "eslint": "^9.0.0",
+    "eslint-config-next": "15.3.9",
     "typescript": "^5"
   }
+  
 }
