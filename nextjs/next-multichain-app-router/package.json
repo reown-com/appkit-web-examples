@@ -12,7 +12,6 @@
     "@reown/appkit": "1.8.19",
     "@reown/appkit-adapter-solana": "1.8.19",
     "@reown/appkit-adapter-wagmi": "1.8.19",
-    "@react-native-async-storage/async-storage": "^2.2.0",
     "@solana/web3.js": "^1.98.0",
     "@tanstack/react-query": "5.90.3",
     "next": "15.3.9",
@@ -25,7 +24,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "eslint": "^8",
+    "eslint": "^10",
     "eslint-config-next": "15.1.3",
     "typescript": "^5"
   }
