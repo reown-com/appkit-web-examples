@@ -21,7 +21,7 @@
     "react": "19.2.1",
     "react-dom": "19.2.1",
     "tweetnacl": "^1.0.3",
-    "viem": "^2.31.3",
+    "viem": "^2.47.0",
     "wagmi": "^2.14.9"
   },
   "devDependencies": {
@@ -32,4 +32,5 @@
     "eslint-config-next": "15.0.3",
     "typescript": "^5"
   }
+  
 }

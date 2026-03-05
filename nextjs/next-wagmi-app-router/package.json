@@ -16,7 +16,7 @@
     "next": "15.3.9",
     "react": "19.2.1",
     "react-dom": "19.2.1",
-    "viem": "^2.31.3",
+    "viem": "^2.47.0",
     "wagmi": "^2.12.31"
   },
   "devDependencies": {
@@ -27,4 +27,5 @@
     "eslint-config-next": "15.1.6",
     "typescript": "^5"
   }
+  
 }
