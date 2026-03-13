@@ -10,9 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@reown/appkit": "1.8.19",
-    "@reown/appkit-adapter-wagmi": "1.8.19",
-    "@reown/appkit-pay": "1.8.19",
+    "@reown/appkit": "1.8.20-switch-network.0",
+    "@reown/appkit-adapter-wagmi": "1.8.20-switch-network.0",
+    "@reown/appkit-pay": "1.8.20-switch-network.0",
     "@tanstack/react-query": "^5.90.3",
     "react": "19.2.1",
     "react-dom": "19.2.1",
