@@ -16,7 +16,7 @@
     "wagmi": "^2.13.3"
   },
   "devDependencies": {
-    "vite": "7.2.7"
+    "vite": "7.3.2"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
