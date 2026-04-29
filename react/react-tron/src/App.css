@@ -9,6 +9,10 @@ body {
   overflow-x: hidden;
 }
 
+h2 {
+  padding-bottom: 10px;
+}
+
 body {
   color: var(--foreground);
   background: var(--background);
@@ -76,10 +80,6 @@ button:active {
 
 h1 {
   margin: 20px;
-}
-
-h2 {
-  padding-bottom: 6px;
 }
 
 pre {

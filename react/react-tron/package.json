@@ -1,23 +1,20 @@
 {
-  "name": "react-wagmi-appkit",
+  "name": "react-tron-appkit",
   "private": true,
   "version": "0.0.1",
   "type": "module",
   "scripts": {
-    "dev": "vite --port 3000",
+    "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
   "dependencies": {
     "@reown/appkit": "1.8.19",
-    "@reown/appkit-adapter-wagmi": "1.8.19",
-    "@reown/appkit-pay": "1.8.19",
-    "@tanstack/react-query": "^5.90.3",
+    "@reown/appkit-adapter-tron": "1.8.19",
+    "@tronweb3/tronwallet-adapter-tronlink": "1.1.13",
     "react": "19.2.1",
-    "react-dom": "19.2.1",
-    "viem": "^2.47.0",
-    "wagmi": "^2.18.0"
+    "react-dom": "19.2.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",
@@ -27,10 +24,9 @@
     "eslint": "^9.9.0",
     "eslint-plugin-react-hooks": "^5.1.0-rc.0",
     "eslint-plugin-react-refresh": "^0.4.9",
-    "globals": "^16.0.0",
+    "globals": "^15.9.0",
     "typescript": "^5.5.3",
     "typescript-eslint": "^8.0.1",
     "vite": "^7.2.7"
   }
-  
 }
