@@ -9,7 +9,7 @@
   "dependencies": {
     "@reown/appkit": "1.8.19",
     "@reown/appkit-adapter-wagmi": "1.8.19",
-    "@wagmi/connectors": "^7.2.1",
+    "@wagmi/connectors": "^6.2.0",
     "@wagmi/core": "^2.22.0",
     "viem": "^2.47.0",
     "wagmi": "^2.18.0"

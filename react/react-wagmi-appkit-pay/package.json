@@ -14,7 +14,7 @@
     "@reown/appkit-adapter-wagmi": "1.8.19",
     "@reown/appkit-pay": "1.8.19",
     "@tanstack/react-query": "^5.90.3",
-    "@wagmi/connectors": "^7.2.1",
+    "@wagmi/connectors": "^6.2.0",
     "react": "19.2.1",
     "react-dom": "19.2.1",
     "viem": "^2.47.0",
