@@ -15,6 +15,7 @@
     "@reown/appkit-adapter-solana": "1.8.19",
     "@reown/appkit-adapter-wagmi": "1.8.19",
     "@tanstack/vue-query": "5.75.4",
+    "@wagmi/connectors": "^7.2.1",
     "@wagmi/vue": "0.1.18",
     "viem": "^2.47.0",
     "vue": "^3.5.12"

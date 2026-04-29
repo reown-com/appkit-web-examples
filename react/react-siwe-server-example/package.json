@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@tanstack/react-query": "^5.53.1",
+    "@wagmi/connectors": "^7.2.1",
     "@wagmi/core": "^2.21.2",
 		"@reown/appkit-siwe": "1.8.19",
     "@reown/appkit": "1.8.19",
