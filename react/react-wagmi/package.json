@@ -20,6 +20,12 @@
     "viem": "^2.47.0",
     "wagmi": "^2.18.0"
   },
+  "overrides": {
+    "@wagmi/connectors": "^6.2.0",
+    "@wagmi/core": "^2.22.0",
+    "wagmi": "^2.18.0",
+    "viem": "^2.47.0"
+  },
   "devDependencies": {
     "@eslint/js": "^9.9.0",
     "@types/react": "^19.0.10",
