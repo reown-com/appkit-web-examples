@@ -10,10 +10,9 @@
   },
   "dependencies": {
     "@tanstack/react-query": "^5.53.1",
-		"@reown/appkit-siwe": "1.8.19",
-    "@reown/appkit": "1.8.19",
-    "@reown/appkit-adapter-wagmi": "1.8.19",
-    "@wagmi/connectors": "^6.2.0",
+		"@reown/appkit-siwe": "1.8.20-wagmi-upgrade.0",
+    "@reown/appkit": "1.8.20-wagmi-upgrade.0",
+    "@reown/appkit-adapter-wagmi": "1.8.20-wagmi-upgrade.0",
     "next": "15.3.9",
     "next-auth": "^4.24.11",
     "react": "19.2.1",

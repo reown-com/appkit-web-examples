@@ -11,9 +11,9 @@
     "type-check": "vue-tsc --build --force"
   },
   "dependencies": {
-    "@reown/appkit": "1.8.19",
-    "@reown/appkit-universal-connector": "1.8.19",
-    "@reown/appkit-common": "1.8.19",
+    "@reown/appkit": "1.8.20-wagmi-upgrade.0",
+    "@reown/appkit-universal-connector": "1.8.20-wagmi-upgrade.0",
+    "@reown/appkit-common": "1.8.20-wagmi-upgrade.0",
     "vue": "^3.5.12"
   },
   "devDependencies": {
