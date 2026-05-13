@@ -15,7 +15,7 @@
     "@solana/web3.js": "^1.98.0",
     "@tanstack/react-query": "5.90.3",
     "@wagmi/connectors": "^6.2.0",
-    "next": "15.3.9",
+    "next": "15.5.18",
     "react": "19.2.1",
     "react-dom": "19.2.1",
     "viem": "^2.47.0",
