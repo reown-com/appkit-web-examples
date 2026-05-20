@@ -7,7 +7,7 @@
     "build": "vite build"
   },
   "dependencies": {
-    "@reown/appkit": "1.8.20-batch-fixes.0"
+    "@reown/appkit": "1.8.20"
   },
   "devDependencies": {
     "vite": "7.2.7"
