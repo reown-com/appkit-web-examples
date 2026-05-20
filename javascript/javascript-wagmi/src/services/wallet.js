@@ -1,13 +1,13 @@
-import { parseEther, formatUnits } from 'viem'
+import { parseEther, formatUnits, toHex } from 'viem'
 import { sendTransaction, getBalance as getBalanceWagmi} from '@wagmi/core'
 import {createWalletClient} from 'viem'
 
 export const signMessage = (provider, address) => {
     if (!provider) return Promise.reject('No provider available')
-    
+
     return provider.request({
       method: 'personal_sign',
-      params: ['Hello from AppKit!', address]
+      params: [toHex('Hello from AppKit!'), address]
     })
   }
 
