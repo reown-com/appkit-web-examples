@@ -1,11 +1,11 @@
-import { BrowserProvider, Contract, formatUnits, parseEther } from 'ethers'
+import { BrowserProvider, Contract, formatUnits, hexlify, parseEther, toUtf8Bytes } from 'ethers'
 
 export const signMessage = (provider, address) => {
     if (!provider) return Promise.reject('No provider available')
-    
+
     return provider.request({
       method: 'personal_sign',
-      params: ['Hello from AppKit!', address]
+      params: [hexlify(toUtf8Bytes('Hello from AppKit!')), address]
     })
   }
 
