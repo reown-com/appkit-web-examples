@@ -1,0 +1,3 @@
+allowBuilds:
+  '@reown/appkit': true
+  esbuild: false

@@ -1,0 +1,45 @@
+{
+  "name": "appkit-vue-siwx-example",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "run-p type-check \"build-only {@}\" --",
+    "preview": "vite preview",
+    "build-only": "vite build",
+    "type-check": "vue-tsc --build --force"
+  },
+  "dependencies": {
+    "@reown/appkit": "1.8.20",
+    "@reown/appkit-adapter-tron": "1.8.20",
+    "@reown/appkit-adapter-wagmi": "1.8.20",
+    "@reown/appkit-siwx": "1.8.20",
+    "@tanstack/vue-query": "5.75.4",
+    "@tronweb3/tronwallet-adapter-tronlink": "1.1.13",
+    "@wagmi/connectors": "6.2.0",
+    "@wagmi/vue": "0.1.18",
+    "buffer": "^6.0.3",
+    "process": "^0.11.10",
+    "viem": "2.47.0",
+    "vue": "^3.5.12"
+  },
+  "overrides": {
+    "@wagmi/connectors": "6.2.0",
+    "@wagmi/core": "2.22.1",
+    "wagmi": "2.19.5",
+    "viem": "2.47.0"
+  },
+  "devDependencies": {
+    "@esbuild-plugins/node-globals-polyfill": "0.2.3",
+    "@tsconfig/node20": "^20.1.4",
+    "@types/node": "^20.17.0",
+    "@vitejs/plugin-vue": "^5.2.0",
+    "@vitejs/plugin-vue-jsx": "^5.1.2",
+    "@vue/tsconfig": "^0.7.0",
+    "npm-run-all2": "^8.0.1",
+    "typescript": "^5.7.3",
+    "vite": "^6.0.0",
+    "vue-tsc": "^3.1.8"
+  }
+}

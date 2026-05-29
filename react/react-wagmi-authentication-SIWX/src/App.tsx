@@ -7,7 +7,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ActionButtonList } from './components/ActionButtonList'
 import { SmartContractActionButtonList } from './components/SmartContractActionButtonList'
 import { InfoList } from './components/InfoList'
-import { projectId, metadata, networks, wagmiAdapter } from './config'
+import { projectId, metadata, networks, wagmiAdapter, solanaWeb3JsAdapter, tronAdapter } from './config'
 
 import { ReownAuthentication } from '@reown/appkit-siwx'
 
@@ -25,11 +25,16 @@ const generalConfig = {
   }
 }
 
+
+
+const siwx: any = new ReownAuthentication()
+siwx.getRequired = () => true
+
 // Create modal
 createAppKit({
-  adapters: [wagmiAdapter],
+  adapters: [wagmiAdapter, solanaWeb3JsAdapter, tronAdapter],
   ...generalConfig,
-  siwx: new ReownAuthentication(),
+  siwx,
   features: {
     analytics: true // Optional - defaults to your Cloud configuration
   }
