@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "moduleResolution": "bundler",
+    "target": "ESNext",
+    "module": "ESNext",
+    "verbatimModuleSyntax": true,
+    "isolatedModules": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "esModuleInterop": true,
+    "moduleDetection": "force",
+    "checkJs": true,
+    "allowJs": true,
+    "strict": true
+  },
+  "include": ["src/**/*.js", "src/**/*.svelte"]
+}
