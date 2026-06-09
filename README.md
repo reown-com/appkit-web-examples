@@ -13,23 +13,15 @@ This repository provides examples of how to integrate and use **AppKit** in vari
 
 - **Universal Authentication**  
   Support for email, social logins, and one-click authentication using SIWX, enabling seamless user access across EVM, Solana, and Bitcoin networks.  
-  [Read more →](https://docs.reown.com/appkit/features/authentication)
+  [Read more →](https://docs.reown.com/appkit/authentication/socials)
 
 - **Smart Accounts**  
   Enhance user security and convenience with multi-signature authorization and automated transaction workflows.  
   [Read more →](https://docs.reown.com/appkit/features/smart-accounts)
 
-- **Smart Sessions**  
-  Enable dApps to perform specific blockchain actions on behalf of users for a defined period, eliminating the need for repeated approvals.  
-  [Read more →](https://docs.reown.com/appkit/features/smart-sessions)
-
 - **On-Ramp & Swaps**  
   Let users buy crypto and swap tokens directly within your app.  
   [Read more →](https://docs.reown.com/appkit/features/onramp)
-
-- **Notifications**  
-  Deliver important updates directly to users’ wallets or in-app using Web3-native notifications.  
-  [Read more →](https://docs.reown.com/appkit/next/notifications/overview)
 
 - **Multi-Chain Support**  
   Works seamlessly with EVM chains, Solana, and Bitcoin.  
@@ -68,7 +60,6 @@ Each framework has examples for the implementation with wagmi, ethers, solana, b
 |           | Solana        | [Demo](https://appkit-web-examples-react-solana.reown.com/)                                  | [Fork](https://stackblitz.com/github/reown-com/appkit-web-examples/tree/main/react/react-solana/)              |
 |           | Bitcoin       | [Demo](https://appkit-web-examples-react-bitcoin.reown.com/)                                 | [Fork](https://stackblitz.com/github/reown-com/appkit-web-examples/tree/main/react/react-bitcoin/)             |
 |           | Multichain    | [Demo](https://appkit-web-examples-react-multichain.reown.com/)                              | [Fork](https://stackblitz.com/github/reown-com/appkit-web-examples/tree/main/react/react-multichain/)          |
-|           | AppKit Pay    | [Demo](https://appkit-web-examples-pay.reown.com/)                                           | [Fork](https://stackblitz.com/github/reown-com/appkit-web-examples/tree/main/react/react-wagmi-appkit-pay/)          |
 | **Vue**    | ethers        | [Demo](https://appkit-web-examples-vue-ethers.reown.com/)                                    | [Fork](https://stackblitz.com/github/reown-com/appkit-web-examples/tree/main/vue/vue-ethers/)                  |
 |           | wagmi         | [Demo](https://appkit-web-examples-vue-wagmi.reown.com/)                                     | [Fork](https://stackblitz.com/github/reown-com/appkit-web-examples/tree/main/vue/vue-wagmi/)                   |
 |           | Solana        | [Demo](https://appkit-web-examples-vue-solana.reown.com/)                                    | [Fork](https://stackblitz.com/github/reown-com/appkit-web-examples/tree/main/vue/vue-solana/)                  |
@@ -108,7 +99,6 @@ Each framework has examples for the implementation with wagmi, ethers, solana, b
 ├──────── react-multichain    # Wagmi + Solana
 ├──────── react-solana
 ├──────── react-siwe-server-example
-├──────── react-wagmi-appkit-pay
 ├── vue/      # Web AppKit with Vue
 ├──────── vue-bitcoin    
 ├──────── vue-core    # AppKit Core
