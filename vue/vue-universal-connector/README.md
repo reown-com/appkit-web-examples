@@ -27,7 +27,7 @@ This is a [Vite](https://vitejs.dev) project together with Vue that demonstrates
 ## Resources
 
 - [Reown — Docs](https://docs.reown.com)
-- [Universal Connector — Docs](https://docs.reown.com/appkit/universal-connector)
+- [Universal Connector — Docs](https://docs.reown.com/appkit/recipes/universal-connector)
 - [Vite — GitHub](https://github.com/vitejs/vite)
 - [Vite — Docs](https://vitejs.dev/guide/)
 - [Vue - Docs](https://vuejs.org/guide/introduction)

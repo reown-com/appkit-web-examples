@@ -36,7 +36,7 @@ npm install @reown/appkit @reown/appkit-adapter-wagmi wagmi viem @tanstack/react
 import { WagmiAdapter } from '@reown/appkit-adapter-wagmi'
 import { mainnet, arbitrum } from '@reown/appkit/networks'
 
-const projectId = 'YOUR_PROJECT_ID' // Get from https://cloud.reown.com
+const projectId = 'YOUR_PROJECT_ID' // Get from https://dashboard.reown.com/
 
 export const networks = [mainnet, arbitrum]
 
