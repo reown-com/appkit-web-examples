@@ -1,7 +1,9 @@
 import { WagmiAdapter } from '@reown/appkit-adapter-wagmi'
-import { mainnet, arbitrum, solana, solanaDevnet, solanaTestnet, } from '@reown/appkit/networks'
+import { mainnet, arbitrum, solana, solanaDevnet, solanaTestnet, tronMainnet, tronShastaTestnet } from '@reown/appkit/networks'
 import type { AppKitNetwork } from '@reown/appkit/networks'
 import { SolanaAdapter } from '@reown/appkit-adapter-solana/react'
+import { TronAdapter } from '@reown/appkit-adapter-tron'
+import { TronLinkAdapter } from '@tronweb3/tronwallet-adapter-tronlink'
 
 
 // Get projectId from https://dashboard.reown.com
@@ -19,7 +21,7 @@ export const metadata = {
   }
 
 // for custom networks visit -> https://docs.reown.com/appkit/react/core/custom-networks
-export const networks = [mainnet, arbitrum, solana, solanaDevnet, solanaTestnet] as [AppKitNetwork, ...AppKitNetwork[]]
+export const networks = [mainnet, arbitrum, solana, solanaDevnet, solanaTestnet, tronMainnet, tronShastaTestnet] as [AppKitNetwork, ...AppKitNetwork[]]
 
 //Set up the Wagmi Adapter (Config)
 export const wagmiAdapter = new WagmiAdapter({
@@ -29,5 +31,16 @@ export const wagmiAdapter = new WagmiAdapter({
 
 // Set up Solana Adapter
 export const solanaWeb3JsAdapter = new SolanaAdapter()
+
+// Set up Tron Adapter
+export const tronAdapter = new TronAdapter({
+  walletAdapters: [
+    new TronLinkAdapter({
+      openUrlWhenWalletNotFound: false,
+      checkTimeout: 3000
+    })
+  ]
+})
+
 
 export const config = wagmiAdapter.wagmiConfig

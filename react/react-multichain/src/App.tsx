@@ -5,7 +5,7 @@ import { WagmiProvider } from 'wagmi'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ActionButtonList } from './components/ActionButtonList'
 import { InfoList } from './components/InfoList'
-import { projectId, metadata, networks, wagmiAdapter , solanaWeb3JsAdapter} from './config'
+import { projectId, metadata, networks, wagmiAdapter , solanaWeb3JsAdapter, tronAdapter} from './config'
 
 import "./App.css"
 
@@ -26,7 +26,7 @@ const generalConfig = {
 
 // Create modal
 createAppKit({
-  adapters: [wagmiAdapter, solanaWeb3JsAdapter],
+  adapters: [wagmiAdapter, solanaWeb3JsAdapter, tronAdapter],
   ...generalConfig,
 })
 
@@ -35,7 +35,7 @@ export function App() {
   return (
     <div className={"pages"}>
       <img src="/reown.svg" alt="Reown" style={{ width: '150px', height: '150px' }} />
-      <h1>AppKit Wagmi+solana React dApp Example</h1>
+      <h1>AppKit Wagmi+solana+tron React dApp Example</h1>
       <WagmiProvider config={wagmiAdapter.wagmiConfig}>
         <QueryClientProvider client={queryClient}>
             <appkit-button />
