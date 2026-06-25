@@ -13,6 +13,7 @@ export const InfoList = () => {
     const {address, caipAddress, isConnected, status, embeddedWalletInfo } = useAppKitAccount();
     const eip155AccountState = useAppKitAccount({ namespace: 'eip155' })
     const solanaAccountState = useAppKitAccount({ namespace: 'solana' })
+    const tronAccountState = useAppKitAccount({ namespace: 'tron' })
     //  const bip122AccountState = useAppKitAccount({ namespace: 'bip122' }) // for bitcoin
     const events = useAppKitEvents()
     const { walletInfo } = useWalletInfo()
@@ -28,6 +29,7 @@ export const InfoList = () => {
             <pre>
                 Address EVM : {eip155AccountState.address}<br />
                 Addresss Solana: {solanaAccountState.address}<br />
+                Addresss Tron: {tronAccountState.address}<br />
             </pre>
         </section>
         <section>
