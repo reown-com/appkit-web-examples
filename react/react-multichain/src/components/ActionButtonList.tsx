@@ -17,7 +17,7 @@ export const ActionButtonList = () => {
     <div >
         <button onClick={() => open({ view: 'Connect', namespace: 'eip155' })}>Open EVM</button>
         <button onClick={() => open({ view: 'Connect', namespace: 'solana' })}>Open Solana</button>
-        <button onClick={() => open({ view: 'Connect', namespace: 'tron' })}>Open Tron</button>
+        <button onClick={() => open({ view: 'Connect', namespace: 'bip122' })}>Open Bitcoin</button>
         <button onClick={handleDisconnect}>Disconnect</button>
         <button onClick={() => switchNetwork(networks[1]) }>Switch</button>
     </div>
