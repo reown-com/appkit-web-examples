@@ -12,7 +12,7 @@ This repository provides examples of how to integrate and use **AppKit** in vari
 ### 🚀 Key Features
 
 - **Universal Authentication**  
-  Support for email, social logins, and one-click authentication using SIWX, enabling seamless user access across EVM, Solana, and Bitcoin networks.  
+  Support for email, social logins, and one-click authentication using SIWX, enabling seamless user access across EVM, Solana, Bitcoin, Tron and Ton networks.  
   [Read more →](https://docs.reown.com/appkit/authentication/socials)
 
 - **Smart Accounts**  
@@ -73,38 +73,40 @@ Each framework has examples for the implementation with wagmi, ethers, solana, b
 
 ```plaintext
 .
-├── javascript/   # Web AppKit with Javascript
-├──────── javascript-bitcoin    
-├──────── javascript-core    # AppKit Core
+├── javascript/                                 # Web AppKit with Javascript
+├──────── javascript-bitcoin
 ├──────── javascript-ethers
-├──────── javascript-multichain    # Wagmi + Solana
-├──────── javascript-wagmi
+├──────── javascript-multichain                 # Wagmi + Solana
 ├──────── javascript-solana
-├── nextjs/   # Web AppKit with NextJS
+├──────── javascript-wagmi
+├── nextjs/                                     # Web AppKit with NextJS
 ├──────── next-bitcoin-app-router
-├──────── next-core-app-router    # AppKit Core
-├──────── next-siwe-next-auth
-├──────── next-siwx-multichain-supabase-storage
-├──────── next-siwx-multichain
-├──────── next-wagmi-app-router
 ├──────── next-ethers-app-router
+├──────── next-multichain-app-router            # Wagmi + Solana
+├──────── next-siwe-next-auth
+├──────── next-siwx-multichain
+├──────── next-siwx-multichain-supabase-storage
 ├──────── next-solana-app-router
-├──────── next-multichain-app-router    # Wagmi + Solana
-├── react/    # Web AppKit with React
+├──────── next-tron-app-router
+├──────── next-wagmi-app-router
+├── react/                                      # Web AppKit with React
 ├──────── react-bitcoin
-├──────── react-core    # AppKit Core
-├──────── react-wagmi
 ├──────── react-ethers
 ├──────── react-ethers5
-├──────── react-multichain    # Wagmi + Solana
-├──────── react-solana
+├──────── react-multichain                      # Wagmi + Solana + Bitcoin
+├──────── react-multichain-bitcoin-evm-tron     # Bitcoin + EVM + Tron
 ├──────── react-siwe-server-example
-├── vue/      # Web AppKit with Vue
-├──────── vue-bitcoin    
-├──────── vue-core    # AppKit Core
+├──────── react-solana
+├──────── react-tron
+├──────── react-wagmi
+├──────── react-wagmi-authentication-SIWX       # Reown Authentication
+├──────── react-wagmi-smart-session
+├── vue/                                        # Web AppKit with Vue
+├──────── vue-bitcoin
 ├──────── vue-ethers
-├──────── vue-multichain (wagmi+solana)
+├──────── vue-multichain                        # Wagmi + Solana
 ├──────── vue-solana
+├──────── vue-universal-connector
 └──────── vue-wagmi
 ```
 
@@ -115,5 +117,4 @@ Each framework has examples for the implementation with wagmi, ethers, solana, b
 - [Next.js AppKit Quickstart](https://docs.reown.com/appkit/next/core/installation)
 - [Vue AppKit Quickstart](https://docs.reown.com/appkit/vue/core/installation)
 - [Javascript AppKit Quickstart](https://docs.reown.com/appkit/javascript/core/installation)
-- [Discord for Questions](https://discord.gg/reown)
 - [Dashboard to create a projectId to use AppKit](https://dashboard.reown.com/)
