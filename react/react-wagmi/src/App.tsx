@@ -6,6 +6,7 @@ import { useState } from 'react'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ActionButtonList } from './components/ActionButtonList'
 import { SmartContractActionButtonList } from './components/SmartContractActionButtonList'
+import { SmartAccountDeployButton } from './components/SmartAccountDeployButton'
 import { InfoList } from './components/InfoList'
 import { projectId, metadata, networks, wagmiAdapter } from './config'
 
@@ -27,6 +28,9 @@ const generalConfig = {
 createAppKit({
   adapters: [wagmiAdapter],
   ...generalConfig,
+  // Use a Smart Account (ERC-4337) by default for the embedded wallet on EVM.
+  // The smart account contract is deployed on-chain on its first transaction.
+  defaultAccountTypes: { eip155: 'smartAccount' },
   features: {
     analytics: true // Optional - defaults to your Cloud configuration
   }
@@ -59,6 +63,7 @@ export function App() {
             <appkit-button />
             <ActionButtonList sendHash={receiveHash} sendSignMsg={receiveSignedMsg} sendBalance={receivebalance}/>
             <SmartContractActionButtonList />
+            <SmartAccountDeployButton />
             <div className="advice">
               <p>
                 This projectId only works on localhost. <br/>
