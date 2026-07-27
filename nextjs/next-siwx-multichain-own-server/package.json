@@ -1,0 +1,40 @@
+{
+  "name": "next-siwx-multichain-own-server",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@react-native-async-storage/async-storage": "^2.2.0",
+    "@reown/appkit": "1.8.20",
+    "@reown/appkit-adapter-bitcoin": "1.8.20",
+    "@reown/appkit-adapter-tron": "1.8.20",
+    "@reown/appkit-adapter-wagmi": "1.8.20",
+    "@reown/appkit-controllers": "1.8.20",
+    "@reown/appkit-siwx": "1.8.20",
+    "@tanstack/react-query": "^5.64.2",
+    "@tronweb3/tronwallet-adapter-tronlink": "^1.1.8",
+    "@wagmi/connectors": "^6.2.0",
+    "bip322-js": "^2.0.0",
+    "jose": "^5.9.6",
+    "next": "15.5.18",
+    "react": "19.2.1",
+    "react-dom": "19.2.1",
+    "tronweb": "^6.0.0",
+    "viem": "^2.47.0",
+    "wagmi": "^2.18.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "19.0.0",
+    "@types/react-dom": "19.0.0",
+    "eslint": "^8",
+    "eslint-config-next": "15.0.3",
+    "typescript": "^5"
+  }
+}
