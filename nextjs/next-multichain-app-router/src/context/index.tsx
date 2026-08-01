@@ -3,6 +3,7 @@
 import { wagmiAdapter, solanaWeb3JsAdapter, projectId, networks } from '@/config'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { createAppKit } from '@reown/appkit/react'
+import { DefaultSIWX } from '@reown/appkit-siwx'
 import React, { type ReactNode } from 'react'
 import { cookieToInitialState, WagmiProvider, type Config } from 'wagmi'
 
@@ -29,7 +30,8 @@ export const modal = createAppKit({
   },
   themeVariables: {
     '--w3m-accent': '#000000',
-  }
+  },
+  siwx: new DefaultSIWX()
 })
 
 function ContextProvider({ children, cookies }: { children: ReactNode; cookies: string | null }) {
