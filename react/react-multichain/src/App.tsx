@@ -5,7 +5,7 @@ import { WagmiProvider } from 'wagmi'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ActionButtonList } from './components/ActionButtonList'
 import { InfoList } from './components/InfoList'
-import { projectId, metadata, networks, wagmiAdapter , solanaWeb3JsAdapter, bitcoinAdapter} from './config'
+import { projectId, metadata, networks, wagmiAdapter , solanaWeb3JsAdapter, siwx} from './config'
 
 import "./App.css"
 
@@ -26,7 +26,8 @@ const generalConfig = {
 
 // Create modal
 createAppKit({
-  adapters: [wagmiAdapter, solanaWeb3JsAdapter, bitcoinAdapter],
+  adapters: [wagmiAdapter, solanaWeb3JsAdapter],
+  siwx,
   ...generalConfig,
 })
 

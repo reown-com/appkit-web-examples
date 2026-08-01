@@ -1,8 +1,8 @@
 import { WagmiAdapter } from '@reown/appkit-adapter-wagmi'
-import { mainnet, arbitrum, solana, solanaDevnet, solanaTestnet, bitcoin, bitcoinTestnet } from '@reown/appkit/networks'
+import { mainnet, arbitrum, solana, solanaDevnet, solanaTestnet } from '@reown/appkit/networks'
 import type { AppKitNetwork } from '@reown/appkit/networks'
 import { SolanaAdapter } from '@reown/appkit-adapter-solana/react'
-import { BitcoinAdapter } from '@reown/appkit-adapter-bitcoin'
+import { DefaultSIWX } from '@reown/appkit-siwx'
 
 
 // Get projectId from https://dashboard.reown.com
@@ -20,7 +20,7 @@ export const metadata = {
   }
 
 // for custom networks visit -> https://docs.reown.com/appkit/react/core/custom-networks
-export const networks = [mainnet, arbitrum, solana, solanaDevnet, solanaTestnet, bitcoin, bitcoinTestnet] as [AppKitNetwork, ...AppKitNetwork[]]
+export const networks = [mainnet, arbitrum, solana, solanaDevnet, solanaTestnet] as [AppKitNetwork, ...AppKitNetwork[]]
 
 //Set up the Wagmi Adapter (Config)
 export const wagmiAdapter = new WagmiAdapter({
@@ -31,6 +31,7 @@ export const wagmiAdapter = new WagmiAdapter({
 // Set up Solana Adapter
 export const solanaWeb3JsAdapter = new SolanaAdapter()
 
-export const bitcoinAdapter = new BitcoinAdapter()
+// Set up SIWX
+export const siwx = new DefaultSIWX()
 
 export const config = wagmiAdapter.wagmiConfig
