@@ -4,6 +4,7 @@ import {
     useAppKitTheme,
     useAppKitEvents,
     useAppKitAccount,
+    useAppKitNetwork,
     useWalletInfo
      } from '@reown/appkit/react'
 
@@ -11,14 +12,19 @@ interface InfoListProps {
     hash: string | undefined;
     signedMsg: string;
     balance: string;
+    usdtHash: string;
+    error: string;
 }
 
-export const InfoList = ({ hash, signedMsg, balance }: InfoListProps) => {
+export const InfoList = ({ hash, signedMsg, balance, usdtHash, error }: InfoListProps) => {
     const { themeMode, themeVariables } = useAppKitTheme();
     const state = useAppKitState();
     const {address, caipAddress, isConnected, status, embeddedWalletInfo } = useAppKitAccount();
+    const { caipNetwork } = useAppKitNetwork()
     const events = useAppKitEvents()
     const walletInfo = useWalletInfo()
+
+    const explorerUrl = caipNetwork?.blockExplorers?.default.url
 
     useEffect(() => {
         console.log("Events: ", events);
@@ -26,6 +32,25 @@ export const InfoList = ({ hash, signedMsg, balance }: InfoListProps) => {
 
   return (
     < >
+        {error && (
+        <section>
+            <h2>Error</h2>
+            <pre>
+                {error}<br />
+            </pre>
+        </section>
+        )}
+        {usdtHash && (
+        <section>
+            <h2>Send USDT</h2>
+            <pre>
+                Hash: {usdtHash}<br />
+            </pre>
+            {explorerUrl && (
+                <a href={`${explorerUrl}/#/transaction/${usdtHash}`} target="_blank" rel="noreferrer">View on explorer</a>
+            )}
+        </section>
+        )}
         {balance && (
         <section>
             <h2>Balance: {balance}</h2>

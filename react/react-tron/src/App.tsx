@@ -1,7 +1,6 @@
 import { createAppKit } from '@reown/appkit/react'
-import { tronMainnet, tronShastaTestnet } from '@reown/appkit/networks'
 import { useState } from 'react'
-import { metadata, projectId, tronAdapter } from './config'
+import { metadata, networks, projectId, tronAdapter } from './config'
 import { ActionButtonList } from './components/ActionButtonList'
 import { InfoList } from './components/InfoList'
 
@@ -12,7 +11,7 @@ createAppKit({
   projectId,
   metadata,
   themeMode: 'light',
-  networks: [tronMainnet, tronShastaTestnet],
+  networks,
   adapters: [tronAdapter],
   features: {
     analytics: true // Optional - defaults to your Cloud configuration
@@ -26,9 +25,19 @@ export function App() {
   const [transactionHash, setTransactionHash] = useState<string | undefined>(undefined);
   const [signedMsg, setSignedMsg] = useState('');
   const [balance, setBalance] = useState('');
+  const [usdtHash, setUsdtHash] = useState('');
+  const [error, setError] = useState('');
 
   const receiveHash = (hash: string) => {
     setTransactionHash(hash); // Update the state with the transaction hash
+  };
+
+  const receiveUsdtHash = (hash: string) => {
+    setUsdtHash(hash); // Update the state with the USDT transfer hash
+  };
+
+  const receiveError = (error: string) => {
+    setError(error)
   };
 
   const receiveSignedMsg = (signedMsg: string) => {
@@ -44,14 +53,14 @@ export function App() {
       <img src="/reown.svg" alt="Reown" style={{ width: '150px', height: '150px' }} />
       <h2>Reown AppKit + TRON</h2>
       <appkit-button />
-      <ActionButtonList sendHash={receiveHash} sendSignMsg={receiveSignedMsg} sendBalance={receivebalance}/>
+      <ActionButtonList sendHash={receiveHash} sendSignMsg={receiveSignedMsg} sendBalance={receivebalance} sendUsdtHash={receiveUsdtHash} sendError={receiveError}/>
       <div className="advice">
         <p>
           This projectId only works on localhost. <br/>
           Go to <a href="https://dashboard.reown.com" target="_blank" className="link-button" rel="Reown Dashboard">Reown Dashboard</a> to get your own.
         </p>
       </div>
-      <InfoList hash={transactionHash} signedMsg={signedMsg} balance={balance}/>
+      <InfoList hash={transactionHash} signedMsg={signedMsg} balance={balance} usdtHash={usdtHash} error={error}/>
     </div>
   )
 }
