@@ -101,6 +101,7 @@ Each framework has examples for the implementation with wagmi, ethers, solana, b
 ├──────── react-wagmi
 ├──────── react-wagmi-authentication-SIWX       # Reown Authentication
 ├──────── react-wagmi-smart-session
+├──────── react-wagmi-tron                      # Wagmi (EVM) + Tron
 ├── vue/                                        # Web AppKit with Vue
 ├──────── vue-bitcoin
 ├──────── vue-ethers
