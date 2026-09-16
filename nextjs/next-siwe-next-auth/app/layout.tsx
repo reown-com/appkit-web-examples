@@ -7,12 +7,12 @@ import { cookieToInitialState } from 'wagmi';
 import { wagmiAdapter } from './config';
 import AppKitProvider from './context';
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const initialState = cookieToInitialState(wagmiAdapter.wagmiConfig, headers().get('cookie'));
+  const initialState = cookieToInitialState(wagmiAdapter.wagmiConfig, (await headers()).get('cookie'));
   return (
     <html lang='en'>
       <body>
