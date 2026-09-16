@@ -1,5 +1,5 @@
 {
-  "name": "next-wagmi-app-router",
+  "name": "next-multichain-app-router",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -15,18 +15,21 @@
     "@solana/web3.js": "^1.98.0",
     "@tanstack/react-query": "5.90.3",
     "@wagmi/connectors": "^6.2.0",
-    "next": "15.5.18",
-    "react": "19.2.1",
-    "react-dom": "19.2.1",
-    "viem": "^2.47.0",
-    "wagmi": "^2.18.0"
+    "@x402/core": "^2.25.0",
+    "@x402/evm": "^2.25.0",
+    "@x402/svm": "^2.25.0",
+    "next": "16.3.5",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "viem": "^2.55.13",
+    "wagmi": "^2.12.31"
   },
   "devDependencies": {
-    "@types/node": "^20",
+    "@types/node": "^22",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9.0.0",
-    "eslint-config-next": "15.3.9",
+    "eslint-config-next": "16.3.5",
     "typescript": "^5"
   }
   
