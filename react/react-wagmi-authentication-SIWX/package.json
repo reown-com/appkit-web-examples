@@ -14,12 +14,12 @@
     "@reown/appkit": "1.8.24",
     "@reown/appkit-adapter-wagmi": "1.8.24",
     "@reown/appkit-siwx": "1.8.24",
-    "@tanstack/react-query": "^5.56.2",
-    "@wagmi/connectors": "^6.2.0",
-    "react": "19.2.1",
-    "react-dom": "19.2.1",
-    "viem": "^2.47.0",
-    "wagmi": "^2.14.12"
+    "@tanstack/react-query": "5.90.3",
+    "@wagmi/connectors": "6.2.0",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "viem": "^2.55.13",
+    "wagmi": "2.19.5"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",
@@ -32,7 +32,7 @@
     "globals": "^16.0.0",
     "typescript": "^5.5.3",
     "typescript-eslint": "^8.0.1",
-    "vite": "^7.2.7"
+    "vite": "^7.3.2"
   }
   
 }

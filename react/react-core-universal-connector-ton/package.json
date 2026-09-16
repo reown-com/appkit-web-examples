@@ -12,15 +12,15 @@
   "dependencies": {
     "@reown/appkit-universal-connector": "1.8.24",
     "@reown/appkit-common": "1.8.24",
-    "react": "19.2.1",
-    "react-dom": "19.2.1",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
     "ethers": "6.15.0"
   },
   "devDependencies": {
-    "@types/react": "19.1.12",
-    "@types/react-dom": "19.1.9",
-    "@vitejs/plugin-react": "5.0.2",
-    "typescript": "^5.9.2",
-    "vite": "^7.2.7"
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
+    "@vitejs/plugin-react": "^4.3.1",
+    "typescript": "^5.5.3",
+    "vite": "^7.3.2"
   }
 }
