@@ -15,7 +15,6 @@
     "@tanstack/react-query": "5.90.3",
     "react": "19.2.1",
     "react-dom": "19.2.1",
-    "@wagmi/connectors": "8.2.0",
     "viem": "2.56.8",
     "wagmi": "3.7.7"
   },

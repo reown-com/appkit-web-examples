@@ -1,0 +1,6 @@
+allowBuilds:
+  '@reown/appkit': true
+  bigint-buffer: false
+  bufferutil: false
+  esbuild: false
+  utf-8-validate: false
