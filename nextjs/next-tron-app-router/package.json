@@ -9,8 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@reown/appkit": "1.8.21",
-    "@reown/appkit-adapter-tron": "1.8.21",
+    "@reown/appkit": "2.0.0-wagmi-v3.0",
+    "@reown/appkit-adapter-tron": "2.0.0-wagmi-v3.0",
     "@tronweb3/tronwallet-adapter-tronlink": "1.1.13",
     "next": "15.5.18",
     "react": "19.2.1",

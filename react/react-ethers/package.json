@@ -10,8 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@reown/appkit": "1.8.21",
-    "@reown/appkit-adapter-ethers": "1.8.21",
+    "@reown/appkit": "2.0.0-wagmi-v3.0",
+    "@reown/appkit-adapter-ethers": "2.0.0-wagmi-v3.0",
     "ethers": "^6.13.2",
     "react": "19.2.1",  
     "react-dom": "19.2.1"

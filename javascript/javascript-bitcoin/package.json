@@ -7,8 +7,8 @@
     "build": "vite build"
   },
   "dependencies": {
-    "@reown/appkit": "1.8.21",
-    "@reown/appkit-adapter-bitcoin": "1.8.21" 
+    "@reown/appkit": "2.0.0-wagmi-v3.0",
+    "@reown/appkit-adapter-bitcoin": "2.0.0-wagmi-v3.0" 
   },
   "devDependencies": {
     "vite": "7.2.7"
