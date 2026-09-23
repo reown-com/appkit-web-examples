@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   webpack: config => {
-    config.externals.push('pino-pretty', 'lokijs', 'encoding', /^@x402\//)
+    config.externals.push( /^@x402\//)
     return config
   }
 };
