@@ -7,8 +7,8 @@
     "build": "vite build"
   },
   "dependencies": {
-    "@reown/appkit": "1.8.21",
-    "@reown/appkit-adapter-solana": "1.8.21",
+    "@reown/appkit": "2.0.0-wagmi-v3.0",
+    "@reown/appkit-adapter-solana": "2.0.0-wagmi-v3.0",
     "@solana/web3.js": "^1.95.8"
   },
   "devDependencies": {
