@@ -12,7 +12,7 @@
 	"author": "",
 	"license": "ISC",
 	"dependencies": {
-		"@reown/appkit-siwe": "2.0.0-wagmi-v3-lazy-coinbase.0",
+		"@reown/appkit-siwe": "2.0.0-wagmi-3.0",
 		"body-parser": "^1.20.2",
 		"cors": "^2.8.5",
 		"dotenv": "^16.4.5",
