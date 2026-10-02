@@ -9,9 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@reown/appkit": "2.0.0-wagmi-3.0",
-    "@reown/appkit-adapter-solana": "2.0.0-wagmi-3.0",
-    "@solana/web3.js": "^1.98.0",
+    "@reown/appkit": "2.0.0-wagmi-v3-solana-kit.0",
+    "@reown/appkit-adapter-solana": "2.0.0-wagmi-v3-solana-kit.0",
     "next": "15.5.18",
     "react": "19.2.1",
     "react-dom": "19.2.1"

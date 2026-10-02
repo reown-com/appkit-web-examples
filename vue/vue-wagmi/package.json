@@ -11,8 +11,8 @@
     "type-check": "vue-tsc --build --force"
   },
   "dependencies": {
-    "@reown/appkit": "2.0.0-wagmi-3.0",
-    "@reown/appkit-adapter-wagmi": "2.0.0-wagmi-3.0",
+    "@reown/appkit": "2.0.0-wagmi-v3-solana-kit.0",
+    "@reown/appkit-adapter-wagmi": "2.0.0-wagmi-v3-solana-kit.0",
     "@tanstack/vue-query": "5.75.4",
     "@wagmi/vue": "0.5.30",
     "@wagmi/connectors": "8.2.0",

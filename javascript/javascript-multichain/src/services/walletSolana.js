@@ -1,4 +1,18 @@
-import { PublicKey, LAMPORTS_PER_SOL, Transaction, SystemProgram } from "@solana/web3.js";
+import {
+  address as toAddress,
+  appendTransactionMessageInstruction,
+  compileTransaction,
+  createNoopSigner,
+  createTransactionMessage,
+  getBase64EncodedWireTransaction,
+  lamports,
+  pipe,
+  setTransactionMessageFeePayerSigner,
+  setTransactionMessageLifetimeUsingBlockhash
+} from "@solana/kit";
+import { getTransferSolInstruction } from "@solana-program/system";
+
+const LAMPORTS_PER_SOL = 1_000_000_000;
 
   export const signMessage = async (provider, address) => {
     if (!provider) return Promise.reject('No provider available')
@@ -9,37 +23,40 @@ import { PublicKey, LAMPORTS_PER_SOL, Transaction, SystemProgram } from "@solana
     return Buffer.from(sig).toString("hex");
   }
 
-  export const sendTx = async (provider, connection, address) => {
-      if (!address || !connection) throw Error('user is disconnected');
+  export const sendTx = async (provider, rpc, address) => {
+      if (!address || !rpc) throw Error('user is disconnected');
+      if (!provider) throw Error('wallet provider is not available');
 
-      const wallet = new PublicKey(address);
-      if (!wallet) throw Error('wallet provider is not available');
+      // the wallet signs the tx, so we only need a placeholder signer for its address
+      const wallet = createNoopSigner(toAddress(address));
 
-      const latestBlockhash = await connection.getLatestBlockhash();
+      const { value: latestBlockhash } = await rpc.getLatestBlockhash().send();
 
-      const transaction= new Transaction({
-        feePayer: wallet,
-        recentBlockhash: latestBlockhash?.blockhash,
-      }).add(
-        SystemProgram.transfer({
-          fromPubkey: wallet,
-          toPubkey: new PublicKey(address), // destination address
-          lamports: 1000,
-        })
+      const transactionMessage = pipe(
+        createTransactionMessage({ version: 0 }),
+        (tx) => setTransactionMessageFeePayerSigner(wallet, tx),
+        (tx) => setTransactionMessageLifetimeUsingBlockhash(latestBlockhash, tx),
+        (tx) => appendTransactionMessageInstruction(
+          getTransferSolInstruction({
+            source: wallet,
+            destination: wallet.address, // destination address
+            amount: lamports(1000n),
+          }),
+          tx
+        )
       );
 
-      return await provider.sendTransaction(transaction, connection)
+      const signedTransaction = await provider.signTransaction(compileTransaction(transactionMessage));
+
+      return await rpc
+        .sendTransaction(getBase64EncodedWireTransaction(signedTransaction), { encoding: 'base64' })
+        .send();
   }
 
-  export const getBalance = async (provider, connection, address) => {
-    if (!address || !connection) throw Error('user is disconnected');
+  export const getBalance = async (provider, rpc, address) => {
+    if (!address || !rpc) throw Error('user is disconnected');
       /* https://rpc.walletconnect.org/v1/?chainId=solana%3A5ey // online
       https://rpc.walletconnect.org/v1/?chainId=solana%3AEtWTRAB // dev */
-      const wallet = new PublicKey(address);
-      const balance = await connection?.getBalance(wallet);
-      if (balance !== undefined) {
-        return `${balance / LAMPORTS_PER_SOL}`;
-      } else {
-        return '-';
-      }
+      const { value: balance } = await rpc.getBalance(toAddress(address)).send();
+      return `${Number(balance) / LAMPORTS_PER_SOL}`;
   }
