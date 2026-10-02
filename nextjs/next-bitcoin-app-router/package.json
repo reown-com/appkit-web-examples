@@ -6,22 +6,22 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint"
   },
   "dependencies": {
 
-    "@reown/appkit": "1.8.21",
-    "@reown/appkit-adapter-bitcoin": "1.8.21",
-    "next": "15.5.18",
-    "react": "19.2.1",
-    "react-dom": "19.2.1"
+    "@reown/appkit": "1.8.24",
+    "@reown/appkit-adapter-bitcoin": "1.8.24",
+    "next": "16.3.5",
+    "react": "19.3.0",
+    "react-dom": "19.3.0"
   },
   "devDependencies": {
     "@types/node": "^22",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9.0.0",
-    "eslint-config-next": "15.3.9",
+    "eslint-config-next": "16.3.5",
     "typescript": "^5"
   }
 }

@@ -1,12 +1,13 @@
 'use client'
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
+
+const subscribe = () => () => {};
 
 export function useClientMounted() {
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []); // Runs only on mount
-
-  return mounted;
+  // false during SSR and hydration, true once running on the client
+  return useSyncExternalStore(
+    subscribe,
+    () => true,
+    () => false
+  );
 }
