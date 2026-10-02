@@ -10,8 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@reown/appkit-universal-connector": "2.0.0-wagmi-v3-lazy-coinbase.0",
-    "@reown/appkit-common": "2.0.0-wagmi-v3-lazy-coinbase.0",
+    "@reown/appkit-universal-connector": "2.0.0-wagmi-3.0",
+    "@reown/appkit-common": "2.0.0-wagmi-3.0",
     "react": "19.2.1",
     "react-dom": "19.2.1",
     "ethers": "6.15.0"
