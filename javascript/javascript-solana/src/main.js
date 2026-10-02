@@ -1,9 +1,11 @@
 import { appKit } from './config/appKit'
 import { store } from './store/appkitStore'
 import { updateTheme, updateButtonVisibility } from './utils/dom'
-import { signMessage, sendTx, getBalance } from './services/wallet'
+import { signMessage, sendTx, getBalance, watchTxStatus, getSolscanTxUrl } from './services/wallet'
 import { initializeSubscribers } from './utils/suscribers'
 import { solana, solanaDevnet } from '@reown/appkit/networks'
+
+let stopTxStatus
 
 // Initialize subscribers
 initializeSubscribers(appKit)
@@ -40,17 +42,24 @@ document.getElementById('sign-message')?.addEventListener(
 
 document.getElementById('send-tx')?.addEventListener(
   'click', async () => {
-    const tx = await sendTx(store.solanaProvider, store.solanaConnection, store.accountState.address)
+    const tx = await sendTx(store.solanaProvider, store.solanaRpc, store.accountState.address)
     console.log('Tx:', tx)
 
-    document.getElementById('txState').innerHTML = JSON.stringify(tx, null, 2)
+    document.getElementById('txState').innerHTML = tx
+    const txLink = document.getElementById('txLink')
+    txLink.href = getSolscanTxUrl(tx, store.networkState?.chainId)
     document.getElementById('txSection').style.display = ''
+
+    stopTxStatus?.()
+    stopTxStatus = watchTxStatus(store.solanaRpc, tx, status => {
+      document.getElementById('txStatus').innerHTML = status
+    })
   }
 )
 
 document.getElementById('get-balance')?.addEventListener(
   'click', async () => {
-    const balance = await getBalance(store.solanaProvider, store.solanaConnection, store.accountState.address)
+    const balance = await getBalance(store.solanaProvider, store.solanaRpc, store.accountState.address)
     
     document.getElementById('balanceState').innerHTML = balance + ' SOL'
     document.getElementById('balanceSection').style.display = ''

@@ -1,19 +1,17 @@
 import { store, updateStore } from '../store/appkitStore'
 import { updateStateDisplay, updateTheme, updateButtonVisibility } from '../utils/dom'
 import { polygon, mainnet, solana } from '@reown/appkit/networks'
-import { Connection } from "@solana/web3.js";
+import { createSolanaRpc } from "@solana/kit";
 
 export const initializeSubscribers = (modal) => {
   modal.subscribeProviders(state => {
-    if (state['eip155']) {
-      updateStore('eip155Provider', state['eip155'])
-    } else {
-      updateStore('solanaProvider', state['solana'])
+    updateStore('eip155Provider', state['eip155'])
+    updateStore('solanaProvider', state['solana'])
 
-      const url = state['solana'].getActiveChain().rpcUrls.default.http[0];
-      const connection = new Connection(url);
-      
-      updateStore('solanaConnection', connection)
+    const url = modal.getCaipNetwork('solana')?.rpcUrls.default.http[0];
+    if (url) {
+      const rpc = createSolanaRpc(url);
+      updateStore('solanaRpc', rpc)
     }
   })
 
@@ -25,12 +23,10 @@ export const initializeSubscribers = (modal) => {
   modal.subscribeNetwork(state => {
     updateStore('networkState', state)
 
-    if (store['solanaProvider']) {
-      const arrayChain = store['solanaProvider'].requestedChains
-      const selectedChain = arrayChain.find(chain => chain.id === state.chainId);
-      const url = selectedChain.rpcUrls.default.http[0];
-      const connection = new Connection(url);
-      updateStore('solanaConnection', connection)
+    if (state.caipNetwork?.chainNamespace === 'solana') {
+      const url = state.caipNetwork.rpcUrls.default.http[0];
+      const rpc = createSolanaRpc(url);
+      updateStore('solanaRpc', rpc)
     }
     
   })
