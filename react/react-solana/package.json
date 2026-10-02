@@ -10,10 +10,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@reown/appkit": "1.8.21",
-    "@reown/appkit-adapter-solana": "1.8.21",
-    "@solana/web3.js": "^1.95.8",
-    "bs58": "^6.0.0",
+    "@reown/appkit": "1.9.0-solana-kit.0",
+    "@reown/appkit-adapter-solana": "1.9.0-solana-kit.0",
+    "@solana-program/system": "0.15.0",
+    "@solana/kit": "8.3.0",
     "react": "19.2.1",
     "react-dom": "19.2.1"
   },
