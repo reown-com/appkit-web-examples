@@ -13,6 +13,6 @@ This is a [Vite](https://vitejs.dev) project together with React.
 
 ## Resources
 
-- [WalletConnect — Docs](https://docs.walletconnect.network/app-sdk/overview)
+- [WalletConnect — Docs](https://docs.walletconnect.com/apps/overview)
 - [Vite — GitHub](https://github.com/vitejs/vite)
 - [Vite — Docs](https://vitejs.dev/guide/)
