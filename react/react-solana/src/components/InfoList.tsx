@@ -1,11 +1,23 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import {
     useAppKitState,
     useAppKitTheme,
     useAppKitEvents,
     useAppKitAccount,
+    useAppKitNetwork,
     useWalletInfo
      } from '@reown/appkit/react'
+import { solanaDevnet, solanaTestnet } from '@reown/appkit/networks'
+import { signature } from '@solana/kit'
+import { useSolanaRpc } from '../hooks/useSolanaRpc'
+
+// Solscan uses the same URL for every cluster, selected with a query param
+const getSolscanTxUrl = (hash: string, chainId?: string | number) => {
+    const cluster =
+        chainId === solanaDevnet.id ? '?cluster=devnet' :
+        chainId === solanaTestnet.id ? '?cluster=testnet' : '';
+    return `https://solscan.io/tx/${hash}${cluster}`;
+}
 
 interface InfoListProps {
     hash: string | undefined;
@@ -19,6 +31,32 @@ export const InfoList = ({ hash, signedMsg, balance }: InfoListProps) => {
     const {address, caipAddress, isConnected, status, embeddedWalletInfo } = useAppKitAccount();
     const events = useAppKitEvents()
     const walletInfo = useWalletInfo()
+    const { caipNetwork } = useAppKitNetwork()
+    const rpc = useSolanaRpc()
+    const [txStatus, setTxStatus] = useState<string>()
+
+    // poll the tx status until it is finalized or fails
+    useEffect(() => {
+        if (!hash || !rpc) return;
+        setTxStatus('pending');
+
+        let done = false;
+        const interval = setInterval(async () => {
+            const { value: [status] } = await rpc.getSignatureStatuses([signature(hash)]).send();
+            if (done || !status) return;
+
+            setTxStatus(status.err ? 'failed' : status.confirmationStatus ?? 'pending');
+            if (status.err || status.confirmationStatus === 'finalized') {
+                done = true;
+                clearInterval(interval);
+            }
+        }, 2000);
+
+        return () => {
+            done = true;
+            clearInterval(interval);
+        };
+    }, [hash, rpc]);
 
     useEffect(() => {
         console.log("Events: ", events);
@@ -36,7 +74,8 @@ export const InfoList = ({ hash, signedMsg, balance }: InfoListProps) => {
             <h2>Sign Tx</h2>
             <pre>
                 Hash: {hash}<br />
-                Status: {/* receipt?.status.toString() */}<br />
+                Status: {txStatus}<br />
+                <a href={getSolscanTxUrl(hash, caipNetwork?.id)} target="_blank" rel="noopener noreferrer">View on Solscan</a><br />
             </pre>
         </section>
         )}
