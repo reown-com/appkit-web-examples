@@ -42,3 +42,5 @@ pnpm-lock.yaml
 package-lock.json
 .next
 pnpm-workspace.yaml
+# TypeScript build cache
+*.tsbuildinfo

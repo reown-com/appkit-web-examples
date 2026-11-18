@@ -1,6 +1,6 @@
 # Reown AppKit Example using wagmi 2.x (Vite + React)
 
-This example uses Reown AppKit `2.0.0-wagmi-v3-solana-kit.0` with wagmi 2.x. `.npmrc` sets `legacy-peer-deps=true` because the wagmi adapter declares wagmi 3 as a peer dependency.
+This example uses Reown AppKit `2.0.0` with wagmi 2.x. `.npmrc` sets `legacy-peer-deps=true` because the wagmi adapter declares wagmi 3 as a peer dependency.
 
 This is a [Vite](https://vitejs.dev) project together with React.
 
