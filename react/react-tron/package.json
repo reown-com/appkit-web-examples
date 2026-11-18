@@ -14,7 +14,8 @@
     "@reown/appkit-adapter-tron": "2.0.0",
     "@tronweb3/tronwallet-adapter-tronlink": "1.1.13",
     "react": "19.2.1",
-    "react-dom": "19.2.1"
+    "react-dom": "19.2.1",
+    "viem": "2.57.16"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",
