@@ -41,7 +41,7 @@ document.getElementById('send-tx')?.addEventListener(
     if (store.accountState.caipAddress.includes("eip155")) {
       tx = await sendTx(store.eip155Provider, store.accountState.address, wagmiAdapter.wagmiConfig)
     } else {
-      tx = await sendTxSolana(store.solanaProvider, store.solanaConnection, store.accountState.address)
+      tx = await sendTxSolana(store.solanaProvider, store.solanaRpc, store.accountState.address)
     }
     
 
@@ -56,7 +56,7 @@ document.getElementById('get-balance')?.addEventListener(
     if (store.accountState.caipAddress.includes("eip155")) {
       balance = await getBalance(store.eip155Provider, store.accountState.address, wagmiAdapter.wagmiConfig)
     } else{
-      balance = await getBalanceSolana(store.solanaProvider, store.solanaConnection, store.accountState.address)
+      balance = await getBalanceSolana(store.solanaProvider, store.solanaRpc, store.accountState.address)
     }
     
     document.getElementById('balanceState').innerHTML = balance + ' ETH'

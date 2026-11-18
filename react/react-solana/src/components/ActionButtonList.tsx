@@ -1,8 +1,22 @@
 import { useDisconnect, useAppKit, useAppKitNetwork, useAppKitAccount, useAppKitProvider   } from '@reown/appkit/react'
 import { networks } from '../config'
+import { useSolanaRpc } from '../hooks/useSolanaRpc'
 import type { Provider } from '@reown/appkit-adapter-solana/react'
-import { useAppKitConnection } from '@reown/appkit-adapter-solana/react'
-import { PublicKey, LAMPORTS_PER_SOL, Transaction, SystemProgram } from "@solana/web3.js";
+import {
+  address as toAddress,
+  appendTransactionMessageInstruction,
+  compileTransaction,
+  createNoopSigner,
+  createTransactionMessage,
+  getBase64EncodedWireTransaction,
+  lamports,
+  pipe,
+  setTransactionMessageFeePayerSigner,
+  setTransactionMessageLifetimeUsingBlockhash
+} from "@solana/kit";
+import { getTransferSolInstruction } from "@solana-program/system";
+
+const LAMPORTS_PER_SOL = 1_000_000_000;
 
 interface ActionButtonListProps {
   sendHash: (hash: string ) => void;
@@ -15,31 +29,37 @@ export const ActionButtonList = ({ sendHash, sendSignMsg, sendBalance }: ActionB
     const { open } = useAppKit();
     const { switchNetwork } = useAppKitNetwork();
     const { isConnected, address } = useAppKitAccount()
-    const { connection } = useAppKitConnection();
     const { walletProvider } = useAppKitProvider<Provider>('solana')
+    const rpc = useSolanaRpc();
 
 
     // function to send a tx
     const handleSendTx = async () => {
-      if (!address || !connection) throw Error('user is disconnected');
+      if (!address || !rpc || !walletProvider) throw Error('user is disconnected');
 
-      const wallet = new PublicKey(address);
-      if (!wallet) throw Error('wallet provider is not available');
+      // the wallet signs the tx, so we only need a placeholder signer for its address
+      const wallet = createNoopSigner(toAddress(address));
 
-      const latestBlockhash = await connection.getLatestBlockhash();
+      const { value: latestBlockhash } = await rpc.getLatestBlockhash().send();
 
-      const transaction= new Transaction({
-        feePayer: wallet,
-        recentBlockhash: latestBlockhash?.blockhash,
-      }).add(
-        SystemProgram.transfer({
-          fromPubkey: wallet,
-          toPubkey: new PublicKey(address), // destination address
-          lamports: 1000,
-        })
+      const transactionMessage = pipe(
+        createTransactionMessage({ version: 0 }),
+        (tx) => setTransactionMessageFeePayerSigner(wallet, tx),
+        (tx) => setTransactionMessageLifetimeUsingBlockhash(latestBlockhash, tx),
+        (tx) => appendTransactionMessageInstruction(
+          getTransferSolInstruction({
+            source: wallet,
+            destination: wallet.address, // destination address
+            amount: lamports(1000n),
+          }),
+          tx
+        )
       );
 
-      const sig = await walletProvider.sendTransaction(transaction, connection)
+      const signedTransaction = await walletProvider.signTransaction(compileTransaction(transactionMessage));
+      const sig = await rpc
+        .sendTransaction(getBase64EncodedWireTransaction(signedTransaction), { encoding: 'base64' })
+        .send();
 
       sendHash(sig);
     }
@@ -57,15 +77,10 @@ export const ActionButtonList = ({ sendHash, sendSignMsg, sendBalance }: ActionB
 
     // function to get the balance
     const handleGetBalance = async () => {
-      if (!address || !connection) throw Error('user is disconnected');
+      if (!address || !rpc) throw Error('user is disconnected');
       
-      const wallet = new PublicKey(address);
-      const balance = await connection?.getBalance(wallet);
-      if (balance !== undefined) {
-        sendBalance(`${balance / LAMPORTS_PER_SOL} SOL`);
-      } else {
-        sendBalance('- SOL');
-      }
+      const { value: balance } = await rpc.getBalance(toAddress(address)).send();
+      sendBalance(`${Number(balance) / LAMPORTS_PER_SOL} SOL`);
     }
 
     const handleDisconnect = async () => {

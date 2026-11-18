@@ -41,3 +41,4 @@ next-env.d.ts
 pnpm-lock.yaml
 package-lock.json
 .next
+pnpm-workspace.yaml

@@ -44,6 +44,8 @@ Reown AppKit is framework-agnostic and supports React, Vue, Next.js, React Nativ
 
 Each framework has examples for the implementation with wagmi, ethers, solana, bitcoin and multichain (wagmi & solana)
 
+> The root folders contain the AppKit 2.x examples (wagmi 3, `@solana/kit`). The previous AppKit 1.x examples (wagmi 2, `@solana/web3.js`) are kept in [`1.x/`](./1.x).
+
 | Framework | Integration   | Live Demo                                                                                     | Fork on Stackblitz                                                                                              |
 |-----------|---------------|-----------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------|
 | **Javascript** | ethers        | [Demo](https://appkit-web-examples-javascript-ethers.reown.com/)                                   | [Fork](https://stackblitz.com/github/reown-com/appkit-web-examples/tree/main/javascript/javascript-ethers/)                |
@@ -73,6 +75,7 @@ Each framework has examples for the implementation with wagmi, ethers, solana, b
 
 ```plaintext
 .
+├── 1.x/                                        # AppKit 1.x examples (wagmi 2, @solana/web3.js)
 ├── javascript/                                 # Web AppKit with Javascript
 ├──────── javascript-bitcoin
 ├──────── javascript-ethers
