@@ -6,7 +6,7 @@ export const store = {
     events: [],
     walletInfo: {},
     solanaProvider: null,
-    solanaConnection: null
+    solanaRpc: null
   }
   
   export const updateStore = (key, value) => {
